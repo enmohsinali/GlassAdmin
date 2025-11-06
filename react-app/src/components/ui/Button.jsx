@@ -2,11 +2,11 @@ import { cn } from '../../utils/cn';
 import { useTheme } from '../../context/ThemeContext';
 
 /**
- * Button component with glassmorphic styling
+ * Button component with glassmorphic styling following Apple design principles
  *
  * @param {Object} props
- * @param {('primary'|'secondary'|'outline'|'ghost'|'glass')} props.variant - Button variant
- * @param {('xs'|'sm'|'md'|'lg'|'xl')} props.size - Button size
+ * @param {('primary'|'secondary'|'outline'|'ghost')} props.variant - Button variant
+ * @param {('sm'|'md'|'lg')} props.size - Button size
  * @param {boolean} props.disabled - Disabled state
  * @param {boolean} props.loading - Loading state
  * @param {React.ReactNode} props.leftIcon - Icon to display on the left
@@ -27,32 +27,26 @@ const Button = ({
 }) => {
   const { isDark } = useTheme();
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  // Base styles following Apple iOS 26 Liquid Glass UI design
+  const baseStyles = 'inline-flex items-center justify-center font-normal transition-all ease-[0.3s] focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap';
 
+  // Variants following the exact pattern from existing components
   const variants = {
-    primary: isDark
-      ? 'bg-primary-blue text-white hover:bg-opacity-90 shadow-lg hover:shadow-neon-blue focus:ring-primary-blue'
-      : 'bg-primary-blue text-white hover:bg-opacity-90 shadow-lg hover:shadow-xl focus:ring-primary-blue',
-    secondary: isDark
-      ? 'bg-primary-purple text-white hover:bg-opacity-90 shadow-lg hover:shadow-neon-purple focus:ring-primary-purple'
-      : 'bg-primary-purple text-white hover:bg-opacity-90 shadow-lg hover:shadow-xl focus:ring-primary-purple',
+    primary: 'bg-[#3a6df0] border-none text-white hover:bg-[#1e59f1] rounded-[20px]',
+    secondary: 'bg-primary-green border-none text-white hover:opacity-90 rounded-[20px]',
     outline: isDark
-      ? 'bg-transparent border-2 border-border-dark text-text-dark-primary hover:bg-glass-dark-hover backdrop-blur-glass focus:ring-primary-blue'
-      : 'bg-transparent border-2 border-border-light text-text-light-primary hover:bg-glass-light-hover backdrop-blur-glass focus:ring-primary-blue',
+      ? 'bg-transparent text-[rgba(249,250,251,0.55)] border border-[rgba(249,250,251,0.55)] hover:text-[#f9fafb] hover:border-[#f9fafb] rounded-[20px]'
+      : 'bg-transparent text-[rgba(74,74,74,0.75)] border border-[rgba(74,74,74,0.5)] hover:text-[#1a1a1a] hover:border-[#1a1a1a] rounded-[20px]',
     ghost: isDark
-      ? 'bg-transparent text-text-dark-primary hover:bg-glass-dark-hover focus:ring-primary-blue'
-      : 'bg-transparent text-text-light-primary hover:bg-glass-light-hover focus:ring-primary-blue',
-    glass: isDark
-      ? 'bg-glass-dark backdrop-blur-glass-md border border-border-glass-dark text-text-dark-primary hover:bg-glass-dark-hover shadow-glass-dark focus:ring-primary-blue'
-      : 'bg-glass-light backdrop-blur-glass-md border border-border-glass-light text-text-light-primary hover:bg-glass-light-hover shadow-glass-light focus:ring-primary-blue',
+      ? 'bg-transparent text-[#f9fafb] hover:bg-[rgba(146,151,179,0.13)] rounded-[20px]'
+      : 'bg-transparent text-[#1a1a1a] hover:bg-[rgba(255,255,255,0.7)] rounded-[20px]',
   };
 
+  // Sizes following Apple design principles
   const sizes = {
-    xs: 'px-3 py-1.5 text-xs',
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-2.5 text-base',
-    lg: 'px-8 py-3 text-lg',
-    xl: 'px-10 py-4 text-xl',
+    sm: 'px-4 py-1 text-[14px]',
+    md: 'px-6 py-1.5 text-[15px]',
+    lg: 'px-[26px] py-2 text-[15px]',
   };
 
   return (
@@ -67,7 +61,7 @@ const Button = ({
       {...props}
     >
       {loading ? (
-        <svg className="animate-spin -ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>

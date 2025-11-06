@@ -2,7 +2,7 @@ import { cn } from '../../utils/cn';
 import { useTheme } from '../../context/ThemeContext';
 
 /**
- * Card component with glassmorphic styling
+ * Card component with glassmorphic styling following Apple design principles
  *
  * @param {Object} props
  * @param {React.ReactNode} props.children - Card content
@@ -10,7 +10,6 @@ import { useTheme } from '../../context/ThemeContext';
  * @param {React.ReactNode} props.header - Custom header content
  * @param {React.ReactNode} props.footer - Footer content
  * @param {boolean} props.hover - Enable hover effect
- * @param {boolean} props.gradient - Use gradient background
  * @param {string} props.className - Additional classes
  * @param {string} props.bodyClassName - Additional classes for body
  */
@@ -20,45 +19,43 @@ const Card = ({
   header,
   footer,
   hover = false,
-  gradient = false,
   className,
   bodyClassName,
   ...props
 }) => {
   const { isDark } = useTheme();
 
-  const cardStyles = isDark
-    ? cn(
-        'bg-glass-dark backdrop-blur-glass-md border border-border-glass-dark rounded-glass shadow-glass-dark',
-        hover && 'hover:bg-glass-dark-hover hover:shadow-glass-lg transition-all duration-300 cursor-pointer',
-        gradient && 'bg-glass-gradient-dark',
-        className
-      )
-    : cn(
-        'bg-glass-light backdrop-blur-glass-md border border-border-glass-light rounded-glass shadow-glass-light',
-        hover && 'hover:bg-glass-light-hover hover:shadow-glass-lg transition-all duration-300 cursor-pointer',
-        gradient && 'bg-glass-gradient-light',
-        className
-      );
+  // Following the exact design pattern from InstalledApps.jsx
+  const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
+  const hoverBg = hover ? (isDark ? 'hover:bg-theme-dark-bg' : 'hover:bg-theme-light-bg') : '';
+  const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
+  const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
+  const titleColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
 
-  const titleStyles = isDark ? 'text-text-dark-primary' : 'text-text-light-primary';
+  const cardStyles = cn(
+    'w-full rounded-[14px] border',
+    bgColor,
+    themeBg,
+    hover && `cursor-pointer transition-all ease-[0.3s] ${hoverBg}`,
+    className
+  );
 
   return (
     <div className={cardStyles} {...props}>
       {(header || title) && (
-        <div className={cn('px-6 py-4 border-b', isDark ? 'border-border-dark' : 'border-border-light')}>
+        <div className={cn('px-5 py-4 border-b', borderColor)}>
           {header || (
-            <h3 className={cn('text-lg font-semibold', titleStyles)}>
+            <h3 className={cn('text-[17px] font-medium m-0', titleColor)}>
               {title}
             </h3>
           )}
         </div>
       )}
-      <div className={cn('px-6 py-4', bodyClassName)}>
+      <div className={cn('p-5', bodyClassName)}>
         {children}
       </div>
       {footer && (
-        <div className={cn('px-6 py-4 border-t', isDark ? 'border-border-dark' : 'border-border-light')}>
+        <div className={cn('px-5 py-4 border-t', borderColor)}>
           {footer}
         </div>
       )}
