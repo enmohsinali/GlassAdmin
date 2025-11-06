@@ -32,6 +32,9 @@ import OrderDetails from './pages/orders/OrderDetails';
 import Invoices from './pages/invoices/Invoices';
 import InvoiceDetails from './pages/invoices/InvoiceDetails';
 
+// Demo Pages
+import ComponentsDemo from './pages/ComponentsDemo';
+
 function App() {
   return (
     <ThemeProvider>
@@ -77,6 +80,9 @@ function App() {
 
           {/* Settings */}
           <Route path="/dashboard/settings" element={<Settings />} />
+
+          {/* Demo Pages */}
+          <Route path="/dashboard/components-demo" element={<ComponentsDemo />} />
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
