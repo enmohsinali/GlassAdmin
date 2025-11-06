@@ -69,7 +69,7 @@ const Button = ({
         <span className="mr-2">{leftIcon}</span>
       ) : null}
       {children}
-      {rightIcon && <span className="ml-2">{rightIcon}</span>}
+      {!loading && rightIcon && <span className="ml-2">{rightIcon}</span>}
     </button>
   );
 };
