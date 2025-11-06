@@ -3,11 +3,10 @@ import { ThemeProvider } from './context/ThemeContext';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import DashboardLayout from './layouts/DashboardLayout';
-import AnalyticsDashboard from './pages/dashboards/AnalyticsDashboard';
-import EcommerceDashboard from './pages/dashboards/EcommerceDashboard';
-import UserList from './pages/users/UserList';
-import ProductList from './pages/products/ProductList';
+import AnalyticsDashboardPage from './pages/dashboards/AnalyticsDashboardPage';
+import EcommerceDashboardPage from './pages/dashboards/EcommerceDashboardPage';
+import UserListPage from './pages/users/UserListPage';
+import ProductListPage from './pages/products/ProductListPage';
 
 function App() {
   return (
@@ -27,10 +26,10 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
 
           {/* Dashboard Routes */}
-          <Route path="/dashboard/analytics" element={<DashboardLayout><AnalyticsDashboard /></DashboardLayout>} />
-          <Route path="/dashboard/ecommerce" element={<DashboardLayout><EcommerceDashboard /></DashboardLayout>} />
-          <Route path="/dashboard/users" element={<DashboardLayout><UserList /></DashboardLayout>} />
-          <Route path="/dashboard/products" element={<DashboardLayout><ProductList /></DashboardLayout>} />
+          <Route path="/dashboard/analytics" element={<AnalyticsDashboardPage />} />
+          <Route path="/dashboard/ecommerce" element={<EcommerceDashboardPage />} />
+          <Route path="/dashboard/users" element={<UserListPage />} />
+          <Route path="/dashboard/products" element={<ProductListPage />} />
         </Routes>
       </Router>
     </ThemeProvider>

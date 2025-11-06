@@ -1,13 +1,18 @@
 import { useTheme } from '../context/ThemeContext';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = ({ isMobileOpen, onClose }) => {
   const { isDark } = useTheme();
+  const location = useLocation();
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
   const inactiveColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[#4a4a4a]';
   const hoverBg = isDark ? 'hover:bg-[rgba(113,119,144,0.08)]' : 'hover:bg-[rgba(113,119,144,0.06)]';
   const bgColor = isDark ? 'bg-theme-dark-bg' : 'bg-theme-light-bg';
+  const activeBg = isDark ? 'bg-[rgba(58,109,240,0.15)]' : 'bg-[rgba(58,109,240,0.1)]';
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <aside className={`left-side flex-none w-[240px] border-r ${borderColor} p-[26px] overflow-auto max-[945px]:fixed max-[945px]:top-0 max-[945px]:left-0 max-[945px]:h-full max-[945px]:z-50 max-[945px]:${bgColor} max-[945px]:backdrop-blur-[20px] max-[945px]:transition-transform max-[945px]:duration-300 ${isMobileOpen ? 'max-[945px]:translate-x-0' : 'max-[945px]:-translate-x-full'} md:translate-x-0`}>
@@ -22,11 +27,68 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
         </svg>
       </button>
 
-      {/* Apps Section */}
+      {/* Dashboards Section */}
       <div className="side-wrapper">
+        <div className={`side-title ${inactiveColor} mb-3.5`}>Dashboards</div>
+        <div className="side-menu flex flex-col whitespace-nowrap">
+          <Link
+            to="/dashboard/analytics"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/analytics') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 3v18h18"></path>
+              <path d="M18 17V9"></path>
+              <path d="M13 17V5"></path>
+              <path d="M8 17v-3"></path>
+            </svg>
+            Analytics
+          </Link>
+          <Link
+            to="/dashboard/ecommerce"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/ecommerce') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            E-commerce
+          </Link>
+          <Link
+            to="/dashboard/users"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/users') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Users
+          </Link>
+          <Link
+            to="/dashboard/products"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/products') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            Products
+          </Link>
+        </div>
+      </div>
+
+      {/* Apps Section */}
+      <div className="side-wrapper mt-5">
         <div className={`side-title ${inactiveColor} mb-3.5`}>Apps</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
-          <a href="#" className={`flex items-center no-underline ${textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
+          <Link to="/" onClick={onClose} className={`flex items-center no-underline ${isActive('/') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
             <svg className="w-4 mr-2" viewBox="0 0 512 512" fill="currentColor">
               <g xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 0h128v128H0zm0 0M192 0h128v128H192zm0 0M384 0h128v128H384zm0 0M0 192h128v128H0zm0 0" />
@@ -35,7 +97,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
               <path xmlns="http://www.w3.org/2000/svg" d="M384 192h128v128H384zm0 0M0 384h128v128H0zm0 0M192 384h128v128H192zm0 0M384 384h128v128H384zm0 0" fill="currentColor" />
             </svg>
             All Apps
-          </a>
+          </Link>
           <a href="#" className={`flex items-center no-underline ${textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
             <svg className="w-4 mr-2" viewBox="0 0 488.932 488.932" fill="currentColor">
               <path d="M243.158 61.361v-57.6c0-3.2 4-4.9 6.7-2.9l118.4 87c2 1.5 2 4.4 0 5.9l-118.4 87c-2.7 2-6.7.2-6.7-2.9v-57.5c-87.8 1.4-158.1 76-152.1 165.4 5.1 76.8 67.7 139.1 144.5 144 81.4 5.2 150.6-53 163-129.9 2.3-14.3 14.7-24.7 29.2-24.7 17.9 0 31.8 15.9 29-33.5-17.4 109.7-118.5 192-235.7 178.9-98-11-176.7-89.4-187.8-187.4-14.7-128.2 84.9-237.4 209.9-238.8z" />
