@@ -3,6 +3,10 @@ import { ThemeProvider } from './context/ThemeContext';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import DashboardLayout from './layouts/DashboardLayout';
+import AnalyticsDashboard from './pages/dashboards/AnalyticsDashboard';
+import EcommerceDashboard from './pages/dashboards/EcommerceDashboard';
+import UserList from './pages/users/UserList';
 
 function App() {
   return (
@@ -20,6 +24,11 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+
+          {/* Dashboard Routes */}
+          <Route path="/dashboard/analytics" element={<DashboardLayout><AnalyticsDashboard /></DashboardLayout>} />
+          <Route path="/dashboard/ecommerce" element={<DashboardLayout><EcommerceDashboard /></DashboardLayout>} />
+          <Route path="/dashboard/users" element={<DashboardLayout><UserList /></DashboardLayout>} />
         </Routes>
       </Router>
     </ThemeProvider>
