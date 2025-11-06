@@ -34,6 +34,7 @@ import InvoiceDetails from './pages/invoices/InvoiceDetails';
 
 // Demo Pages
 import ComponentsDemo from './pages/ComponentsDemo';
+import Components from './pages/Components';
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function App() {
           <Route path="/dashboard/settings" element={<Settings />} />
 
           {/* Demo Pages */}
+          <Route path="/dashboard/components" element={<Components />} />
           <Route path="/dashboard/components-demo" element={<ComponentsDemo />} />
 
           {/* 404 */}

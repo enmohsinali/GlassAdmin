@@ -132,6 +132,19 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
         <div className={`side-title ${inactiveColor} mb-3.5`}>Demo</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <Link
+            to="/dashboard/components"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/components') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            All Components
+          </Link>
+          <Link
             to="/dashboard/components-demo"
             onClick={onClose}
             className={`flex items-center no-underline ${isActive('/dashboard/components-demo') ? `${textColor} ${activeBg}` : textColor} font-normal p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
@@ -141,7 +154,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
               <path d="M3 9h18"></path>
               <path d="M9 21V9"></path>
             </svg>
-            Phase 4 Components
+            Phase 4 Animations
           </Link>
         </div>
       </div>
