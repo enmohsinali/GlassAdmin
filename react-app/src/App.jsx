@@ -7,6 +7,7 @@ import DashboardLayout from './layouts/DashboardLayout';
 import AnalyticsDashboard from './pages/dashboards/AnalyticsDashboard';
 import EcommerceDashboard from './pages/dashboards/EcommerceDashboard';
 import UserList from './pages/users/UserList';
+import ProductList from './pages/products/ProductList';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/dashboard/analytics" element={<DashboardLayout><AnalyticsDashboard /></DashboardLayout>} />
           <Route path="/dashboard/ecommerce" element={<DashboardLayout><EcommerceDashboard /></DashboardLayout>} />
           <Route path="/dashboard/users" element={<DashboardLayout><UserList /></DashboardLayout>} />
+          <Route path="/dashboard/products" element={<DashboardLayout><ProductList /></DashboardLayout>} />
         </Routes>
       </Router>
     </ThemeProvider>

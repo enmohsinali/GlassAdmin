@@ -1,229 +1,322 @@
-# GlassAdmin
-# 📘 Product Requirements Document (PRD)
-## Project: GlassAdmin — Glasmorphic Admin Template (Tailwind + react)
-**Version:** 1.0  
-**Author:** [Your Company / Team Name]  
-**Last Updated:** November 2025  
+# 🌟 GlassAdmin - Liquid Glass Admin Template
+
+A next-generation admin dashboard template featuring **Apple iOS 26 Liquid Glass UI** aesthetics, built with React, Vite, and Tailwind CSS. GlassAdmin delivers a premium, modern interface with glassmorphic effects, smooth animations, and a fully responsive design.
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![React](https://img.shields.io/badge/React-19.1.1-blue.svg)
+![Tailwind](https://img.shields.io/badge/Tailwind-3.4.18-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+## ✨ Features
+
+### 🎨 Design & UI
+- **Liquid Glass UI** inspired by Apple iOS 26
+- **Glassmorphic effects** with backdrop blur and transparency
+- **Light & Dark modes** with smooth transitions
+- **Responsive design** - mobile-first approach
+- **Premium animations** and micro-interactions
+- **Modern color palette** with luminous gradients
+
+### 📊 Dashboards
+- **Analytics Dashboard** - KPI cards, revenue charts, traffic sources, visitor stats
+- **E-commerce Dashboard** - sales overview, product performance, recent orders
+- **Real-time data visualization** with ApexCharts
+- **Interactive charts** - line, area, bar, donut charts
+
+### 📄 Pre-Built Pages
+- ✅ Analytics Dashboard
+- ✅ E-commerce Dashboard
+- ✅ User Management (List view with filters)
+- ✅ Product Management (Grid & List views)
+- ✅ Login & Register pages
+- ✅ Main landing page
+
+### 🧩 UI Components Library
+- **Layout**: Card, Sidebar, Navbar, DashboardLayout
+- **Forms**: Input, Textarea, Select, Checkbox, Switch
+- **Data Display**: Badge, Avatar, Stats cards, Tables
+- **Actions**: Button (multiple variants and sizes)
+- **Utilities**: Theme switcher, Search, Filters
+
+### 🛠️ Tech Stack
+- **React 19.1.1** - Latest React with hooks
+- **Vite 7.1.7** - Lightning-fast build tool
+- **Tailwind CSS 3.4.18** - Utility-first CSS framework
+- **React Router 7.9.5** - Client-side routing
+- **ApexCharts** - Modern charting library
+- **Lucide React** - Beautiful icon library
+- **Framer Motion** - Smooth animations (ready to use)
+
+### 📦 Additional Features
+- **Theme Context** - Global theme management
+- **Glassmorphic components** - All components styled with glass effects
+- **Utility functions** - Class name merging with clsx
+- **Component variants** - Multiple styles for each component
+- **TypeScript ready** - Easy to migrate
+- **Performance optimized** - Lazy loading and code splitting ready
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ and npm/yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/enmohsinali/GlassAdmin.git
+cd GlassAdmin
+
+# Navigate to react-app folder
+cd react-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The application will open at `http://localhost:5173`
+
+### Build for Production
+
+```bash
+# Create production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+react-app/
+├── src/
+│   ├── components/
+│   │   ├── ui/               # Reusable UI components
+│   │   │   ├── Button.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Badge.jsx
+│   │   │   ├── Avatar.jsx
+│   │   │   ├── Select.jsx
+│   │   │   ├── Textarea.jsx
+│   │   │   ├── Checkbox.jsx
+│   │   │   ├── Switch.jsx
+│   │   │   └── index.js
+│   │   ├── Header.jsx
+│   │   ├── Sidebar.jsx
+│   │   └── Modal.jsx
+│   ├── layouts/
+│   │   └── DashboardLayout.jsx  # Main dashboard layout
+│   ├── pages/
+│   │   ├── dashboards/
+│   │   │   ├── AnalyticsDashboard.jsx
+│   │   │   └── EcommerceDashboard.jsx
+│   │   ├── users/
+│   │   │   └── UserList.jsx
+│   │   ├── products/
+│   │   │   └── ProductList.jsx
+│   │   ├── MainPage.jsx
+│   │   ├── LoginPage.jsx
+│   │   └── RegisterPage.jsx
+│   ├── context/
+│   │   └── ThemeContext.jsx    # Theme management
+│   ├── utils/
+│   │   └── cn.js               # Utility functions
+│   ├── App.jsx
+│   └── main.jsx
+├── public/
+├── tailwind.config.js
+├── vite.config.js
+└── package.json
+```
+
+## 🎨 Using Components
+
+### Button Component
+
+```jsx
+import { Button } from './components/ui';
+
+// Primary button
+<Button variant="primary" size="md">
+  Click Me
+</Button>
+
+// Glass button with icon
+<Button
+  variant="glass"
+  leftIcon={<Plus />}
+>
+  Add New
+</Button>
+```
+
+### Card Component
+
+```jsx
+import { Card } from './components/ui';
+
+<Card
+  title="Analytics"
+  hover={true}
+>
+  <p>Your content here</p>
+</Card>
+```
+
+### Input Component
+
+```jsx
+import { Input } from './components/ui';
+import { Search } from 'lucide-react';
+
+<Input
+  placeholder="Search..."
+  leftIcon={<Search className="w-5 h-5" />}
+/>
+```
+
+### Stats Card
+
+```jsx
+import { Stats } from './components/ui';
+import { DollarSign } from 'lucide-react';
+
+<Stats
+  title="Total Revenue"
+  value="$180k"
+  change="+12.5%"
+  changeType="increase"
+  icon={DollarSign}
+  iconColor="primary-blue"
+  description="vs last month"
+/>
+```
+
+## 🎯 Available Routes
+
+- `/` - Main landing page
+- `/login` - Login page
+- `/register` - Register page
+- `/dashboard/analytics` - Analytics dashboard
+- `/dashboard/ecommerce` - E-commerce dashboard
+- `/dashboard/users` - User management
+- `/dashboard/products` - Product management
+
+## 🎨 Theme Customization
+
+The theme is configured in `tailwind.config.js`. You can customize colors, blur effects, and more:
+
+```js
+theme: {
+  extend: {
+    colors: {
+      'primary-blue': '#3a6df0',
+      'primary-green': '#3bf083',
+      'primary-red': '#ff705c',
+      // Add your custom colors
+    },
+    backdropBlur: {
+      'glass': '20px',
+      // Customize blur levels
+    },
+  },
+}
+```
+
+## 🌙 Dark Mode
+
+The template includes built-in dark mode support. Toggle theme using the theme switcher button or programmatically:
+
+```jsx
+import { useTheme } from './context/ThemeContext';
+
+function MyComponent() {
+  const { isDark, toggleTheme } = useTheme();
+
+  return (
+    <button onClick={toggleTheme}>
+      {isDark ? 'Light Mode' : 'Dark Mode'}
+    </button>
+  );
+}
+```
+
+## 📊 Charts Integration
+
+GlassAdmin uses ApexCharts for data visualization:
+
+```jsx
+import Chart from 'react-apexcharts';
+
+const chartOptions = {
+  chart: { type: 'area', background: 'transparent' },
+  theme: { mode: isDark ? 'dark' : 'light' },
+  colors: ['#3a6df0'],
+  // ... more options
+};
+
+const chartSeries = [{
+  name: 'Revenue',
+  data: [30, 40, 35, 50, 49, 60, 70, 91]
+}];
+
+<Chart
+  options={chartOptions}
+  series={chartSeries}
+  type="area"
+  height={300}
+/>
+```
+
+## 🚧 Roadmap
+
+### Phase 1 (Current) ✅
+- [x] Core UI components
+- [x] Dashboard layouts
+- [x] Analytics & E-commerce dashboards
+- [x] User & Product management
+- [x] Theme system
+
+### Phase 2 (Next)
+- [ ] More dashboard pages (CRM, Calendar, Messages)
+- [ ] Advanced tables with sorting/filtering
+- [ ] Form validation examples
+- [ ] File upload component
+- [ ] Invoice pages
+- [ ] Settings pages
+- [ ] Error pages (404, 500)
+
+### Phase 3 (Future)
+- [ ] Calendar integration (FullCalendar)
+- [ ] Chat/Messaging UI
+- [ ] Kanban board
+- [ ] Email templates
+- [ ] Component documentation site
+- [ ] Storybook integration
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Credits
+
+- Design inspired by Apple iOS 26 Liquid Glass UI
+- Icons by [Lucide](https://lucide.dev/)
+- Charts by [ApexCharts](https://apexcharts.com/)
+
+## 📧 Support
+
+For issues and questions, please open an issue on GitHub.
 
 ---
 
-## 1. Overview
-
-**Goal:**  
-Build a next-generation admin dashboard template featuring a *Liquid Glass UI*, fusing glasmorphism, minimalism, and fluid motion inspired by iOS 26. The product must deliver a premium aesthetic while remaining developer-friendly, performant, and fully responsive.
-
-**Primary Use Cases:**  
-- SaaS & analytics dashboards  
-- E-commerce management panels  
-- CRM / ERP / project dashboards  
-- Admin back-office tools  
-
-**Tech Stack:**  
-- **Tailwind CSS (latest)** — utility-first styling with JIT mode  
-- **React (latest)** — core interactivity layer  
-- **Vite** — build tooling and hot reload  
-- **HTML5 + ES6 Modules**
-
-**Design Inspiration:**  
-- Apple iOS 26 Liquid Glass UI — depth, translucency, luminous gradients, soft shadows, and subtle reflections.  
-- Light and dark modes with seamless transitions.  
-
----
-
-## 2. Core Features
-
-| Category | Feature |
-|-----------|----------|
-| Layout | Responsive grid system, 3 primary layouts (vertical sidebar / horizontal nav / minimal compact) |
-| Theme | Light / Dark / Glassmorphic modes with Tailwind themes and SASS variables |
-| Customization | Color palettes, gradients, and transparency control via Tailwind config |
-| Performance | Lazy loading of heavy components, tree-shaken JS bundles |
-| Accessibility | WCAG 2.1 AA compliance, keyboard navigation, ARIA labels |
-| Internationalization | RTL support, multi-language ready |
-| Documentation | Live code examples, setup and customization guide |
-| Updates | Free lifetime updates with semantic versioning |
-
----
-
-## 3. Pre-Built Pages
-
-### 🧭 Core
-1. Dashboard (Analytics, E-commerce, CRM)
-2. Login / Register / Forgot Password / Lock Screen
-3. User Profile & Settings
-4. User Management (List / Edit / View)
-5. Roles & Permissions
-
-### 📦 Management
-6. Products (List / Details / Add)
-7. Orders & Customers
-8. Inventory & Stock Tracking
-9. Invoices (List / Details / Print)
-10. Pricing Plans / Subscriptions
-
-### 📈 Operations & Analytics
-11. Reports Dashboard (ApexCharts)
-12. Real-Time Stats Widgets
-13. KPIs & Metrics Board
-14. DataTables with Filters and Export
-
-### 💬 Communication
-15. Inbox / Messaging UI  
-16. Chat (1-on-1 & Group)  
-17. Notifications Center  
-
-### 📅 Productivity
-18. Calendar / Events (FullCalendar latest)  
-19. Task Manager / Kanban Board  
-20. File Manager (Drag & Drop Upload)  
-
-### 📚 Support & System
-21. FAQ / Help Center  
-22. Activity Log / Timeline  
-23. Error Pages (404 / 500 / Maintenance)  
-24. Blank Starter Page  
-
----
-
-## 4. UI Components Library
-
-### 🧩 Layout & Navigation
-- Sidebars (collapsible / transparent glass)  
-- Top Navbars with search & notifications  
-- Breadcrumbs  
-- Tabs / Accordions  
-- Modals / Drawers / Overlays  
-
-### 📄 Data Display
-- Cards (glass panels with blur effects)  
-- Tables (DataTables.js)  
-- Charts (ApexCharts + Chart.js)  
-- Progress bars, badges, labels  
-- Tooltips, popovers  
-
-### ✍️ Forms & Inputs
-- Basic and advanced forms  
-- Select2.js enhanced dropdowns  
-- Datepicker / Timepicker  
-- Knob.js dials & circular sliders  
-- Validation feedback + tooltips  
-- Step wizard forms  
-
-### 🔔 Feedback & Interactions
-- Toast notifications (react Toast Plugin or Notyf.js)  
-- Alerts / Snackbars  
-- Spinners, skeleton loaders  
-- Confirmation dialogs  
-
-### 🧠 Utilities
-- Pagination controls  
-- Avatars, user status chips  
-- Search bar with live filtering  
-- Tags & chips  
-- Color pickers  
-- Theme switcher (Light/Dark/Glass)  
-
----
-
-## 5. Design System & Visual Language
-
-### 🎨 Core Principles
-- **Transparency + Depth** — frosted glass panes with blur (20–40px), layered opacity (0.6–0.85).  
-- **Luminous Gradients** — soft pastels with light sources mimicking Apple’s iOS 26 palette.  
-- **Soft Shadows** — multi-layer box shadows to convey depth.  
-- **Rounded Corners** — 2xl radius for cards and modals.  
-- **Micro-animations** — fade-in/out and blur transitions using Tailwind + Framer Motion (optional).  
-
-### ✏️ Typography & Icons
-- **Google Fonts:** *Inter*, *SF Pro Display (alt)*, or *Poppins*  
-- **Icon Library:** FontAwesome 6 Pro + Lucide Icons  
-- **Text Hierarchy:** Tailwind scale (3xl / 2xl / xl / base / sm)  
-
-### 🌗 Theming
-- **Light Mode:** White glass with soft grey accents  
-- **Dark Mode:** Deep charcoal with semi-transparent highlights  
-- **Glass Mode:** Blur overlay on gradient background (e.g., linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05)))  
-
----
-
-## 6. Integrated Libraries & Dependencies
-
-| Purpose | Library | Notes |
-|----------|----------|-------|
-| UI Framework | **Tailwind CSS (latest)** | JIT mode enabled |
-| JS Core | **react (latest)** | For DOM manipulation and plugins |
-| Reactive Behavior | **Alpine.js (optional)** | Lightweight interactivity |
-| Charts | **ApexCharts.js / Chart.js** | Interactive data visualization |
-| Tables | **DataTables.js** | Sorting, search, pagination, export |
-| Calendar | **FullCalendar.js** | Drag-drop events, schedule view |
-| Form Enhancements | **Select2.js** | Searchable dropdowns |
-| Dials / Gauges | **Knob.js** | Circular stats and controls |
-| Notifications | **Notyf.js** | Modern toast alerts |
-| Icons | **FontAwesome 6** | Scalable SVG icons |
-| Fonts | **Google Fonts (Inter/Poppins)** | High-legibility UI fonts |
-| Charts Animations | **GSAP or Anime.js (optional)** | Motion effects |
-| Build Tool | **Vite** | Fast bundling + HMR |
-| Docs Generator | **Docsify or MkDocs** | For online documentation portal |
-
----
-
-## 7. Performance & Quality
-
-- Lighthouse Performance ≥ 90  
-- CSS bundle < 150 KB (minified)  
-- JS bundle < 250 KB (minified, excluding charts)  
-- Fully responsive (≥ 360px mobile to 4K desktop)  
-- Code linted via ESLint + Prettier  
-- Tested across latest browsers (Chrome, Edge, Safari, Firefox)  
-
----
-
-## 8. Documentation & Support
-
-**Documentation Structure:**  
-- Quick start guide (install via npm/yarn)  
-- Folder structure & build process  
-- Tailwind custom config reference  
-- Components API & usage snippets  
-- Theming and custom CSS variables  
-- Changelog & version history  
-
-**Support:**  
-- GitHub issues or support portal  
-- Regular bug fixes and feature updates  
-
----
-
-## 9. Deliverables
-
-| Deliverable | Description |
-|--------------|-------------|
-| **Source Code** | Compelete component base source code |
-| **Documentation Site** | Docsify or MkDocs bundle |
-
----
-
-## 10. Future Enhancements (Phase 2)
-
-- React / Vue version port  
-- AI assistant panel integration  
-- Dark glass theme generator tool  
-- Component marketplace (add-ons)  
-- Accessibility audits and keyboard shortcuts  
-
----
-
-## 11. Acceptance Criteria
-
-✅ Fully functional dashboard demo covering all pages  
-✅ Consistent Liquid Glass visual language across components  
-✅ All listed libraries integrated and working without conflicts  
-✅ Documentation complete and up-to-date  
-✅ Lighthouse score ≥ 90 on performance and accessibility  
-
----
-
-### 🧩 Summary
-GlassAdmin aims to combine Apple’s new Liquid Glass aesthetic with developer efficiency. Built with Tailwind and modern JS, it provides everything from dynamic charts to form controls in a single elegant package.
-
-
+Built with ❤️ using React, Vite, and Tailwind CSS
