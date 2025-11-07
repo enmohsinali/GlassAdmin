@@ -18,6 +18,12 @@ import Chart from 'react-apexcharts';
 const EcommerceDashboard = () => {
   const { isDark } = useTheme();
 
+  // Theme-aware colors with WCAG AA compliant contrast ratios
+  const subtitleColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
+  const labelColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#5a5a5a]';
+  const secondaryTextColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
+  const timestampColor = isDark ? 'text-[#3a6df0]' : 'text-[#2563eb]';
+
   // Sales Chart Configuration
   const salesChartOptions = {
     chart: {
@@ -176,12 +182,7 @@ const EcommerceDashboard = () => {
         >
           E-commerce Dashboard
         </h1>
-        <p
-          className={cn(
-            'mt-2',
-            isDark ? 'text-inactive-dark' : 'text-inactive-light'
-          )}
-        >
+        <p className={cn('mt-2 text-[15px]', subtitleColor)}>
           Track your store performance and manage your online business.
         </p>
       </div>
@@ -191,12 +192,7 @@ const EcommerceDashboard = () => {
         <Card className="hover:scale-105 transition-all duration-300">
           <div className="flex items-start justify-between">
             <div>
-              <p
-                className={cn(
-                  'text-sm font-medium',
-                  isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                )}
-              >
+              <p className={cn('text-sm font-semibold', labelColor)}>
                 Total Sales
               </p>
               <p
@@ -209,7 +205,7 @@ const EcommerceDashboard = () => {
               </p>
               <div className="flex items-center mt-2 gap-1">
                 <TrendingUp className="w-4 h-4 text-primary-green" />
-                <span className="text-sm font-medium text-primary-green">+18.2%</span>
+                <span className="text-sm font-semibold text-primary-green">+18.2%</span>
               </div>
             </div>
             <div className="p-3 rounded-2xl bg-primary-blue bg-opacity-20">
@@ -221,12 +217,7 @@ const EcommerceDashboard = () => {
         <Card className="hover:scale-105 transition-all duration-300">
           <div className="flex items-start justify-between">
             <div>
-              <p
-                className={cn(
-                  'text-sm font-medium',
-                  isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                )}
-              >
+              <p className={cn('text-sm font-semibold', labelColor)}>
                 Total Orders
               </p>
               <p
@@ -239,7 +230,7 @@ const EcommerceDashboard = () => {
               </p>
               <div className="flex items-center mt-2 gap-1">
                 <TrendingUp className="w-4 h-4 text-primary-green" />
-                <span className="text-sm font-medium text-primary-green">+12.5%</span>
+                <span className="text-sm font-semibold text-primary-green">+12.5%</span>
               </div>
             </div>
             <div className="p-3 rounded-2xl bg-primary-green bg-opacity-20">
@@ -251,12 +242,7 @@ const EcommerceDashboard = () => {
         <Card className="hover:scale-105 transition-all duration-300">
           <div className="flex items-start justify-between">
             <div>
-              <p
-                className={cn(
-                  'text-sm font-medium',
-                  isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                )}
-              >
+              <p className={cn('text-sm font-semibold', labelColor)}>
                 Products Sold
               </p>
               <p
@@ -269,7 +255,7 @@ const EcommerceDashboard = () => {
               </p>
               <div className="flex items-center mt-2 gap-1">
                 <TrendingUp className="w-4 h-4 text-primary-green" />
-                <span className="text-sm font-medium text-primary-green">+9.8%</span>
+                <span className="text-sm font-semibold text-primary-green">+9.8%</span>
               </div>
             </div>
             <div className="p-3 rounded-2xl bg-purple-500 bg-opacity-20">
@@ -281,12 +267,7 @@ const EcommerceDashboard = () => {
         <Card className="hover:scale-105 transition-all duration-300">
           <div className="flex items-start justify-between">
             <div>
-              <p
-                className={cn(
-                  'text-sm font-medium',
-                  isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                )}
-              >
+              <p className={cn('text-sm font-semibold', labelColor)}>
                 Conversion Rate
               </p>
               <p
@@ -299,7 +280,7 @@ const EcommerceDashboard = () => {
               </p>
               <div className="flex items-center mt-2 gap-1">
                 <TrendingDown className="w-4 h-4 text-primary-red" />
-                <span className="text-sm font-medium text-primary-red">-2.1%</span>
+                <span className="text-sm font-semibold text-primary-red">-2.1%</span>
               </div>
             </div>
             <div className="p-3 rounded-2xl bg-primary-red bg-opacity-20">
@@ -345,24 +326,24 @@ const EcommerceDashboard = () => {
                 >
                   <th
                     className={cn(
-                      'text-left py-3 px-2 text-sm font-medium',
-                      isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                      'text-left py-3 px-2 text-sm font-semibold uppercase tracking-wide',
+                      labelColor
                     )}
                   >
                     Product
                   </th>
                   <th
                     className={cn(
-                      'text-right py-3 px-2 text-sm font-medium',
-                      isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                      'text-right py-3 px-2 text-sm font-semibold uppercase tracking-wide',
+                      labelColor
                     )}
                   >
                     Sold
                   </th>
                   <th
                     className={cn(
-                      'text-right py-3 px-2 text-sm font-medium',
-                      isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                      'text-right py-3 px-2 text-sm font-semibold uppercase tracking-wide',
+                      labelColor
                     )}
                   >
                     Revenue
@@ -387,12 +368,7 @@ const EcommerceDashboard = () => {
                     >
                       {product.name}
                     </td>
-                    <td
-                      className={cn(
-                        'py-3 px-2 text-sm text-right',
-                        isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                      )}
-                    >
+                    <td className={cn('py-3 px-2 text-sm text-right font-medium', secondaryTextColor)}>
                       {product.sold}
                     </td>
                     <td
@@ -448,15 +424,10 @@ const EcommerceDashboard = () => {
                       {order.status}
                     </span>
                   </div>
-                  <p
-                    className={cn(
-                      'text-sm mt-1',
-                      isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                    )}
-                  >
+                  <p className={cn('text-sm mt-1 font-medium', secondaryTextColor)}>
                     {order.customer}
                   </p>
-                  <p className="text-xs text-primary-blue mt-1">{order.date}</p>
+                  <p className={cn('text-xs mt-1 font-medium', timestampColor)}>{order.date}</p>
                 </div>
                 <p
                   className={cn(
