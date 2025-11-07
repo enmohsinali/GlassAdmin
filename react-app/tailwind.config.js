@@ -14,12 +14,12 @@ export default {
         'popup-dark': '#2b2c48',
         'popup-light': '#ffffff',
         'border-dark': 'rgba(113, 119, 144, 0.25)',
-        'border-light': 'rgba(255, 255, 255, 0.35)',
+        'border-light': 'rgba(0, 0, 0, 0.12)', // Changed from white to dark for light mode visibility
         'primary-blue': '#3a6df0',
         'primary-green': '#3bf083',
         'primary-red': '#ff705c',
         'inactive-dark': 'rgba(249, 250, 251, 0.55)',
-        'inactive-light': 'rgba(60, 58, 58, 0.55)',
+        'inactive-light': 'rgba(60, 58, 58, 0.65)', // Increased opacity for better contrast
         // Badge colors with proper contrast
         'success': '#3bf083',
         'error': '#ff705c',
