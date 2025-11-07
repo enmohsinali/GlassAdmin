@@ -30,7 +30,7 @@ const FormWizard = ({
   const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
   const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
-  const mutedColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
+  const mutedColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
 
   const isFirstStep = currentStep === 0;
   const isLastStep = currentStep === steps.length - 1;
@@ -101,7 +101,7 @@ const FormWizard = ({
                     'relative flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ease-[0.3s]',
                     isActive && 'border-[#3a6df0] bg-[#3a6df0]',
                     isCompleted && 'border-primary-green bg-primary-green',
-                    !isActive && !isCompleted && `border-gray-300 ${bgColor}`,
+                    !isActive && !isCompleted && (isDark ? 'border-[rgba(249,250,251,0.3)]' : 'border-[rgba(0,0,0,0.2)]') + ` ${bgColor}`,
                     isClickable && 'cursor-pointer'
                   )}
                   whileHover={isClickable ? { scale: 1.1 } : {}}
@@ -240,7 +240,7 @@ export const VerticalFormWizard = ({
   const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
   const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
-  const mutedColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
+  const mutedColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
 
   const isLastStep = currentStep === steps.length - 1;
   const currentStepData = steps[currentStep];
@@ -291,7 +291,7 @@ export const VerticalFormWizard = ({
                   'flex items-center justify-center w-8 h-8 rounded-full border-2 flex-shrink-0',
                   isActive && 'border-[#3a6df0] bg-[#3a6df0]',
                   isCompleted && 'border-primary-green bg-primary-green',
-                  !isActive && !isCompleted && 'border-gray-300'
+                  !isActive && !isCompleted && (isDark ? 'border-[rgba(249,250,251,0.3)]' : 'border-[rgba(0,0,0,0.2)]')
                 )}
               >
                 {isCompleted ? (

@@ -25,7 +25,7 @@ const ComponentsDemo = () => {
   const [selectedSearch, setSelectedSearch] = useState(null);
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
-  const mutedColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
+  const mutedColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
 
   // Sample data for global search
   const searchData = [
