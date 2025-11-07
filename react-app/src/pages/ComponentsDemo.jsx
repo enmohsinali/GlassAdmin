@@ -15,6 +15,14 @@ import {
   StaggerContainer,
   StaggerItem,
   Input,
+  RadioGroup,
+  Slider,
+  RangeSlider,
+  FileUpload,
+  Select,
+  Textarea,
+  Checkbox,
+  Switch,
 } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
@@ -23,6 +31,13 @@ import { Sparkles, Rocket, Heart } from 'lucide-react';
 const ComponentsDemo = () => {
   const { isDark } = useTheme();
   const [selectedSearch, setSelectedSearch] = useState(null);
+  const [radioValue, setRadioValue] = useState('option1');
+  const [sliderValue, setSliderValue] = useState(50);
+  const [rangeValues, setRangeValues] = useState({ min: 20, max: 80 });
+  const [files, setFiles] = useState(null);
+  const [selectValue, setSelectValue] = useState('');
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [switchChecked, setSwitchChecked] = useState(false);
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const mutedColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
@@ -155,6 +170,132 @@ const ComponentsDemo = () => {
               </AnimatedButton>
             </div>
           </GlassCard>
+        </FadeIn>
+
+        {/* Form Elements with Glassmorphic Style */}
+        <FadeIn delay={0.15}>
+          <div className="mb-8">
+            <h2 className={cn('text-[20px] font-semibold mb-4', textColor)}>
+              Form Elements with Glassmorphic Style
+            </h2>
+            <p className={cn('text-[14px] mb-6', mutedColor)}>
+              Complete set of form inputs with authentic glass effect styling
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Radio Buttons */}
+              <GlassCard title="Radio Buttons">
+                <RadioGroup
+                  label="Select an option"
+                  name="demo-radio"
+                  value={radioValue}
+                  onChange={setRadioValue}
+                  options={[
+                    { value: 'option1', label: 'Option 1' },
+                    { value: 'option2', label: 'Option 2' },
+                    { value: 'option3', label: 'Option 3' },
+                    { value: 'option4', label: 'Disabled Option', disabled: true },
+                  ]}
+                />
+              </GlassCard>
+
+              {/* Slider */}
+              <GlassCard title="Slider">
+                <Slider
+                  label="Volume"
+                  value={sliderValue}
+                  onChange={setSliderValue}
+                  min={0}
+                  max={100}
+                  step={1}
+                  showValue={true}
+                />
+                <div className="mt-4">
+                  <Slider
+                    label="Disabled Slider"
+                    value={30}
+                    onChange={() => {}}
+                    disabled={true}
+                  />
+                </div>
+              </GlassCard>
+
+              {/* Range Slider */}
+              <GlassCard title="Range Slider">
+                <RangeSlider
+                  label="Price Range"
+                  minValue={rangeValues.min}
+                  maxValue={rangeValues.max}
+                  onChange={setRangeValues}
+                  min={0}
+                  max={100}
+                  step={5}
+                />
+              </GlassCard>
+
+              {/* File Upload */}
+              <GlassCard title="File Upload">
+                <FileUpload
+                  label="Upload files"
+                  onChange={setFiles}
+                  multiple={true}
+                  accept="image/*,.pdf"
+                  maxSize={5 * 1024 * 1024} // 5MB
+                />
+              </GlassCard>
+
+              {/* Select Dropdown */}
+              <GlassCard title="Select Dropdown">
+                <Select
+                  label="Choose a category"
+                  value={selectValue}
+                  onChange={(e) => setSelectValue(e.target.value)}
+                  options={[
+                    { value: '', label: 'Select an option...' },
+                    { value: 'design', label: 'Design' },
+                    { value: 'development', label: 'Development' },
+                    { value: 'marketing', label: 'Marketing' },
+                  ]}
+                />
+              </GlassCard>
+
+              {/* Textarea */}
+              <GlassCard title="Textarea">
+                <Textarea
+                  label="Description"
+                  placeholder="Enter your message..."
+                  rows={4}
+                />
+              </GlassCard>
+
+              {/* Checkbox & Switch */}
+              <GlassCard title="Checkbox & Switch">
+                <div className="space-y-4">
+                  <Checkbox
+                    label="I agree to the terms and conditions"
+                    checked={checkboxChecked}
+                    onChange={(e) => setCheckboxChecked(e.target.checked)}
+                  />
+                  <div className="flex items-center gap-3">
+                    <Switch
+                      checked={switchChecked}
+                      onChange={setSwitchChecked}
+                    />
+                    <span className={textColor}>Enable notifications</span>
+                  </div>
+                </div>
+              </GlassCard>
+
+              {/* Input Field */}
+              <GlassCard title="Input Field">
+                <div className="space-y-4">
+                  <Input label="Email" type="email" placeholder="your@email.com" />
+                  <Input label="Password" type="password" placeholder="••••••••" />
+                  <Input label="Disabled Input" placeholder="Cannot edit" disabled />
+                </div>
+              </GlassCard>
+            </div>
+          </div>
         </FadeIn>
 
         {/* Loading Animations */}

@@ -9,6 +9,9 @@ export { default as Select } from './Select';
 export { default as Textarea } from './Textarea';
 export { default as Checkbox } from './Checkbox';
 export { default as Switch } from './Switch';
+export { default as Radio, RadioGroup } from './Radio';
+export { default as Slider, RangeSlider } from './Slider';
+export { default as FileUpload } from './FileUpload';
 export { default as FormWizard, VerticalFormWizard } from './FormWizard';
 
 // Layout Components
