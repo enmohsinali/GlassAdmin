@@ -61,9 +61,26 @@ const RegisterPage = () => {
     return 'bg-[rgba(113,119,144,0.25)]';
   };
 
+  // Theme-aware colors with WCAG AA compliant contrast ratios
+  const containerBg = isDark ? 'bg-[rgba(16,18,27,0.4)]' : 'bg-[rgba(255,255,255,0.9)]';
+  const headingColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const subheadingColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(60,58,58,0.8)]';
+  const labelColor = isDark ? 'text-[#f9fafb]' : 'text-[#2a2a2a]';
+  const inputBg = isDark ? 'bg-[#14162b]' : 'bg-[rgba(255,255,255,0.8)]';
+  const inputBorder = isDark ? 'border-[rgba(113,119,144,0.25)]' : 'border-[rgba(0,0,0,0.2)]';
+  const inputText = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const placeholderColor = isDark
+    ? 'placeholder:text-[rgba(249,250,251,0.5)]'
+    : 'placeholder:text-[rgba(0,0,0,0.5)]';
+  const checkboxLabel = isDark ? 'text-[#f9fafb]' : 'text-[#2a2a2a]';
+  const linkColor = isDark ? 'text-[#3a6df0]' : 'text-[#2563eb]';
+  const linkHover = isDark ? 'hover:text-[#1e59f1]' : 'hover:text-[#1d4ed8]';
+  const infoTextColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(60,58,58,0.8)]';
+  const containerBorder = isDark ? 'border-[rgba(113,119,144,0.15)]' : 'border-[rgba(0,0,0,0.1)]';
+
   return (
     <AuthPageLayout>
-      <div className="register-container w-full max-w-[500px] bg-[rgba(16,18,27,0.4)] backdrop-blur-[20px] rounded-[14px] p-10 shadow-lg">
+      <div className={`register-container w-full max-w-[500px] ${containerBg} backdrop-blur-[20px] rounded-[14px] p-10 shadow-lg border ${containerBorder}`}>
       <div className="register-header text-center mb-8">
         <div className="flex justify-center mb-6">
           <svg className="w-16 h-16" viewBox="0 0 512 512">
@@ -88,8 +105,8 @@ const RegisterPage = () => {
             </text>
           </svg>
         </div>
-        <h1 className="text-[28px] font-semibold text-[#f9fafb] mb-2">Create Account</h1>
-        <p className="text-[14px] text-[rgba(249,250,251,0.55)]">
+        <h1 className={`text-[28px] font-semibold ${headingColor} mb-2`}>Create Account</h1>
+        <p className={`text-[14px] ${subheadingColor}`}>
           Join Creative Cloud to unlock endless possibilities
         </p>
       </div>
@@ -97,7 +114,7 @@ const RegisterPage = () => {
       <form onSubmit={handleSubmit} className="register-form">
         <div className="grid grid-cols-2 gap-4 mb-5">
           <div className="form-group">
-            <label htmlFor="firstName" className="block text-[14px] text-[#f9fafb] mb-2">
+            <label htmlFor="firstName" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
               First Name
             </label>
             <input
@@ -106,13 +123,13 @@ const RegisterPage = () => {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+              className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
               placeholder="John"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName" className="block text-[14px] text-[#f9fafb] mb-2">
+            <label htmlFor="lastName" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
               Last Name
             </label>
             <input
@@ -121,7 +138,7 @@ const RegisterPage = () => {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+              className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
               placeholder="Doe"
               required
             />
@@ -129,7 +146,7 @@ const RegisterPage = () => {
         </div>
 
         <div className="form-group mb-5">
-          <label htmlFor="email" className="block text-[14px] text-[#f9fafb] mb-2">
+          <label htmlFor="email" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
             Email Address
           </label>
           <input
@@ -138,14 +155,14 @@ const RegisterPage = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+            className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
             placeholder="your.email@example.com"
             required
           />
         </div>
 
         <div className="form-group mb-3">
-          <label htmlFor="password" className="block text-[14px] text-[#f9fafb] mb-2">
+          <label htmlFor="password" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
             Password
           </label>
           <input
@@ -154,14 +171,14 @@ const RegisterPage = () => {
             name="password"
             value={formData.password}
             onChange={handleChange}
-            className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+            className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
             placeholder="Create a strong password"
             required
           />
           {passwordStrength && (
             <div className="password-strength mt-2">
               <div className="flex items-center justify-between text-[12px] mb-1">
-                <span className="text-[rgba(249,250,251,0.55)]">Password strength:</span>
+                <span className={infoTextColor}>Password strength:</span>
                 <span className={`font-medium ${
                   passwordStrength === 'weak' ? 'text-[#ff705c]' :
                   passwordStrength === 'medium' ? 'text-[#ffa500]' :
@@ -185,7 +202,7 @@ const RegisterPage = () => {
         </div>
 
         <div className="form-group mb-5">
-          <label htmlFor="confirmPassword" className="block text-[14px] text-[#f9fafb] mb-2">
+          <label htmlFor="confirmPassword" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
             Confirm Password
           </label>
           <input
@@ -194,29 +211,29 @@ const RegisterPage = () => {
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
-            className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+            className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
             placeholder="Confirm your password"
             required
           />
         </div>
 
         <div className="form-group mb-6">
-          <label className="flex items-start text-[14px] text-[#f9fafb] cursor-pointer">
+          <label className={`flex items-start text-[14px] ${checkboxLabel} cursor-pointer`}>
             <input
               type="checkbox"
               name="agreeToTerms"
               checked={formData.agreeToTerms}
               onChange={handleChange}
-              className="w-4 h-4 mr-2 mt-0.5 accent-[#3a6df0]"
+              className="w-5 h-5 mr-3 mt-0.5 accent-[#3a6df0] cursor-pointer"
               required
             />
-            <span>
+            <span className="font-medium">
               I agree to the{' '}
-              <a href="#" className="text-[#3a6df0] hover:text-[#1e59f1] transition-all-300">
+              <a href="#" className={`${linkColor} ${linkHover} transition-all-300 underline`}>
                 Terms and Conditions
               </a>
               {' '}and{' '}
-              <a href="#" className="text-[#3a6df0] hover:text-[#1e59f1] transition-all-300">
+              <a href="#" className={`${linkColor} ${linkHover} transition-all-300 underline`}>
                 Privacy Policy
               </a>
             </span>
@@ -231,11 +248,11 @@ const RegisterPage = () => {
         </button>
 
         <div className="text-center mt-6">
-          <p className="text-[14px] text-[rgba(249,250,251,0.55)]">
+          <p className={`text-[14px] ${infoTextColor}`}>
             Already have an account?{' '}
             <Link
               to="/login"
-              className="text-[#3a6df0] hover:text-[#1e59f1] transition-all-300 font-medium"
+              className={`${linkColor} ${linkHover} transition-all-300 font-medium`}
             >
               Sign In
             </Link>
