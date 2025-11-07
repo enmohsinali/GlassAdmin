@@ -17,7 +17,7 @@ import { useTheme } from '../../context/ThemeContext';
  * @param {string} props.className - Additional classes
  * @param {Function} props.onClick - Click handler
  */
-const GlassCard = ({ children, title, className, onClick, ...props }) => {
+const GlassCard = ({ children, title, className, onClick, hover = false, animate = false, ...props }) => {
   const { isDark } = useTheme();
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
@@ -33,6 +33,43 @@ const GlassCard = ({ children, title, className, onClick, ...props }) => {
       )}
       {...props}
     >
+      {title && (
+        <div className={cn('text-[17px] font-semibold mb-4 relative z-10', textColor)}>
+          {title}
+        </div>
+      )}
+      <div className="relative z-10">{children}</div>
+    </div>
+  );
+};
+
+/**
+ * Glass Card with Gradient Overlay
+ * For backwards compatibility with existing code
+ */
+export const GlassCardGradient = ({ children, title, gradient = 'blue', className, onClick }) => {
+  const { isDark } = useTheme();
+  const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+
+  const gradients = {
+    blue: 'from-[#3a6df0]/20 to-transparent',
+    green: 'from-primary-green/20 to-transparent',
+    red: 'from-primary-red/20 to-transparent',
+    purple: 'from-[#9333ea]/20 to-transparent',
+  };
+
+  return (
+    <div
+      onClick={onClick}
+      className={cn(
+        'glass-card relative overflow-hidden cursor-pointer',
+        'w-full p-5',
+        className
+      )}
+    >
+      {/* Gradient overlay */}
+      <div className={cn('absolute inset-0 bg-gradient-to-br opacity-50 -z-10', gradients[gradient])} />
+
       {title && (
         <div className={cn('text-[17px] font-semibold mb-4 relative z-10', textColor)}>
           {title}
