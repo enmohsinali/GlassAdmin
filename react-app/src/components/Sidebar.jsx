@@ -165,6 +165,37 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
         </div>
       </div>
 
+      {/* CRM Section */}
+      <div className="side-wrapper mt-5">
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>CRM</div>
+        <div className="side-menu flex flex-col whitespace-nowrap">
+          <Link
+            to="/dashboard/contacts"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/contacts') ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Contacts
+          </Link>
+          <Link
+            to="/dashboard/tasks"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/tasks') ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M9 11l3 3L22 4"></path>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            Tasks
+          </Link>
+        </div>
+      </div>
+
       {/* Demo Section */}
       <div className="side-wrapper mt-5">
         <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Demo</div>

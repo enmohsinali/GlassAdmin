@@ -50,6 +50,11 @@ const ScrumBoardPage = lazy(() => import('./pages/ScrumBoardPage'));
 // Financial
 const FinancialPage = lazy(() => import('./pages/FinancialPage'));
 
+// CRM
+const ContactsPage = lazy(() => import('./pages/ContactsPage'));
+const ContactDetailPage = lazy(() => import('./pages/ContactDetailPage'));
+const TasksPage = lazy(() => import('./pages/TasksPage'));
+
 function App() {
   return (
     <LanguageProvider>
@@ -141,6 +146,11 @@ function App() {
 
                 {/* Financial */}
                 <Route path="/dashboard/financial" element={<FinancialPage />} />
+
+                {/* CRM Routes */}
+                <Route path="/dashboard/contacts" element={<ContactsPage />} />
+                <Route path="/dashboard/contacts/:id" element={<ContactDetailPage />} />
+                <Route path="/dashboard/tasks" element={<TasksPage />} />
 
                 {/* Demo Pages */}
                 <Route path="/dashboard/components" element={<Components />} />
