@@ -41,6 +41,9 @@ const InvoiceDetails = lazy(() => import('./pages/invoices/InvoiceDetails'));
 const ComponentsDemo = lazy(() => import('./pages/ComponentsDemo'));
 const Components = lazy(() => import('./pages/Components'));
 
+// Calendar
+const CalendarPage = lazy(() => import('./pages/CalendarPage'));
+
 function App() {
   return (
     <LanguageProvider>
@@ -123,6 +126,9 @@ function App() {
 
                 {/* Settings */}
                 <Route path="/dashboard/settings" element={<Settings />} />
+
+                {/* Calendar */}
+                <Route path="/dashboard/calendar" element={<CalendarPage />} />
 
                 {/* Demo Pages */}
                 <Route path="/dashboard/components" element={<Components />} />

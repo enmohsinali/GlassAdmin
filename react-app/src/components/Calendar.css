@@ -1,0 +1,276 @@
+/* Calendar Glassmorphic Styling */
+
+.calendar-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Light Theme */
+.calendar-wrapper.light-theme .rbc-calendar {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-wrapper.light-theme .rbc-header {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+  padding: 12px 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.calendar-wrapper.light-theme .rbc-month-view,
+.calendar-wrapper.light-theme .rbc-time-view {
+  background: transparent;
+  border: none;
+}
+
+.calendar-wrapper.light-theme .rbc-day-bg {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.calendar-wrapper.light-theme .rbc-day-bg:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.calendar-wrapper.light-theme .rbc-off-range-bg {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.calendar-wrapper.light-theme .rbc-today {
+  background: rgba(58, 109, 240, 0.1);
+}
+
+.calendar-wrapper.light-theme .rbc-date-cell {
+  padding: 8px;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+.calendar-wrapper.light-theme .rbc-off-range {
+  color: rgba(26, 26, 26, 0.4);
+}
+
+.calendar-wrapper.light-theme .rbc-toolbar {
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.calendar-wrapper.light-theme .rbc-toolbar button {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.calendar-wrapper.light-theme .rbc-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+.calendar-wrapper.light-theme .rbc-toolbar button.rbc-active {
+  background: #3a6df0;
+  color: white;
+  border-color: #3a6df0;
+}
+
+.calendar-wrapper.light-theme .rbc-toolbar-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Dark Theme */
+.calendar-wrapper.dark-theme .rbc-calendar {
+  background: rgba(146, 151, 179, 0.13);
+  backdrop-filter: blur(20px);
+  border-radius: 14px;
+  border: 1px solid rgba(249, 250, 251, 0.1);
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-wrapper.dark-theme .rbc-header {
+  background: rgba(146, 151, 179, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(249, 250, 251, 0.1);
+  color: #f9fafb;
+  padding: 12px 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.calendar-wrapper.dark-theme .rbc-month-view,
+.calendar-wrapper.dark-theme .rbc-time-view {
+  background: transparent;
+  border: none;
+}
+
+.calendar-wrapper.dark-theme .rbc-day-bg {
+  background: rgba(146, 151, 179, 0.08);
+  border: 1px solid rgba(249, 250, 251, 0.05);
+}
+
+.calendar-wrapper.dark-theme .rbc-day-bg:hover {
+  background: rgba(146, 151, 179, 0.15);
+}
+
+.calendar-wrapper.dark-theme .rbc-off-range-bg {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.calendar-wrapper.dark-theme .rbc-today {
+  background: rgba(58, 109, 240, 0.2);
+}
+
+.calendar-wrapper.dark-theme .rbc-date-cell {
+  padding: 8px;
+  color: #f9fafb;
+  font-size: 14px;
+}
+
+.calendar-wrapper.dark-theme .rbc-off-range {
+  color: rgba(249, 250, 251, 0.3);
+}
+
+.calendar-wrapper.dark-theme .rbc-toolbar {
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.calendar-wrapper.dark-theme .rbc-toolbar button {
+  background: rgba(146, 151, 179, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 250, 251, 0.1);
+  color: #f9fafb;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.calendar-wrapper.dark-theme .rbc-toolbar button:hover {
+  background: rgba(146, 151, 179, 0.3);
+  transform: translateY(-1px);
+}
+
+.calendar-wrapper.dark-theme .rbc-toolbar button.rbc-active {
+  background: #3a6df0;
+  color: white;
+  border-color: #3a6df0;
+}
+
+.calendar-wrapper.dark-theme .rbc-toolbar-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+/* Common Styles */
+.rbc-event {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rbc-event:hover {
+  transform: scale(1.02);
+  opacity: 1 !important;
+}
+
+.rbc-event-label {
+  font-size: 12px;
+}
+
+.rbc-show-more {
+  background: #3a6df0;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: all 0.2s ease;
+}
+
+.rbc-show-more:hover {
+  background: #1e59f1;
+  transform: translateY(-1px);
+}
+
+.rbc-toolbar button + button {
+  margin-left: 8px;
+}
+
+.rbc-btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.rbc-today-custom {
+  position: relative;
+}
+
+.rbc-today-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #3a6df0;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Time slots for week/day view */
+.calendar-wrapper .rbc-time-slot {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.calendar-wrapper.dark-theme .rbc-time-slot {
+  border-top: 1px solid rgba(249, 250, 251, 0.05);
+}
+
+.calendar-wrapper .rbc-current-time-indicator {
+  background-color: #3a6df0;
+  height: 2px;
+}
+
+/* Agenda view */
+.calendar-wrapper .rbc-agenda-view {
+  background: transparent;
+}
+
+.calendar-wrapper .rbc-agenda-table {
+  border: none;
+}
+
+.calendar-wrapper.light-theme .rbc-agenda-date-cell,
+.calendar-wrapper.light-theme .rbc-agenda-time-cell,
+.calendar-wrapper.light-theme .rbc-agenda-event-cell {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 12px;
+}
+
+.calendar-wrapper.dark-theme .rbc-agenda-date-cell,
+.calendar-wrapper.dark-theme .rbc-agenda-time-cell,
+.calendar-wrapper.dark-theme .rbc-agenda-event-cell {
+  background: rgba(146, 151, 179, 0.08);
+  border: 1px solid rgba(249, 250, 251, 0.05);
+  padding: 12px;
+}
