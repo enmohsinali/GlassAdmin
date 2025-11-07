@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import { useBackground } from './BackgroundContext';
 
 const ThemeContext = createContext();
 
@@ -11,7 +12,18 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(false); // Default to light mode
+  const backgroundContext = useBackground();
+  const defaultTheme = backgroundContext?.settings?.defaultTheme || 'dark';
+  const [isDark, setIsDark] = useState(defaultTheme === 'dark');
+
+  // Sync with background context default theme
+  useEffect(() => {
+    if (defaultTheme === 'dark' && !isDark) {
+      setIsDark(true);
+    } else if (defaultTheme === 'light' && isDark) {
+      setIsDark(false);
+    }
+  }, [defaultTheme]);
 
   const toggleTheme = () => {
     setIsDark(prev => !prev);

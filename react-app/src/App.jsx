@@ -2,7 +2,9 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { BackgroundProvider } from './context/BackgroundContext';
 import { FullPageLoader } from './components/ui';
+import DynamicBackground from './components/DynamicBackground';
 
 // Lazy load pages for better performance
 const MainPage = lazy(() => import('./pages/MainPage'));
@@ -42,16 +44,12 @@ const Components = lazy(() => import('./pages/Components'));
 function App() {
   return (
     <LanguageProvider>
-      <ThemeProvider>
-        {/* Video Background */}
-        <div className="video-bg fixed right-0 top-0 w-full h-full -z-10">
-          <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
-            <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      <BackgroundProvider>
+        <ThemeProvider>
+          {/* Dynamic Background - Customizable via Settings */}
+          <DynamicBackground />
 
-      <Router>
+          <Router>
         <Suspense fallback={<FullPageLoader message="Loading page..." />}>
           <Routes>
             {/* Auth Routes */}
@@ -95,8 +93,9 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </Router>
-    </ThemeProvider>
+          </Router>
+        </ThemeProvider>
+      </BackgroundProvider>
     </LanguageProvider>
   );
 }

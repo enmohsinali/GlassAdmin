@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import PageWrapper from '../components/PageWrapper';
 import { Card, Input, Button, Switch, Alert, Tabs } from '../components/ui';
-import { Save, User, Bell, Lock, Shield } from 'lucide-react';
+import { Save, User, Bell, Lock, Shield, Palette } from 'lucide-react';
+import BackgroundSettings from '../components/BackgroundSettings';
 
 /**
  * User Settings Page
@@ -200,6 +201,11 @@ const Settings = () => {
           </Card>
         </div>
       )
+    },
+    {
+      label: 'Appearance',
+      icon: <Palette className="w-4 h-4" />,
+      content: <BackgroundSettings />
     }
   ];
 
