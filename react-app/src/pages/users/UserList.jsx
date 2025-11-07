@@ -20,6 +20,12 @@ const UserList = () => {
   const { isDark } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Theme-aware colors with WCAG AA compliant contrast ratios
+  const subtitleColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
+  const tableHeaderColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#5a5a5a]';
+  const secondaryTextColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
+  const timestampColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#5a5a5a]';
+
   const users = [
     {
       id: 1,
@@ -103,12 +109,7 @@ const UserList = () => {
           >
             Users
           </h1>
-          <p
-            className={cn(
-              'mt-2',
-              isDark ? 'text-inactive-dark' : 'text-inactive-light'
-            )}
-          >
+          <p className={cn('mt-2 text-[15px]', subtitleColor)}>
             Manage your users and their permissions.
           </p>
         </div>
@@ -155,40 +156,40 @@ const UserList = () => {
               >
                 <th
                   className={cn(
-                    'text-left py-3 px-4 text-sm font-medium',
-                    isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                    'text-left py-3 px-4 text-sm font-semibold uppercase tracking-wide',
+                    tableHeaderColor
                   )}
                 >
                   User
                 </th>
                 <th
                   className={cn(
-                    'text-left py-3 px-4 text-sm font-medium',
-                    isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                    'text-left py-3 px-4 text-sm font-semibold uppercase tracking-wide',
+                    tableHeaderColor
                   )}
                 >
                   Contact
                 </th>
                 <th
                   className={cn(
-                    'text-left py-3 px-4 text-sm font-medium',
-                    isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                    'text-left py-3 px-4 text-sm font-semibold uppercase tracking-wide',
+                    tableHeaderColor
                   )}
                 >
                   Role
                 </th>
                 <th
                   className={cn(
-                    'text-left py-3 px-4 text-sm font-medium',
-                    isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                    'text-left py-3 px-4 text-sm font-semibold uppercase tracking-wide',
+                    tableHeaderColor
                   )}
                 >
                   Status
                 </th>
                 <th
                   className={cn(
-                    'text-left py-3 px-4 text-sm font-medium',
-                    isDark ? 'text-inactive-dark' : 'text-inactive-light'
+                    'text-left py-3 px-4 text-sm font-semibold uppercase tracking-wide',
+                    tableHeaderColor
                   )}
                 >
                   Last Active
@@ -224,12 +225,7 @@ const UserList = () => {
                         >
                           {user.name}
                         </p>
-                        <p
-                          className={cn(
-                            'text-sm',
-                            isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                          )}
-                        >
+                        <p className={cn('text-sm font-medium', secondaryTextColor)}>
                           ID: {user.id}
                         </p>
                       </div>
@@ -250,12 +246,7 @@ const UserList = () => {
                       </div>
                       <div className="flex items-center gap-2">
                         <Phone className="w-4 h-4 text-primary-green" />
-                        <span
-                          className={cn(
-                            'text-sm',
-                            isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                          )}
-                        >
+                        <span className={cn('text-sm font-medium', secondaryTextColor)}>
                           {user.phone}
                         </span>
                       </div>
@@ -271,12 +262,7 @@ const UserList = () => {
                       {user.status}
                     </Badge>
                   </td>
-                  <td
-                    className={cn(
-                      'py-4 px-4 text-sm',
-                      isDark ? 'text-inactive-dark' : 'text-inactive-light'
-                    )}
-                  >
+                  <td className={cn('py-4 px-4 text-sm font-medium', timestampColor)}>
                     {user.lastActive}
                   </td>
                   <td className="py-4 px-4 text-right">
@@ -326,12 +312,7 @@ const UserList = () => {
             isDark ? 'border-border-dark' : 'border-border-light'
           )}
         >
-          <p
-            className={cn(
-              'text-sm',
-              isDark ? 'text-inactive-dark' : 'text-inactive-light'
-            )}
-          >
+          <p className={cn('text-sm font-medium', secondaryTextColor)}>
             Showing 1 to 5 of 5 users
           </p>
           <div className="flex gap-2">

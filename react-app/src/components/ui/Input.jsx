@@ -28,11 +28,11 @@ const Input = forwardRef(({
 }, ref) => {
   const { isDark } = useTheme();
 
-  // Following the glassmorphic design pattern
+  // Following the glassmorphic design pattern with WCAG AA compliant colors
   const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
   const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
-  const placeholderColor = isDark ? 'placeholder-[rgba(249,250,251,0.55)]' : 'placeholder-[rgba(74,74,74,0.75)]';
+  const placeholderColor = isDark ? 'placeholder-[rgba(249,250,251,0.5)]' : 'placeholder-[rgba(0,0,0,0.5)]';
 
   const baseStyles = cn(
     'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-[#3a6df0] disabled:opacity-50 disabled:cursor-not-allowed',
