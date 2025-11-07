@@ -7,7 +7,9 @@ const AppCards = ({ onUpdateClick }) => {
   const hoverBg = isDark ? 'hover:bg-theme-dark-bg' : 'hover:bg-theme-light-bg';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
   const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
-  const titleColor = isDark ? 'text-[#999ba5]' : 'text-[#4a4a4a]';
+  const titleColor = isDark ? 'text-[#999ba5]' : 'text-[#5a5a5a]';
+  const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const descriptionColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
 
   const apps = [
     {
@@ -50,18 +52,18 @@ const AppCards = ({ onUpdateClick }) => {
 
   return (
     <div className="content-section mt-[30px] flex flex-col">
-      <div className={`content-section-title ${titleColor} mb-3.5`}>Apps in your plan</div>
+      <div className={`content-section-title ${titleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Apps in your plan</div>
       <div className="apps-card flex items-center flex-wrap w-[calc(100%+20px)]">
         {apps.map((app, index) => (
           <div
             key={index}
             className={`app-card flex flex-col w-[calc(33.3%-20px)] text-base ${bgColor} rounded-[14px] border ${themeBg} p-5 cursor-pointer transition-all ease-[0.3s] hover:scale-[1.02] ${hoverBg} ml-5 first:ml-0 max-[1110px]:w-[calc(50%-20px)] max-[1110px]:last:mt-5 max-[1110px]:last:ml-0 max-[565px]:w-[calc(100%-20px)] max-[565px]:mt-5 max-[565px]:ml-0`}
           >
-            <span className="flex items-center">
+            <span className={`flex items-center ${textColor} font-medium`}>
               {app.icon}
               {app.name}
             </span>
-            <div className={`app-card__subtext text-[14px] font-normal leading-[1.6em] mt-5 border-b ${borderColor} pb-5`}>
+            <div className={`app-card__subtext text-[14px] font-normal leading-[1.6em] mt-5 border-b ${borderColor} pb-5 ${descriptionColor}`}>
               {app.description}
             </div>
             <div className="app-card-buttons flex items-center ml-auto mt-4">

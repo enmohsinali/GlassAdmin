@@ -10,6 +10,7 @@ const Header = ({ onMenuClick }) => {
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
   const searchBg = isDark ? 'bg-[rgba(113,119,144,0.08)]' : 'bg-[rgba(113,119,144,0.06)]';
   const inactiveColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[#2a2a2a]';
+  const placeholderColor = isDark ? 'placeholder:text-[rgba(249,250,251,0.5)]' : 'placeholder:text-[rgba(0,0,0,0.5)]';
 
   return (
     <header className={`header flex items-center flex-shrink-0 h-[58px] w-full border-b ${borderColor} px-[30px] whitespace-nowrap transition-all-300`}>
@@ -35,25 +36,25 @@ const Header = ({ onMenuClick }) => {
       <div className={`header-menu flex items-center ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
         <a
           href="#"
-          className={`menu-link is-active px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden`}
+          className={`menu-link is-active px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden font-medium`}
         >
           Apps
         </a>
         <a
           href="#"
-          className={`menu-link notify-dot relative px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden max-[1055px]:hidden`}
+          className={`menu-link notify-dot relative px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden max-[1055px]:hidden font-medium`}
         >
           Your work
         </a>
         <a
           href="#"
-          className={`menu-link px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden`}
+          className={`menu-link px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden font-medium`}
         >
           Discover
         </a>
         <a
           href="#"
-          className={`menu-link notify-dot relative px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden max-[1055px]:hidden`}
+          className={`menu-link notify-dot relative px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden max-[1055px]:hidden font-medium`}
         >
           Market
         </a>
@@ -78,7 +79,7 @@ const Header = ({ onMenuClick }) => {
           placeholder="Search"
           onFocus={() => setIsSearchFocused(true)}
           onBlur={() => setIsSearchFocused(false)}
-          className={`search-input w-full h-full border ${borderColor} ${searchBg} rounded font-poppins text-[15px] font-medium px-5 pl-10 shadow-sm ${textColor} placeholder:${inactiveColor} focus:border-primary-blue focus:ring-1 focus:ring-primary-blue`}
+          className={`search-input w-full h-full border ${borderColor} ${searchBg} rounded font-poppins text-[15px] font-medium px-5 pl-10 shadow-sm ${textColor} ${placeholderColor} focus:border-primary-blue focus:ring-1 focus:ring-primary-blue`}
         />
       </div>
 
@@ -86,7 +87,7 @@ const Header = ({ onMenuClick }) => {
       <div className={`header-profile flex items-center px-4 pl-10 ml-auto flex-shrink-0 ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
         {/* Notification */}
         <div className="notification relative">
-          <span className="notification-number absolute bg-[#3a6df0] w-4 h-4 rounded-full text-[10px] flex items-center justify-center text-white -right-1.5 -top-1.5">
+          <span className="notification-number absolute bg-[#3a6df0] w-5 h-5 rounded-full text-[11px] font-semibold flex items-center justify-center text-white -right-1.5 -top-1.5">
             3
           </span>
           <svg

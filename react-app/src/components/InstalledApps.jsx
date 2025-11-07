@@ -7,7 +7,13 @@ const InstalledApps = ({ onUpdateClick }) => {
   const hoverBg = isDark ? 'hover:bg-theme-dark-bg' : 'hover:bg-theme-light-bg';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
   const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
-  const titleColor = isDark ? 'text-[#999ba5]' : 'text-[#4a4a4a]';
+  const titleColor = isDark ? 'text-[#999ba5]' : 'text-[#5a5a5a]';
+  const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const statusTextColor = isDark ? 'text-[#f9fafb]' : 'text-[#2a2a2a]';
+
+  const openButtonClass = isDark
+    ? 'bg-transparent text-[rgba(249,250,251,0.55)] border border-[rgba(249,250,251,0.55)] hover:bg-[rgba(249,250,251,0.1)]'
+    : 'bg-transparent text-[#2a2a2a] border border-[rgba(0,0,0,0.2)] hover:bg-[rgba(0,0,0,0.05)]';
 
   const apps = [
     {
@@ -23,7 +29,7 @@ const InstalledApps = ({ onUpdateClick }) => {
       status: 'Updated',
       statusColor: 'green',
       buttonText: 'Open',
-      buttonClass: 'bg-transparent text-[rgba(249,250,251,0.55)] border border-[rgba(249,250,251,0.55)]'
+      buttonClass: openButtonClass
     },
     {
       name: 'Illustrator',
@@ -54,26 +60,26 @@ const InstalledApps = ({ onUpdateClick }) => {
       status: 'Updated',
       statusColor: 'green',
       buttonText: 'Open',
-      buttonClass: 'bg-transparent text-[rgba(249,250,251,0.55)] border border-[rgba(249,250,251,0.55)]'
+      buttonClass: openButtonClass
     }
   ];
 
   return (
     <div className="content-section mt-[30px] flex flex-col">
-      <div className={`content-section-title ${titleColor} mb-3.5`}>Installed</div>
+      <div className={`content-section-title ${titleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Installed</div>
       <ul className={`flex flex-col w-full h-full justify-around ${bgColor} p-0 m-0 rounded-[14px] border ${themeBg} cursor-pointer`}>
         {apps.map((app, index) => (
           <li
             key={index}
             className={`adobe-product list-none p-2.5 px-[18px] flex items-center text-base w-full h-full whitespace-nowrap transition-all-300 ${hoverBg} first:hover:rounded-t-[13px] last:hover:rounded-b-[13px] border-t ${borderColor} first:border-t-0`}
           >
-            <div className="products flex items-center w-[150px] max-[480px]:w-[120px]">
+            <div className={`products flex items-center w-[150px] max-[480px]:w-[120px] ${textColor} font-medium`}>
               {app.icon}
               {app.name}
             </div>
-            <span className="status ml-auto w-[140px] text-[15px] relative max-[700px]:hidden">
+            <span className={`status ml-auto w-[140px] text-[15px] relative max-[700px]:hidden ${statusTextColor} font-medium`}>
               <span
-                className={`status-circle ${app.statusColor === 'green' ? 'bg-[#3bf083]' : 'bg-[#396df0]'} w-1.5 h-1.5 absolute rounded-full top-1 -left-5`}
+                className={`status-circle ${app.statusColor === 'green' ? 'bg-[#3bf083]' : 'bg-[#396df0]'} w-2 h-2 absolute rounded-full top-1 -left-6`}
               ></span>
               {app.status}
             </span>
