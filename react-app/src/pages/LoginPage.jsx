@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { isDark } = useTheme();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,8 +14,28 @@ const LoginPage = () => {
     navigate('/');
   };
 
+  // Theme-aware colors with WCAG AA compliant contrast ratios
+  const containerBg = isDark ? 'bg-[rgba(16,18,27,0.4)]' : 'bg-[rgba(255,255,255,0.9)]';
+  const headingColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const subheadingColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[rgba(60,58,58,0.8)]'; // Increased from 0.55 to 0.8
+  const labelColor = isDark ? 'text-[#f9fafb]' : 'text-[#2a2a2a]'; // Darker for light mode (was too light)
+  const inputBg = isDark ? 'bg-[#14162b]' : 'bg-[rgba(255,255,255,0.8)]';
+  const inputBorder = isDark ? 'border-[rgba(113,119,144,0.25)]' : 'border-[rgba(0,0,0,0.2)]';
+  const inputText = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const placeholderColor = isDark
+    ? 'placeholder:text-[rgba(249,250,251,0.5)]'
+    : 'placeholder:text-[rgba(0,0,0,0.5)]'; // Increased contrast for WCAG AA
+  const checkboxLabel = isDark ? 'text-[#f9fafb]' : 'text-[#2a2a2a]'; // Darker for light mode
+  const linkColor = isDark ? 'text-[#3a6df0]' : 'text-[#2563eb]'; // Slightly darker blue for light mode
+  const linkHover = isDark ? 'hover:text-[#1e59f1]' : 'hover:text-[#1d4ed8]';
+  const dividerColor = isDark ? 'bg-[rgba(113,119,144,0.25)]' : 'bg-[rgba(0,0,0,0.15)]';
+  const dividerText = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[rgba(60,58,58,0.7)]';
+  const socialBtnBg = isDark ? 'bg-[#14162b]' : 'bg-[rgba(255,255,255,0.9)]';
+  const socialBtnBorder = isDark ? 'border-[rgba(113,119,144,0.25)]' : 'border-[rgba(0,0,0,0.15)]';
+  const socialBtnHover = isDark ? 'hover:bg-[rgba(113,119,144,0.08)]' : 'hover:bg-[rgba(0,0,0,0.05)]';
+
   return (
-    <div className="login-container w-full max-w-[450px] bg-[rgba(16,18,27,0.4)] backdrop-blur-[20px] rounded-[14px] p-10 shadow-lg">
+    <div className={`login-container w-full max-w-[450px] ${containerBg} backdrop-blur-[20px] rounded-[14px] p-10 shadow-lg border ${isDark ? 'border-[rgba(113,119,144,0.15)]' : 'border-[rgba(0,0,0,0.1)]'}`}>
       <div className="login-header text-center mb-8">
         <div className="flex justify-center mb-6">
           <svg className="w-16 h-16" viewBox="0 0 512 512">
@@ -38,15 +60,15 @@ const LoginPage = () => {
             </text>
           </svg>
         </div>
-        <h1 className="text-[28px] font-semibold text-[#f9fafb] mb-2">Welcome Back</h1>
-        <p className="text-[14px] text-[rgba(249,250,251,0.55)]">
+        <h1 className={`text-[28px] font-semibold ${headingColor} mb-2`}>Welcome Back</h1>
+        <p className={`text-[14px] ${subheadingColor}`}>
           Sign in to your Creative Cloud account
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group mb-5">
-          <label htmlFor="email" className="block text-[14px] text-[#f9fafb] mb-2">
+          <label htmlFor="email" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
             Email Address
           </label>
           <input
@@ -54,14 +76,14 @@ const LoginPage = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+            className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
             placeholder="Enter your email"
             required
           />
         </div>
 
         <div className="form-group mb-6">
-          <label htmlFor="password" className="block text-[14px] text-[#f9fafb] mb-2">
+          <label htmlFor="password" className={`block text-[14px] ${labelColor} mb-2 font-medium`}>
             Password
           </label>
           <input
@@ -69,14 +91,14 @@ const LoginPage = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="input-field w-full px-4 py-3 bg-[#14162b] border border-[rgba(113,119,144,0.25)] rounded-lg text-[#f9fafb] placeholder:text-[rgba(113,119,144,0.78)] focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300"
+            className={`input-field w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-lg ${inputText} ${placeholderColor} focus:outline-none focus:shadow-[0_0_0_2px_rgba(58,109,240,0.3)] transition-all-300`}
             placeholder="Enter your password"
             required
           />
         </div>
 
         <div className="form-options flex justify-between items-center mb-6">
-          <label className="flex items-center text-[14px] text-[#f9fafb] cursor-pointer">
+          <label className={`flex items-center text-[14px] ${checkboxLabel} cursor-pointer font-medium`}>
             <input
               type="checkbox"
               className="w-4 h-4 mr-2 accent-[#3a6df0]"
@@ -85,7 +107,7 @@ const LoginPage = () => {
           </label>
           <a
             href="#"
-            className="text-[14px] text-[#3a6df0] hover:text-[#1e59f1] transition-all-300"
+            className={`text-[14px] ${linkColor} ${linkHover} transition-all-300 font-medium`}
           >
             Forgot Password?
           </a>
@@ -99,11 +121,11 @@ const LoginPage = () => {
         </button>
 
         <div className="text-center mt-6">
-          <p className="text-[14px] text-[rgba(249,250,251,0.55)]">
+          <p className={`text-[14px] ${subheadingColor}`}>
             Don't have an account?{' '}
             <Link
               to="/register"
-              className="text-[#3a6df0] hover:text-[#1e59f1] transition-all-300 font-medium"
+              className={`${linkColor} ${linkHover} transition-all-300 font-medium`}
             >
               Sign Up
             </Link>
@@ -112,13 +134,13 @@ const LoginPage = () => {
       </form>
 
       <div className="divider flex items-center my-6">
-        <div className="flex-1 h-[1px] bg-[rgba(113,119,144,0.25)]"></div>
-        <span className="px-4 text-[14px] text-[rgba(249,250,251,0.55)]">OR</span>
-        <div className="flex-1 h-[1px] bg-[rgba(113,119,144,0.25)]"></div>
+        <div className={`flex-1 h-[1px] ${dividerColor}`}></div>
+        <span className={`px-4 text-[14px] ${dividerText}`}>OR</span>
+        <div className={`flex-1 h-[1px] ${dividerColor}`}></div>
       </div>
 
       <div className="social-login flex gap-3">
-        <button className="flex-1 bg-[#14162b] border border-[rgba(113,119,144,0.25)] px-4 py-2 rounded-lg text-[#f9fafb] hover:bg-[rgba(113,119,144,0.08)] transition-all-300">
+        <button className={`flex-1 ${socialBtnBg} border ${socialBtnBorder} px-4 py-2 rounded-lg ${inputText} ${socialBtnHover} transition-all-300`}>
           <svg className="w-5 h-5 mx-auto" viewBox="0 0 24 24">
             <path
               fill="currentColor"
@@ -138,12 +160,12 @@ const LoginPage = () => {
             />
           </svg>
         </button>
-        <button className="flex-1 bg-[#14162b] border border-[rgba(113,119,144,0.25)] px-4 py-2 rounded-lg text-[#f9fafb] hover:bg-[rgba(113,119,144,0.08)] transition-all-300">
+        <button className={`flex-1 ${socialBtnBg} border ${socialBtnBorder} px-4 py-2 rounded-lg ${inputText} ${socialBtnHover} transition-all-300`}>
           <svg className="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="currentColor">
             <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
           </svg>
         </button>
-        <button className="flex-1 bg-[#14162b] border border-[rgba(113,119,144,0.25)] px-4 py-2 rounded-lg text-[#f9fafb] hover:bg-[rgba(113,119,144,0.08)] transition-all-300">
+        <button className={`flex-1 ${socialBtnBg} border ${socialBtnBorder} px-4 py-2 rounded-lg ${inputText} ${socialBtnHover} transition-all-300`}>
           <svg className="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
