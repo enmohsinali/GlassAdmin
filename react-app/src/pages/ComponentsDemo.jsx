@@ -87,6 +87,56 @@ const ComponentsDemo = () => {
           </div>
         </FadeIn>
 
+        {/* Liquid Glass Cards - New Implementation */}
+        <FadeIn delay={0.05}>
+          <div className="mb-8">
+            <h2 className={cn('text-[20px] font-semibold mb-4', textColor)}>
+              Liquid Glass Cards
+            </h2>
+            <p className={cn('text-[14px] mb-6', mutedColor)}>
+              Three-layer authentic glass effect with backdrop blur, inner shadows, and SVG distortion
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Basic Usage */}
+              <GlassCard>
+                <div className="text-center py-4">
+                  <div className="text-[40px] mb-3">💎</div>
+                  <h3 className={cn('text-[17px] font-semibold mb-2', textColor)}>Basic Glass</h3>
+                  <p className={cn('text-[14px]', mutedColor)}>
+                    Simple liquid glass card with authentic three-layer effect and backdrop blur
+                  </p>
+                </div>
+              </GlassCard>
+
+              {/* With Title */}
+              <GlassCard title="Featured Card">
+                <div className="py-2">
+                  <div className="text-[32px] mb-3">✨</div>
+                  <p className={cn('text-[14px] mb-3', mutedColor)}>
+                    Glass card with title prop demonstrating the header styling
+                  </p>
+                  <div className={cn('text-[13px] font-medium', textColor)}>
+                    • Border radius: 20px<br />
+                    • Backdrop blur: 8px<br />
+                    • SVG distortion filter
+                  </div>
+                </div>
+              </GlassCard>
+
+              {/* Interactive */}
+              <GlassCard onClick={() => alert('Clicked!')} className="transition-transform">
+                <div className="text-center py-4">
+                  <div className="text-[40px] mb-3">🎯</div>
+                  <h3 className={cn('text-[17px] font-semibold mb-2', textColor)}>Interactive</h3>
+                  <p className={cn('text-[14px]', mutedColor)}>
+                    Clickable glass card with hover scale effect. Try clicking!
+                  </p>
+                </div>
+              </GlassCard>
+            </div>
+          </div>
+        </FadeIn>
+
         {/* Animated Buttons */}
         <FadeIn delay={0.1}>
           <GlassCard title="Animated Buttons">
