@@ -138,6 +138,30 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
             </svg>
             Calendar
           </Link>
+          <Link
+            to="/dashboard/scrum-board"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/scrum-board') ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            Scrum Board
+          </Link>
+          <Link
+            to="/dashboard/financial"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/financial') ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            Financial
+          </Link>
         </div>
       </div>
 

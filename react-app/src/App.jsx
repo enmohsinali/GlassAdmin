@@ -44,6 +44,12 @@ const Components = lazy(() => import('./pages/Components'));
 // Calendar
 const CalendarPage = lazy(() => import('./pages/CalendarPage'));
 
+// Scrum Board
+const ScrumBoardPage = lazy(() => import('./pages/ScrumBoardPage'));
+
+// Financial
+const FinancialPage = lazy(() => import('./pages/FinancialPage'));
+
 function App() {
   return (
     <LanguageProvider>
@@ -129,6 +135,12 @@ function App() {
 
                 {/* Calendar */}
                 <Route path="/dashboard/calendar" element={<CalendarPage />} />
+
+                {/* Scrum Board */}
+                <Route path="/dashboard/scrum-board" element={<ScrumBoardPage />} />
+
+                {/* Financial */}
+                <Route path="/dashboard/financial" element={<FinancialPage />} />
 
                 {/* Demo Pages */}
                 <Route path="/dashboard/components" element={<Components />} />
