@@ -30,7 +30,6 @@ const Input = forwardRef(({
 
   // Following the glassmorphic design pattern
   const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
-  const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
   const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const placeholderColor = isDark ? 'placeholder-[rgba(249,250,251,0.55)]' : 'placeholder-[rgba(74,74,74,0.75)]';

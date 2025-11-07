@@ -1,6 +1,5 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { cn } from '../../utils/cn';
 
 /**
  * Fade In on Scroll Animation

@@ -1,4 +1,4 @@
-import { expect, afterEach, vi } from 'vitest';
+import { afterEach, vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
@@ -23,6 +23,7 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // Mock IntersectionObserver
+// eslint-disable-next-line no-undef
 global.IntersectionObserver = class IntersectionObserver {
   constructor() {}
   disconnect() {}
@@ -34,6 +35,7 @@ global.IntersectionObserver = class IntersectionObserver {
 };
 
 // Mock ResizeObserver
+// eslint-disable-next-line no-undef
 global.ResizeObserver = class ResizeObserver {
   constructor() {}
   disconnect() {}
@@ -48,4 +50,5 @@ const localStorageMock = {
   removeItem: vi.fn(),
   clear: vi.fn(),
 };
+// eslint-disable-next-line no-undef
 global.localStorage = localStorageMock;

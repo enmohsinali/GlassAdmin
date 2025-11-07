@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 const LanguageContext = createContext();
 
+// RTL languages list
+const RTL_LANGUAGES = ['ar', 'he', 'fa', 'ur'];
+
 /**
  * Language Context Provider
  * Handles language switching and RTL/LTR direction
@@ -16,12 +19,9 @@ export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(i18n.language || 'en');
   const [direction, setDirection] = useState('ltr');
 
-  // RTL languages list
-  const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
-
   // Update direction when language changes
   useEffect(() => {
-    const isRTL = rtlLanguages.includes(language);
+    const isRTL = RTL_LANGUAGES.includes(language);
     setDirection(isRTL ? 'rtl' : 'ltr');
 
     // Update HTML dir attribute

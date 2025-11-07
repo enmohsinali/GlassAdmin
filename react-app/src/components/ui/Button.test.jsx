@@ -5,7 +5,7 @@ import Button from './Button';
 import { ThemeProvider } from '../../context/ThemeContext';
 
 // Helper to render with theme context
-const renderWithTheme = (ui, { theme = 'light' } = {}) => {
+const renderWithTheme = (ui) => {
   return render(
     <ThemeProvider>
       {ui}

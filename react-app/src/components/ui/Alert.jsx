@@ -47,7 +47,7 @@ const Alert = ({ variant = 'info', title, children, dismissible = false, onClose
     },
   };
 
-  const { icon: Icon, color, bg, border } = variants[variant];
+  const { icon: Icon, color, bg } = variants[variant];
 
   return (
     <div

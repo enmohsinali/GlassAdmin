@@ -244,7 +244,7 @@ const ComponentsDemo = () => {
             <FormWizard
               steps={wizardSteps}
               onComplete={() => alert('Form completed!')}
-              onStepChange={(step) => console.log('Step:', step)}
+              onStepChange={() => {}}
             />
           </GlassCard>
         </SlideIn>

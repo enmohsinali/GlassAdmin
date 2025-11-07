@@ -71,7 +71,6 @@ const Components = () => {
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const mutedColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
   const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
-  const themeBg = isDark ? 'border-theme-dark-bg' : 'border-theme-light-bg';
 
   // Sample data
   const breadcrumbItems = [
@@ -616,7 +615,7 @@ const Components = () => {
             <Card title="Global Search" className="mb-4">
               <GlobalSearch
                 data={searchData}
-                onSelect={(item) => console.log('Selected:', item)}
+                onSelect={() => {}}
                 placeholder="Search for anything..."
                 recentSearches={['Dashboard', 'Users']}
                 trendingSearches={['Analytics', 'Reports']}
@@ -628,7 +627,7 @@ const Components = () => {
               <FormWizard
                 steps={wizardSteps}
                 onComplete={() => alert('Wizard completed!')}
-                onStepChange={(step) => console.log('Step:', step)}
+                onStepChange={() => {}}
               />
             </Card>
           </FadeIn>

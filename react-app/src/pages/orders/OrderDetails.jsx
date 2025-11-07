@@ -38,7 +38,7 @@ const OrderDetails = () => {
       { name: 'Phone Case', sku: 'PC-SLIM-001', quantity: 1, price: 29.99 },
     ],
     subtotal: 359.98,
-    shipping: 10.00,
+    shippingCost: 10.00,
     tax: 36.00,
     total: 405.98,
   };
@@ -149,7 +149,7 @@ const OrderDetails = () => {
             </div>
             <div className="flex justify-between">
               <span className={`text-[15px] ${inactiveColor}`}>Shipping</span>
-              <span className={`text-[15px] ${textColor}`}>${order.shipping.toFixed(2)}</span>
+              <span className={`text-[15px] ${textColor}`}>${order.shippingCost.toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
               <span className={`text-[15px] ${inactiveColor}`}>Tax</span>
