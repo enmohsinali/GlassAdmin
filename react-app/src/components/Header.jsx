@@ -78,7 +78,7 @@ const Header = ({ onMenuClick }) => {
           placeholder="Search"
           onFocus={() => setIsSearchFocused(true)}
           onBlur={() => setIsSearchFocused(false)}
-          className={`search-input w-full h-full border-none ${searchBg} rounded font-poppins text-[15px] font-medium px-5 pl-10 shadow-sm ${textColor} placeholder:${inactiveColor}`}
+          className={`search-input w-full h-full border ${borderColor} ${searchBg} rounded font-poppins text-[15px] font-medium px-5 pl-10 shadow-sm ${textColor} placeholder:${inactiveColor} focus:border-primary-blue focus:ring-1 focus:ring-primary-blue`}
         />
       </div>
 

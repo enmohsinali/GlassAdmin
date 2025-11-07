@@ -16,13 +16,13 @@ const Badge = ({
 
   const variants = {
     default: isDark
-      ? 'bg-glass-dark text-text-dark-primary border-border-glass-dark'
-      : 'bg-glass-light text-text-light-primary border-border-glass-light',
+      ? 'bg-[rgba(146,151,179,0.2)] text-[#f9fafb] border-[rgba(146,151,179,0.3)]'
+      : 'bg-[rgba(0,0,0,0.08)] text-[#1a1a1a] border-[rgba(0,0,0,0.15)]',
     primary: 'bg-primary-blue text-white border-primary-blue',
-    success: 'bg-success text-white border-success',
-    warning: 'bg-warning text-white border-warning',
-    error: 'bg-error text-white border-error',
-    info: 'bg-info text-white border-info',
+    success: 'bg-success text-[#0a0a0a] border-success font-medium',
+    warning: 'bg-warning text-[#0a0a0a] border-warning font-medium',
+    error: 'bg-error text-white border-error font-medium',
+    info: 'bg-info text-white border-info font-medium',
   };
 
   const sizes = {

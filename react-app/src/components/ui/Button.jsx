@@ -5,7 +5,7 @@ import { useTheme } from '../../context/ThemeContext';
  * Button component with glassmorphic styling following Apple design principles
  *
  * @param {Object} props
- * @param {('primary'|'secondary'|'outline'|'ghost')} props.variant - Button variant
+ * @param {('primary'|'secondary'|'outline'|'ghost'|'glass')} props.variant - Button variant
  * @param {('sm'|'md'|'lg')} props.size - Button size
  * @param {boolean} props.disabled - Disabled state
  * @param {boolean} props.loading - Loading state
@@ -40,6 +40,9 @@ const Button = ({
     ghost: isDark
       ? 'bg-transparent text-[#f9fafb] hover:bg-[rgba(146,151,179,0.13)] rounded-[20px]'
       : 'bg-transparent text-[#1a1a1a] hover:bg-[rgba(255,255,255,0.7)] rounded-[20px]',
+    glass: isDark
+      ? 'bg-[rgba(146,151,179,0.13)] text-[#f9fafb] border border-[rgba(146,151,179,0.3)] hover:bg-[rgba(146,151,179,0.2)] rounded-[20px] backdrop-blur-[20px]'
+      : 'bg-[rgba(255,255,255,0.7)] text-[#1a1a1a] border border-[rgba(0,0,0,0.1)] hover:bg-[rgba(255,255,255,0.9)] rounded-[20px] backdrop-blur-[20px]',
   };
 
   // Sizes following Apple design principles

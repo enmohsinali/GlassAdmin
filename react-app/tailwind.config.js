@@ -20,6 +20,11 @@ export default {
         'primary-red': '#ff705c',
         'inactive-dark': 'rgba(249, 250, 251, 0.55)',
         'inactive-light': 'rgba(60, 58, 58, 0.55)',
+        // Badge colors with proper contrast
+        'success': '#3bf083',
+        'error': '#ff705c',
+        'warning': '#fbbf24',
+        'info': '#3a6df0',
       },
       backdropBlur: {
         'glass': '20px',
