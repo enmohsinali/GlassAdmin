@@ -46,53 +46,92 @@ function App() {
     <LanguageProvider>
       <BackgroundProvider>
         <ThemeProvider>
+          {/* SVG Filter for Liquid Glass Effect */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="0"
+            height="0"
+            style={{ position: 'absolute', overflow: 'hidden' }}
+            className="hidden"
+          >
+            <defs>
+              <filter
+                id="glass-distortion"
+                x="0%"
+                y="0%"
+                width="100%"
+                height="100%"
+              >
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.008 0.008"
+                  numOctaves="2"
+                  seed="92"
+                  result="noise"
+                />
+                <feGaussianBlur
+                  in="noise"
+                  stdDeviation="2"
+                  result="blurred"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="blurred"
+                  scale="77"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                />
+              </filter>
+            </defs>
+          </svg>
+
           {/* Dynamic Background - Customizable via Settings */}
           <DynamicBackground />
 
           <Router>
-        <Suspense fallback={<FullPageLoader message="Loading page..." />}>
-          <Routes>
-            {/* Auth Routes */}
-            <Route path="/" element={<MainPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+            <Suspense fallback={<FullPageLoader message="Loading page..." />}>
+              <Routes>
+                {/* Auth Routes */}
+                <Route path="/" element={<MainPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
 
-            {/* Dashboard Routes */}
-            <Route path="/dashboard/analytics" element={<AnalyticsDashboardPage />} />
-            <Route path="/dashboard/ecommerce" element={<EcommerceDashboardPage />} />
+                {/* Dashboard Routes */}
+                <Route path="/dashboard/analytics" element={<AnalyticsDashboardPage />} />
+                <Route path="/dashboard/ecommerce" element={<EcommerceDashboardPage />} />
 
-            {/* User Management Routes */}
-            <Route path="/dashboard/users" element={<UserListPage />} />
-            <Route path="/dashboard/users/:id" element={<UserDetails />} />
-            <Route path="/dashboard/users/:id/edit" element={<UserEdit />} />
+                {/* User Management Routes */}
+                <Route path="/dashboard/users" element={<UserListPage />} />
+                <Route path="/dashboard/users/:id" element={<UserDetails />} />
+                <Route path="/dashboard/users/:id/edit" element={<UserEdit />} />
 
-            {/* Product Management Routes */}
-            <Route path="/dashboard/products" element={<ProductListPage />} />
-            <Route path="/dashboard/products/new" element={<ProductForm />} />
-            <Route path="/dashboard/products/:id" element={<ProductDetails />} />
-            <Route path="/dashboard/products/:id/edit" element={<ProductForm />} />
+                {/* Product Management Routes */}
+                <Route path="/dashboard/products" element={<ProductListPage />} />
+                <Route path="/dashboard/products/new" element={<ProductForm />} />
+                <Route path="/dashboard/products/:id" element={<ProductDetails />} />
+                <Route path="/dashboard/products/:id/edit" element={<ProductForm />} />
 
-            {/* Order Routes */}
-            <Route path="/dashboard/orders" element={<Orders />} />
-            <Route path="/dashboard/orders/:id" element={<OrderDetails />} />
+                {/* Order Routes */}
+                <Route path="/dashboard/orders" element={<Orders />} />
+                <Route path="/dashboard/orders/:id" element={<OrderDetails />} />
 
-            {/* Invoice Routes */}
-            <Route path="/dashboard/invoices" element={<Invoices />} />
-            <Route path="/dashboard/invoices/:id" element={<InvoiceDetails />} />
+                {/* Invoice Routes */}
+                <Route path="/dashboard/invoices" element={<Invoices />} />
+                <Route path="/dashboard/invoices/:id" element={<InvoiceDetails />} />
 
-            {/* Settings */}
-            <Route path="/dashboard/settings" element={<Settings />} />
+                {/* Settings */}
+                <Route path="/dashboard/settings" element={<Settings />} />
 
-            {/* Demo Pages */}
-            <Route path="/dashboard/components" element={<Components />} />
-            <Route path="/dashboard/components-demo" element={<ComponentsDemo />} />
+                {/* Demo Pages */}
+                <Route path="/dashboard/components" element={<Components />} />
+                <Route path="/dashboard/components-demo" element={<ComponentsDemo />} />
 
-            {/* 404 */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+                {/* 404 */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </Router>
         </ThemeProvider>
       </BackgroundProvider>
