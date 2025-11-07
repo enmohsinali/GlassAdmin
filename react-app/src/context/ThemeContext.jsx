@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useBackground } from './BackgroundContext';
 
 const ThemeContext = createContext();
 
@@ -12,18 +11,48 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const backgroundContext = useBackground();
-  const defaultTheme = backgroundContext?.settings?.defaultTheme || 'dark';
-  const [isDark, setIsDark] = useState(defaultTheme === 'dark');
-
-  // Sync with background context default theme
-  useEffect(() => {
-    if (defaultTheme === 'dark' && !isDark) {
-      setIsDark(true);
-    } else if (defaultTheme === 'light' && isDark) {
-      setIsDark(false);
+  const [isDark, setIsDark] = useState(() => {
+    // Check localStorage for saved theme preference
+    const saved = localStorage.getItem('backgroundSettings');
+    if (saved) {
+      try {
+        const settings = JSON.parse(saved);
+        return settings.defaultTheme === 'dark';
+      } catch {
+        return true; // default to dark
+      }
     }
-  }, [defaultTheme]);
+    return true; // default to dark
+  });
+
+  // Listen for changes to background settings in localStorage
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem('backgroundSettings');
+      if (saved) {
+        try {
+          const settings = JSON.parse(saved);
+          const shouldBeDark = settings.defaultTheme === 'dark';
+          if (shouldBeDark !== isDark) {
+            setIsDark(shouldBeDark);
+          }
+        } catch {
+          // ignore parse errors
+        }
+      }
+    };
+
+    // Listen for storage events from other tabs/windows
+    window.addEventListener('storage', handleStorageChange);
+
+    // Also check periodically for changes in the same tab
+    const interval = setInterval(handleStorageChange, 100);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark(prev => !prev);
