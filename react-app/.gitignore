@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Pa11y accessibility testing output
+pa11y-results.json
+pa11y-report.json
+pa11y-report.html
+pa11y-screenshots/
+.pa11y-screenshots/
