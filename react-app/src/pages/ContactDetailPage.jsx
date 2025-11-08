@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import PageWrapper from '../components/PageWrapper';
-import { GlassCard, Button, Badge, Avatar, Input, Textarea, Modal } from '../components/ui';
+import { Card, Button, Badge, Avatar, Input, Textarea, Modal } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import {
@@ -206,7 +206,7 @@ const ContactDetailPage = () => {
         </Button>
 
         {/* Contact Header */}
-        <GlassCard>
+        <Card>
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
             <div className="flex items-start gap-4">
               <Avatar src={contact.avatar} alt={contact.name} size="xl" />
@@ -292,11 +292,11 @@ const ContactDetailPage = () => {
               </div>
             </div>
           </div>
-        </GlassCard>
+        </Card>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-primary/10">
                 <DollarSign className="w-6 h-6 text-primary" />
@@ -308,9 +308,9 @@ const ContactDetailPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-success/10">
                 <Briefcase className="w-6 h-6 text-success" />
@@ -320,9 +320,9 @@ const ContactDetailPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{contact.deals}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-warning/10">
                 <Clock className="w-6 h-6 text-warning" />
@@ -334,7 +334,7 @@ const ContactDetailPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Tabs */}
@@ -355,7 +355,7 @@ const ContactDetailPage = () => {
         {activeTab === 'overview' && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Recent Activity */}
-            <GlassCard title="Recent Activity">
+            <Card title="Recent Activity">
               <div className="space-y-4">
                 {activities.slice(0, 3).map((activity) => {
                   const Icon = activity.icon;
@@ -383,10 +383,10 @@ const ContactDetailPage = () => {
               <Button variant="outline" className="w-full mt-4">
                 View All Activity
               </Button>
-            </GlassCard>
+            </Card>
 
             {/* Active Deals */}
-            <GlassCard title="Active Deals">
+            <Card title="Active Deals">
               <div className="space-y-3">
                 {deals
                   .filter((d) => d.status === 'active')
@@ -418,10 +418,10 @@ const ContactDetailPage = () => {
               <Button variant="outline" className="w-full mt-4">
                 View All Deals
               </Button>
-            </GlassCard>
+            </Card>
 
             {/* Open Tasks */}
-            <GlassCard title="Open Tasks">
+            <Card title="Open Tasks">
               <div className="space-y-3">
                 {tasks
                   .filter((t) => !t.completed)
@@ -449,10 +449,10 @@ const ContactDetailPage = () => {
               >
                 Add Task
               </Button>
-            </GlassCard>
+            </Card>
 
             {/* Recent Notes */}
-            <GlassCard title="Recent Notes">
+            <Card title="Recent Notes">
               <div className="space-y-4">
                 {notes.map((note) => (
                   <div key={note.id} className="p-3 rounded-lg bg-[rgba(249,250,251,0.03)] border border-[rgba(249,250,251,0.1)]">
@@ -471,12 +471,12 @@ const ContactDetailPage = () => {
               >
                 Add Note
               </Button>
-            </GlassCard>
+            </Card>
           </div>
         )}
 
         {activeTab === 'activity' && (
-          <GlassCard title="Activity Timeline">
+          <Card title="Activity Timeline">
             <div className="space-y-4">
               {activities.map((activity, index) => {
                 const Icon = activity.icon;
@@ -506,11 +506,11 @@ const ContactDetailPage = () => {
                 );
               })}
             </div>
-          </GlassCard>
+          </Card>
         )}
 
         {activeTab === 'deals' && (
-          <GlassCard title="All Deals">
+          <Card title="All Deals">
             <div className="space-y-3">
               {deals.map((deal) => (
                 <div
@@ -551,11 +551,11 @@ const ContactDetailPage = () => {
             >
               Create New Deal
             </Button>
-          </GlassCard>
+          </Card>
         )}
 
         {activeTab === 'tasks' && (
-          <GlassCard title="All Tasks">
+          <Card title="All Tasks">
             <div className="space-y-3">
               {tasks.map((task) => (
                 <div
@@ -593,11 +593,11 @@ const ContactDetailPage = () => {
             >
               Add New Task
             </Button>
-          </GlassCard>
+          </Card>
         )}
 
         {activeTab === 'notes' && (
-          <GlassCard title="All Notes">
+          <Card title="All Notes">
             <div className="space-y-4">
               {notes.map((note) => (
                 <div
@@ -621,7 +621,7 @@ const ContactDetailPage = () => {
                 Add Note
               </Button>
             </div>
-          </GlassCard>
+          </Card>
         )}
       </div>
     </PageWrapper>

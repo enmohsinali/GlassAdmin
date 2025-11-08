@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { GlassCard, Input, Button, Badge, Avatar, Modal } from '../components/ui';
+import { Card, Input, Button, Badge, Avatar, Modal } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import {
@@ -216,7 +216,7 @@ const ContactsPage = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-primary/10">
                 <Users className="w-6 h-6 text-primary" />
@@ -226,9 +226,9 @@ const ContactsPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{contacts.length}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-success/10">
                 <TrendingUp className="w-6 h-6 text-success" />
@@ -240,9 +240,9 @@ const ContactsPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-warning/10">
                 <Clock className="w-6 h-6 text-warning" />
@@ -252,9 +252,9 @@ const ContactsPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>12</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-purple/10">
                 <CheckCircle className="w-6 h-6 text-purple" />
@@ -266,11 +266,11 @@ const ContactsPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Search and Filters */}
-        <GlassCard>
+        <Card>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <Input
@@ -302,13 +302,13 @@ const ContactsPage = () => {
               </div>
             </div>
           </div>
-        </GlassCard>
+        </Card>
 
         {/* Contacts Grid/List */}
         {viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredContacts.map((contact) => (
-              <GlassCard key={contact.id} className="hover:scale-[1.02] transition-all">
+              <Card key={contact.id} className="hover:scale-[1.02] transition-all">
                 <div className="flex flex-col h-full">
                   {/* Contact Header */}
                   <div className="flex items-start justify-between mb-4">
@@ -388,11 +388,11 @@ const ContactsPage = () => {
                     </Button>
                   </div>
                 </div>
-              </GlassCard>
+              </Card>
             ))}
           </div>
         ) : (
-          <GlassCard>
+          <Card>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -475,7 +475,7 @@ const ContactsPage = () => {
                 </tbody>
               </table>
             </div>
-          </GlassCard>
+          </Card>
         )}
 
         {/* New Contact Modal */}

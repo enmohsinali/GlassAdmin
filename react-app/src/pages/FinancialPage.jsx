@@ -17,7 +17,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import PageWrapper from '../components/PageWrapper';
-import { GlassCard, Select, Badge } from '../components/ui';
+import { Card, Select, Badge } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import {
@@ -118,7 +118,7 @@ const FinancialPage = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <GlassCard>
+          <Card>
             <div className="flex items-start justify-between mb-3">
               <div className="p-3 rounded-full bg-primary/10">
                 <DollarSign className="w-6 h-6 text-primary" />
@@ -130,9 +130,9 @@ const FinancialPage = () => {
             </div>
             <p className={cn('text-[13px] mb-1', mutedColor)}>Total Revenue</p>
             <p className={cn('text-[24px] font-bold', textColor)}>$328,000</p>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-start justify-between mb-3">
               <div className="p-3 rounded-full bg-success/10">
                 <TrendingUp className="w-6 h-6 text-success" />
@@ -144,9 +144,9 @@ const FinancialPage = () => {
             </div>
             <p className={cn('text-[13px] mb-1', mutedColor)}>Profit</p>
             <p className={cn('text-[24px] font-bold', textColor)}>$114,000</p>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-start justify-between mb-3">
               <div className="p-3 rounded-full bg-danger/10">
                 <CreditCard className="w-6 h-6 text-danger" />
@@ -158,9 +158,9 @@ const FinancialPage = () => {
             </div>
             <p className={cn('text-[13px] mb-1', mutedColor)}>Expenses</p>
             <p className={cn('text-[24px] font-bold', textColor)}>$214,000</p>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-start justify-between mb-3">
               <div className="p-3 rounded-full bg-warning/10">
                 <Users className="w-6 h-6 text-warning" />
@@ -172,13 +172,13 @@ const FinancialPage = () => {
             </div>
             <p className={cn('text-[13px] mb-1', mutedColor)}>Customers</p>
             <p className={cn('text-[24px] font-bold', textColor)}>2,450</p>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Revenue & Profit Chart */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
-            <GlassCard title="Revenue & Profit">
+            <Card title="Revenue & Profit">
               <div className="h-[350px] mt-4">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={revenueData}>
@@ -216,11 +216,11 @@ const FinancialPage = () => {
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
-            </GlassCard>
+            </Card>
           </div>
 
           {/* Revenue by Category */}
-          <GlassCard title="Revenue by Category">
+          <Card title="Revenue by Category">
             <div className="h-[350px] mt-4">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -268,13 +268,13 @@ const FinancialPage = () => {
                 ))}
               </div>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Weekly Sales & Customer Growth */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Weekly Sales */}
-          <GlassCard title="Weekly Sales">
+          <Card title="Weekly Sales">
             <div className="h-[300px] mt-4">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={salesData}>
@@ -302,10 +302,10 @@ const FinancialPage = () => {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-          </GlassCard>
+          </Card>
 
           {/* Customer Growth */}
-          <GlassCard title="Customer Growth">
+          <Card title="Customer Growth">
             <div className="h-[300px] mt-4">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={customerGrowthData}>
@@ -340,11 +340,11 @@ const FinancialPage = () => {
                 </LineChart>
               </ResponsiveContainer>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Recent Transactions */}
-        <GlassCard title="Recent Transactions">
+        <Card title="Recent Transactions">
           <div className="mt-4">
             <div className="space-y-3">
               {[
@@ -422,7 +422,7 @@ const FinancialPage = () => {
               ))}
             </div>
           </div>
-        </GlassCard>
+        </Card>
       </div>
     </PageWrapper>
   );

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { GlassCard, Input, Button, Badge, Avatar } from '../components/ui';
+import { Card, Input, Button, Badge, Avatar } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import {
@@ -305,7 +305,7 @@ const MessengerPage = () => {
   return (
     <PageWrapper title="Messenger">
       <div className="h-[calc(100vh-140px)] p-6">
-        <GlassCard className="h-full p-0 overflow-hidden">
+        <Card className="h-full p-0 overflow-hidden">
           <div className="flex h-full">
             {/* Left Sidebar - Chat List */}
             <div className={cn('w-[350px] border-r', borderColor, 'flex flex-col')}>
@@ -549,7 +549,7 @@ const MessengerPage = () => {
               )}
             </div>
           </div>
-        </GlassCard>
+        </Card>
       </div>
     </PageWrapper>
   );

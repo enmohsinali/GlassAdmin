@@ -2,7 +2,7 @@ import { useState } from 'react';
 import moment from 'moment';
 import PageWrapper from '../components/PageWrapper';
 import Calendar from '../components/Calendar';
-import { GlassCard, Modal, Input, Textarea, Button, Badge } from '../components/ui';
+import { Card, Modal, Input, Textarea, Button, Badge } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import { Plus, Clock, MapPin, Users } from 'lucide-react';
@@ -133,7 +133,7 @@ const CalendarPage = () => {
 
         {/* Calendar Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-primary/10">
                 <Clock className="w-6 h-6 text-primary" />
@@ -143,9 +143,9 @@ const CalendarPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{events.length}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-success/10">
                 <MapPin className="w-6 h-6 text-success" />
@@ -157,9 +157,9 @@ const CalendarPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-danger/10">
                 <Users className="w-6 h-6 text-danger" />
@@ -171,9 +171,9 @@ const CalendarPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-warning/10">
                 <Clock className="w-6 h-6 text-warning" />
@@ -185,11 +185,11 @@ const CalendarPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Calendar */}
-        <GlassCard>
+        <Card>
           <Calendar
             events={events}
             onSelectEvent={handleSelectEvent}
@@ -197,7 +197,7 @@ const CalendarPage = () => {
             defaultView="month"
             defaultDate={new Date()}
           />
-        </GlassCard>
+        </Card>
 
         {/* Event Details Modal */}
         <Modal

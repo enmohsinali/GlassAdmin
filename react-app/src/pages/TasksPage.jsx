@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { GlassCard, Button, Badge, Avatar, Input, Textarea, Modal, Select } from '../components/ui';
+import { Card, Button, Badge, Avatar, Input, Textarea, Modal, Select } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import {
@@ -273,7 +273,7 @@ const TasksPage = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-primary/10">
                 <Clock className="w-6 h-6 text-primary" />
@@ -283,9 +283,9 @@ const TasksPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{stats.pending}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-success/10">
                 <CheckCircle className="w-6 h-6 text-success" />
@@ -295,9 +295,9 @@ const TasksPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{stats.completed}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-danger/10">
                 <AlertCircle className="w-6 h-6 text-danger" />
@@ -307,9 +307,9 @@ const TasksPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{stats.overdue}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-warning/10">
                 <Calendar className="w-6 h-6 text-warning" />
@@ -319,11 +319,11 @@ const TasksPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{stats.dueToday}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Filters */}
-        <GlassCard>
+        <Card>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <Input
@@ -386,14 +386,14 @@ const TasksPage = () => {
               </Button>
             </div>
           </div>
-        </GlassCard>
+        </Card>
 
         {/* Tasks List */}
         <div className="space-y-3">
           {filteredTasks.map((task) => {
             const StatusIcon = statusIcons[task.status];
             return (
-              <GlassCard key={task.id} className="hover:scale-[1.01] transition-all">
+              <Card key={task.id} className="hover:scale-[1.01] transition-all">
                 <div className="flex items-start gap-4">
                   {/* Checkbox */}
                   <button
@@ -484,12 +484,12 @@ const TasksPage = () => {
                     </div>
                   </div>
                 </div>
-              </GlassCard>
+              </Card>
             );
           })}
 
           {filteredTasks.length === 0 && (
-            <GlassCard>
+            <Card>
               <div className="text-center py-8">
                 <Clock className={cn('w-12 h-12 mx-auto mb-3', mutedColor)} />
                 <p className={cn('text-[16px]', textColor)}>No tasks found</p>
@@ -497,7 +497,7 @@ const TasksPage = () => {
                   Try adjusting your filters or create a new task
                 </p>
               </div>
-            </GlassCard>
+            </Card>
           )}
         </div>
 

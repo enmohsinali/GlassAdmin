@@ -15,7 +15,7 @@ import {
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import PageWrapper from '../components/PageWrapper';
-import { GlassCard, Button, Badge, Avatar, Modal, Input, Textarea, Select } from '../components/ui';
+import { Card, Button, Badge, Avatar, Modal, Input, Textarea, Select } from '../components/ui';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../utils/cn';
 import { Plus, List, LayoutGrid, Calendar, User, AlertCircle, CheckCircle } from 'lucide-react';
@@ -151,7 +151,7 @@ const ListView = ({ tasks, onTaskClick }) => {
   };
 
   return (
-    <GlassCard>
+    <Card>
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -227,7 +227,7 @@ const ListView = ({ tasks, onTaskClick }) => {
           </tbody>
         </table>
       </div>
-    </GlassCard>
+    </Card>
   );
 };
 
@@ -405,7 +405,7 @@ const ScrumBoardPage = () => {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-primary/10">
                 <AlertCircle className="w-6 h-6 text-primary" />
@@ -415,9 +415,9 @@ const ScrumBoardPage = () => {
                 <p className={cn('text-[20px] font-semibold', textColor)}>{tasks.length}</p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-warning/10">
                 <AlertCircle className="w-6 h-6 text-warning" />
@@ -429,9 +429,9 @@ const ScrumBoardPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-purple/10">
                 <AlertCircle className="w-6 h-6 text-purple" />
@@ -443,9 +443,9 @@ const ScrumBoardPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
 
-          <GlassCard>
+          <Card>
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-full bg-success/10">
                 <CheckCircle className="w-6 h-6 text-success" />
@@ -457,7 +457,7 @@ const ScrumBoardPage = () => {
                 </p>
               </div>
             </div>
-          </GlassCard>
+          </Card>
         </div>
 
         {/* Board or List View */}
