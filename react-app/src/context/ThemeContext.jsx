@@ -55,7 +55,31 @@ export const ThemeProvider = ({ children }) => {
   }, [isDark]);
 
   const toggleTheme = () => {
-    setIsDark(prev => !prev);
+    setIsDark(prev => {
+      const newIsDark = !prev;
+
+      // Update localStorage to persist theme preference
+      const saved = localStorage.getItem('backgroundSettings');
+      if (saved) {
+        try {
+          const settings = JSON.parse(saved);
+          settings.defaultTheme = newIsDark ? 'dark' : 'light';
+          localStorage.setItem('backgroundSettings', JSON.stringify(settings));
+        } catch (error) {
+          // If parsing fails, create new settings object
+          localStorage.setItem('backgroundSettings', JSON.stringify({
+            defaultTheme: newIsDark ? 'dark' : 'light'
+          }));
+        }
+      } else {
+        // Create new settings object if none exists
+        localStorage.setItem('backgroundSettings', JSON.stringify({
+          defaultTheme: newIsDark ? 'dark' : 'light'
+        }));
+      }
+
+      return newIsDark;
+    });
   };
 
   const value = {
