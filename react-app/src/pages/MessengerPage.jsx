@@ -331,7 +331,7 @@ const MessengerPage = () => {
                       'flex items-center gap-3 p-4 cursor-pointer transition-all border-b',
                       borderColor,
                       selectedChat === chat.id
-                        ? 'bg-[rgba(58,109,240,0.1)]'
+                        ? 'bg-primary/10'
                         : hoverBg
                     )}
                   >
@@ -339,7 +339,7 @@ const MessengerPage = () => {
                     <div className="relative">
                       <Avatar src={chat.avatar} alt={chat.name} size="lg" />
                       {chat.isOnline && (
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#3bf083] border-2 border-white rounded-full"></div>
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-success border-2 border-white rounded-full"></div>
                       )}
                     </div>
 
@@ -362,13 +362,13 @@ const MessengerPage = () => {
                           )}
                         >
                           {chat.isTyping ? (
-                            <span className="italic text-[#3a6df0]">Typing...</span>
+                            <span className="italic text-primary">Typing...</span>
                           ) : (
                             chat.lastMessage
                           )}
                         </p>
                         {chat.unreadCount > 0 && (
-                          <Badge className="bg-[#3a6df0] text-white text-[11px] min-w-[20px] h-[20px] flex items-center justify-center rounded-full">
+                          <Badge className="bg-primary text-white text-[11px] min-w-[20px] h-[20px] flex items-center justify-center rounded-full">
                             {chat.unreadCount}
                           </Badge>
                         )}
@@ -389,7 +389,7 @@ const MessengerPage = () => {
                       <div className="relative">
                         <Avatar src={selectedChatData.avatar} alt={selectedChatData.name} size="md" />
                         {selectedChatData.isOnline && (
-                          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#3bf083] border-2 border-white rounded-full"></div>
+                          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-success border-2 border-white rounded-full"></div>
                         )}
                       </div>
                       <div>
@@ -440,7 +440,7 @@ const MessengerPage = () => {
                             className={cn(
                               'max-w-[70%] rounded-[18px] px-4 py-2.5',
                               isMe
-                                ? 'bg-[#3a6df0] text-white'
+                                ? 'bg-primary text-white'
                                 : isDark
                                 ? 'bg-[rgba(146,151,179,0.2)]'
                                 : 'bg-[rgba(0,0,0,0.05)]'
@@ -514,7 +514,7 @@ const MessengerPage = () => {
                             isDark
                               ? 'bg-[rgba(146,151,179,0.13)] border border-[rgba(249,250,251,0.1)] text-[#f9fafb] placeholder:text-[rgba(249,250,251,0.5)]'
                               : 'bg-[rgba(255,255,255,0.7)] border border-[rgba(0,0,0,0.1)] text-[#1a1a1a] placeholder:text-[rgba(0,0,0,0.4)]',
-                            'focus:border-[#3a6df0]'
+                            'focus:border-primary'
                           )}
                           style={{ minHeight: '44px', maxHeight: '120px' }}
                         />

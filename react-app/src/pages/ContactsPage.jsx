@@ -174,16 +174,16 @@ const ContactsPage = () => {
   };
 
   const statusColors = {
-    active: 'bg-[#3bf083] text-white',
+    active: 'bg-success text-white',
     inactive: 'bg-[rgba(249,250,251,0.2)] text-[rgba(249,250,251,0.7)]',
   };
 
   const tagColors = {
-    VIP: 'bg-[#9333ea] text-white',
-    Partner: 'bg-[#3a6df0] text-white',
-    Lead: 'bg-[#ffbd2e] text-white',
-    Customer: 'bg-[#3bf083] text-white',
-    Enterprise: 'bg-[#ff705c] text-white',
+    VIP: 'bg-purple text-white',
+    Partner: 'bg-primary text-white',
+    Lead: 'bg-warning text-white',
+    Customer: 'bg-success text-white',
+    Enterprise: 'bg-danger text-white',
   };
 
   return (
@@ -218,8 +218,8 @@ const ContactsPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(58,109,240,0.1)]">
-                <Users className="w-6 h-6 text-[#3a6df0]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <Users className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Total Contacts</p>
@@ -230,8 +230,8 @@ const ContactsPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(59,240,131,0.1)]">
-                <TrendingUp className="w-6 h-6 text-[#3bf083]" />
+              <div className="p-3 rounded-full bg-success/10">
+                <TrendingUp className="w-6 h-6 text-success" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Active Deals</p>
@@ -244,8 +244,8 @@ const ContactsPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,189,46,0.1)]">
-                <Clock className="w-6 h-6 text-[#ffbd2e]" />
+              <div className="p-3 rounded-full bg-warning/10">
+                <Clock className="w-6 h-6 text-warning" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Tasks Due</p>
@@ -256,8 +256,8 @@ const ContactsPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(147,51,234,0.1)]">
-                <CheckCircle className="w-6 h-6 text-[#9333ea]" />
+              <div className="p-3 rounded-full bg-purple/10">
+                <CheckCircle className="w-6 h-6 text-purple" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Active Contacts</p>

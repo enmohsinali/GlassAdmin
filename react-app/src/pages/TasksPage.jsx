@@ -138,9 +138,9 @@ const TasksPage = () => {
   });
 
   const priorityColors = {
-    high: 'bg-[#ff705c] text-white',
-    medium: 'bg-[#ffbd2e] text-white',
-    low: 'bg-[#3a6df0] text-white',
+    high: 'bg-danger text-white',
+    medium: 'bg-warning text-white',
+    low: 'bg-primary text-white',
   };
 
   const statusIcons = {
@@ -150,9 +150,9 @@ const TasksPage = () => {
   };
 
   const statusColors = {
-    pending: '#3a6df0',
-    completed: '#3bf083',
-    overdue: '#ff705c',
+    pending: 'rgb(var(--color-primary))',
+    completed: 'rgb(var(--color-success))',
+    overdue: 'rgb(var(--color-danger))',
   };
 
   const filterTasks = () => {
@@ -275,8 +275,8 @@ const TasksPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(58,109,240,0.1)]">
-                <Clock className="w-6 h-6 text-[#3a6df0]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <Clock className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Pending</p>
@@ -287,8 +287,8 @@ const TasksPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(59,240,131,0.1)]">
-                <CheckCircle className="w-6 h-6 text-[#3bf083]" />
+              <div className="p-3 rounded-full bg-success/10">
+                <CheckCircle className="w-6 h-6 text-success" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Completed</p>
@@ -299,8 +299,8 @@ const TasksPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,112,92,0.1)]">
-                <AlertCircle className="w-6 h-6 text-[#ff705c]" />
+              <div className="p-3 rounded-full bg-danger/10">
+                <AlertCircle className="w-6 h-6 text-danger" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Overdue</p>
@@ -311,8 +311,8 @@ const TasksPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,189,46,0.1)]">
-                <Calendar className="w-6 h-6 text-[#ffbd2e]" />
+              <div className="p-3 rounded-full bg-warning/10">
+                <Calendar className="w-6 h-6 text-warning" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Due Today</p>
@@ -401,7 +401,7 @@ const TasksPage = () => {
                     className={cn(
                       'w-6 h-6 rounded-full border-2 flex items-center justify-center mt-1 transition-all',
                       task.status === 'completed'
-                        ? 'bg-[#3bf083] border-[#3bf083]'
+                        ? 'bg-success border-success'
                         : 'border-[rgba(249,250,251,0.3)]'
                     )}
                   >
@@ -475,7 +475,7 @@ const TasksPage = () => {
                         {task.tags.map((tag, index) => (
                           <Badge
                             key={index}
-                            className="bg-[rgba(58,109,240,0.2)] text-[#3a6df0]"
+                            className="bg-primary/20 text-primary"
                           >
                             {tag}
                           </Badge>
