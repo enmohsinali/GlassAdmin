@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PageWrapper from '../components/PageWrapper';
 import {
   Button,
@@ -67,10 +67,19 @@ const Components = () => {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [progressValue, setProgressValue] = useState(60);
+  const [notification, setNotification] = useState(null);
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const mutedColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
   const bgColor = isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]';
+
+  // Auto-dismiss notification after 3 seconds
+  useEffect(() => {
+    if (notification) {
+      const timer = setTimeout(() => setNotification(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [notification]);
 
   // Sample data
   const breadcrumbItems = [
@@ -118,6 +127,15 @@ const Components = () => {
   return (
     <PageWrapper title="Components Showcase">
       <div className="p-6 space-y-8">
+        {/* Notification Display - Accessible Alternative to alert() */}
+        {notification && (
+          <div className="fixed top-4 right-4 z-50 max-w-md" role="alert" aria-live="polite">
+            <Alert type="success" title={notification.title}>
+              {notification.message}
+            </Alert>
+          </div>
+        )}
+
         {/* Header */}
         <FadeIn>
           <div className="mb-8">
@@ -138,10 +156,11 @@ const Components = () => {
                 <a
                   key={section}
                   href={`#${section.toLowerCase().replace(' ', '-')}`}
+                  aria-label={`Navigate to ${section} section`}
                   className={cn(
                     'p-3 rounded-[14px] text-center transition-all ease-[0.3s]',
                     bgColor,
-                    'hover:bg-[rgba(58,109,240,0.1)]',
+                    'hover:bg-primary/10',
                     textColor
                   )}
                 >
@@ -418,7 +437,15 @@ const Components = () => {
                 <Tag color="green">Green</Tag>
                 <Tag color="red">Red</Tag>
                 <Tag color="yellow">Yellow</Tag>
-                <Tag removable onRemove={() => alert('Tag removed!')}>
+                <Tag
+                  removable
+                  onRemove={() =>
+                    setNotification({
+                      title: 'Success',
+                      message: 'Tag removed successfully!',
+                    })
+                  }
+                >
                   Removable
                 </Tag>
               </div>
@@ -629,7 +656,12 @@ const Components = () => {
             <Card title="Form Wizard">
               <FormWizard
                 steps={wizardSteps}
-                onComplete={() => alert('Wizard completed!')}
+                onComplete={() =>
+                  setNotification({
+                    title: 'Success',
+                    message: 'Form wizard completed successfully!',
+                  })
+                }
                 onStepChange={() => {}}
               />
             </Card>
