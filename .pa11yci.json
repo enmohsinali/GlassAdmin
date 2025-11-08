@@ -1,0 +1,76 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 1000,
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage"
+      ]
+    },
+    "runners": [
+      "axe",
+      "htmlcs"
+    ],
+    "includeNotices": false,
+    "includeWarnings": true,
+    "hideElements": "iframe, video",
+    "screenCapture": "./pa11y-screenshots/{{url}}.png",
+    "reporters": [
+      "cli",
+      "json",
+      "html"
+    ]
+  },
+  "urls": [
+    {
+      "url": "http://localhost:5173/",
+      "screenCapture": "./pa11y-screenshots/home.png",
+      "actions": [
+        "wait for element body to be visible"
+      ]
+    },
+    {
+      "url": "http://localhost:5173/components",
+      "screenCapture": "./pa11y-screenshots/components.png",
+      "actions": [
+        "wait for element h1 to be visible",
+        "wait for 2000"
+      ]
+    },
+    {
+      "url": "http://localhost:5173/messenger",
+      "screenCapture": "./pa11y-screenshots/messenger.png"
+    },
+    {
+      "url": "http://localhost:5173/tasks",
+      "screenCapture": "./pa11y-screenshots/tasks.png"
+    },
+    {
+      "url": "http://localhost:5173/contacts",
+      "screenCapture": "./pa11y-screenshots/contacts.png"
+    },
+    {
+      "url": "http://localhost:5173/calendar",
+      "screenCapture": "./pa11y-screenshots/calendar.png"
+    },
+    {
+      "url": "http://localhost:5173/scrumboard",
+      "screenCapture": "./pa11y-screenshots/scrumboard.png"
+    },
+    {
+      "url": "http://localhost:5173/financial",
+      "screenCapture": "./pa11y-screenshots/financial.png"
+    },
+    {
+      "url": "http://localhost:5173/dashboard/analytics",
+      "screenCapture": "./pa11y-screenshots/dashboard-analytics.png"
+    },
+    {
+      "url": "http://localhost:5173/dashboard/ecommerce",
+      "screenCapture": "./pa11y-screenshots/dashboard-ecommerce.png"
+    }
+  ]
+}
