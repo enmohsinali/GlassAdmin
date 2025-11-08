@@ -193,6 +193,16 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
             </svg>
             Tasks
           </Link>
+          <Link
+            to="/dashboard/messenger"
+            onClick={onClose}
+            className={`flex items-center no-underline ${isActive('/dashboard/messenger') ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+          >
+            <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Messenger
+          </Link>
         </div>
       </div>
 

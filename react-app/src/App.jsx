@@ -55,6 +55,9 @@ const ContactsPage = lazy(() => import('./pages/ContactsPage'));
 const ContactDetailPage = lazy(() => import('./pages/ContactDetailPage'));
 const TasksPage = lazy(() => import('./pages/TasksPage'));
 
+// Messenger
+const MessengerPage = lazy(() => import('./pages/MessengerPage'));
+
 function App() {
   return (
     <LanguageProvider>
@@ -151,6 +154,9 @@ function App() {
                 <Route path="/dashboard/contacts" element={<ContactsPage />} />
                 <Route path="/dashboard/contacts/:id" element={<ContactDetailPage />} />
                 <Route path="/dashboard/tasks" element={<TasksPage />} />
+
+                {/* Messenger */}
+                <Route path="/dashboard/messenger" element={<MessengerPage />} />
 
                 {/* Demo Pages */}
                 <Route path="/dashboard/components" element={<Components />} />
