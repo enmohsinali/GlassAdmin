@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = ({ isMobileOpen, onClose }) => {
   const { isDark } = useTheme();
   const location = useLocation();
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
@@ -162,6 +164,63 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
             </svg>
             Financial
           </Link>
+        </div>
+      </div>
+
+      {/* User Section */}
+      <div className="side-wrapper mt-5">
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>User</div>
+        <div className="side-menu flex flex-col whitespace-nowrap">
+          {/* Profile Dropdown */}
+          <div>
+            <button
+              onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+              className={`w-full flex items-center justify-between no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+            >
+              <div className="flex items-center">
+                <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Profile
+              </div>
+              <svg
+                className={`w-4 h-4 transition-transform ${showProfileDropdown ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Dropdown Items */}
+            {showProfileDropdown && (
+              <div className="ml-6 mt-1 space-y-1">
+                <Link
+                  to="/dashboard/profile"
+                  onClick={onClose}
+                  className={`block no-underline ${isActive('/dashboard/profile') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all-300 ${hoverBg}`}
+                >
+                  Overview
+                </Link>
+                <Link
+                  to="/dashboard/profile/edit"
+                  onClick={onClose}
+                  className={`block no-underline ${isActive('/dashboard/profile/edit') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all-300 ${hoverBg}`}
+                >
+                  Edit Profile
+                </Link>
+                <Link
+                  to="/dashboard/profile-view"
+                  onClick={onClose}
+                  className={`block no-underline ${isActive('/dashboard/profile-view') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all-300 ${hoverBg}`}
+                >
+                  Profile View
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

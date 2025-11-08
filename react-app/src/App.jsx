@@ -58,6 +58,14 @@ const TasksPage = lazy(() => import('./pages/TasksPage'));
 // Messenger
 const MessengerPage = lazy(() => import('./pages/MessengerPage'));
 
+// New Pages
+const PricingPage = lazy(() => import('./pages/PricingPage'));
+const SubscriptionPage = lazy(() => import('./pages/SubscriptionPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const ProfileEditPage = lazy(() => import('./pages/ProfileEditPage'));
+const ProfileViewPage = lazy(() => import('./pages/ProfileViewPage'));
+
 function App() {
   return (
     <LanguageProvider>
@@ -157,6 +165,14 @@ function App() {
 
                 {/* Messenger */}
                 <Route path="/dashboard/messenger" element={<MessengerPage />} />
+
+                {/* New Pages */}
+                <Route path="/dashboard/pricing" element={<PricingPage />} />
+                <Route path="/dashboard/subscription" element={<SubscriptionPage />} />
+                <Route path="/dashboard/about" element={<AboutPage />} />
+                <Route path="/dashboard/profile" element={<ProfilePage />} />
+                <Route path="/dashboard/profile/edit" element={<ProfileEditPage />} />
+                <Route path="/dashboard/profile-view" element={<ProfileViewPage />} />
 
                 {/* Demo Pages */}
                 <Route path="/dashboard/components" element={<Components />} />
