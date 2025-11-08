@@ -48,10 +48,10 @@ const FinancialPage = () => {
   ];
 
   const categoryData = [
-    { name: 'Products', value: 45, color: '#3a6df0' },
-    { name: 'Services', value: 30, color: '#3bf083' },
-    { name: 'Subscriptions', value: 15, color: '#ffbd2e' },
-    { name: 'Other', value: 10, color: '#ff705c' },
+    { name: 'Products', value: 45, color: 'rgb(var(--color-primary))' },
+    { name: 'Services', value: 30, color: 'rgb(var(--color-success))' },
+    { name: 'Subscriptions', value: 15, color: 'rgb(var(--color-warning))' },
+    { name: 'Other', value: 10, color: 'rgb(var(--color-danger))' },
   ];
 
   const salesData = [
@@ -120,10 +120,10 @@ const FinancialPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <GlassCard>
             <div className="flex items-start justify-between mb-3">
-              <div className="p-3 rounded-full bg-[rgba(58,109,240,0.1)]">
-                <DollarSign className="w-6 h-6 text-[#3a6df0]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <DollarSign className="w-6 h-6 text-primary" />
               </div>
-              <Badge variant="success" className="bg-[rgba(59,240,131,0.1)] text-[#3bf083]">
+              <Badge variant="success" className="bg-success/10 text-success">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 +12.5%
               </Badge>
@@ -134,10 +134,10 @@ const FinancialPage = () => {
 
           <GlassCard>
             <div className="flex items-start justify-between mb-3">
-              <div className="p-3 rounded-full bg-[rgba(59,240,131,0.1)]">
-                <TrendingUp className="w-6 h-6 text-[#3bf083]" />
+              <div className="p-3 rounded-full bg-success/10">
+                <TrendingUp className="w-6 h-6 text-success" />
               </div>
-              <Badge variant="success" className="bg-[rgba(59,240,131,0.1)] text-[#3bf083]">
+              <Badge variant="success" className="bg-success/10 text-success">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 +8.2%
               </Badge>
@@ -148,10 +148,10 @@ const FinancialPage = () => {
 
           <GlassCard>
             <div className="flex items-start justify-between mb-3">
-              <div className="p-3 rounded-full bg-[rgba(255,112,92,0.1)]">
-                <CreditCard className="w-6 h-6 text-[#ff705c]" />
+              <div className="p-3 rounded-full bg-danger/10">
+                <CreditCard className="w-6 h-6 text-danger" />
               </div>
-              <Badge variant="danger" className="bg-[rgba(255,112,92,0.1)] text-[#ff705c]">
+              <Badge variant="danger" className="bg-danger/10 text-danger">
                 <TrendingDown className="w-3 h-3 mr-1" />
                 +5.1%
               </Badge>
@@ -162,10 +162,10 @@ const FinancialPage = () => {
 
           <GlassCard>
             <div className="flex items-start justify-between mb-3">
-              <div className="p-3 rounded-full bg-[rgba(255,189,46,0.1)]">
-                <Users className="w-6 h-6 text-[#ffbd2e]" />
+              <div className="p-3 rounded-full bg-warning/10">
+                <Users className="w-6 h-6 text-warning" />
               </div>
-              <Badge variant="warning" className="bg-[rgba(255,189,46,0.1)] text-[#ffbd2e]">
+              <Badge variant="warning" className="bg-warning/10 text-warning">
                 <TrendingUp className="w-3 h-3 mr-1" />
                 +15.3%
               </Badge>
@@ -184,12 +184,12 @@ const FinancialPage = () => {
                   <AreaChart data={revenueData}>
                     <defs>
                       <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#3a6df0" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#3a6df0" stopOpacity={0} />
+                        <stop offset="5%" stopColor="rgb(58, 109, 240)" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="rgb(58, 109, 240)" stopOpacity={0} />
                       </linearGradient>
                       <linearGradient id="colorProfit" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#3bf083" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#3bf083" stopOpacity={0} />
+                        <stop offset="5%" stopColor="rgb(59, 240, 131)" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="rgb(59, 240, 131)" stopOpacity={0} />
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
@@ -200,7 +200,7 @@ const FinancialPage = () => {
                     <Area
                       type="monotone"
                       dataKey="revenue"
-                      stroke="#3a6df0"
+                      stroke="rgb(58, 109, 240)"
                       strokeWidth={2}
                       fillOpacity={1}
                       fill="url(#colorRevenue)"
@@ -208,7 +208,7 @@ const FinancialPage = () => {
                     <Area
                       type="monotone"
                       dataKey="profit"
-                      stroke="#3bf083"
+                      stroke="rgb(59, 240, 131)"
                       strokeWidth={2}
                       fillOpacity={1}
                       fill="url(#colorProfit)"
@@ -298,7 +298,7 @@ const FinancialPage = () => {
                       return null;
                     }}
                   />
-                  <Bar dataKey="sales" fill="#3a6df0" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="sales" fill="rgb(58, 109, 240)" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -332,9 +332,9 @@ const FinancialPage = () => {
                   <Line
                     type="monotone"
                     dataKey="customers"
-                    stroke="#3bf083"
+                    stroke="rgb(59, 240, 131)"
                     strokeWidth={3}
-                    dot={{ fill: '#3bf083', r: 5 }}
+                    dot={{ fill: 'rgb(59, 240, 131)', r: 5 }}
                     activeDot={{ r: 7 }}
                   />
                 </LineChart>
@@ -386,21 +386,21 @@ const FinancialPage = () => {
               ].map((transaction) => (
                 <div
                   key={transaction.id}
-                  className="flex items-center justify-between p-3 rounded-[14px] hover:bg-[rgba(58,109,240,0.05)] transition-all"
+                  className="flex items-center justify-between p-3 rounded-[14px] hover:bg-primary/5 transition-all"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className={cn(
                         'p-2 rounded-full',
                         transaction.type === 'income'
-                          ? 'bg-[rgba(59,240,131,0.1)]'
-                          : 'bg-[rgba(255,112,92,0.1)]'
+                          ? 'bg-success/10'
+                          : 'bg-danger/10'
                       )}
                     >
                       {transaction.type === 'income' ? (
-                        <TrendingUp className="w-5 h-5 text-[#3bf083]" />
+                        <TrendingUp className="w-5 h-5 text-success" />
                       ) : (
-                        <TrendingDown className="w-5 h-5 text-[#ff705c]" />
+                        <TrendingDown className="w-5 h-5 text-danger" />
                       )}
                     </div>
                     <div>
@@ -413,7 +413,7 @@ const FinancialPage = () => {
                   <span
                     className={cn(
                       'text-[16px] font-semibold',
-                      transaction.type === 'income' ? 'text-[#3bf083]' : 'text-[#ff705c]'
+                      transaction.type === 'income' ? 'text-success' : 'text-danger'
                     )}
                   >
                     {transaction.amount}

@@ -27,9 +27,9 @@ const TaskCard = ({ task, isDragging = false }) => {
   const mutedColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
 
   const priorityColors = {
-    low: 'bg-[rgba(59,240,131,0.1)] text-[#3bf083]',
-    medium: 'bg-[rgba(255,189,46,0.1)] text-[#ffbd2e]',
-    high: 'bg-[rgba(255,112,92,0.1)] text-[#ff705c]',
+    low: 'bg-success/10 text-success',
+    medium: 'bg-warning/10 text-warning',
+    high: 'bg-danger/10 text-danger',
   };
 
   return (
@@ -98,10 +98,10 @@ const Column = ({ column, tasks }) => {
   const mutedColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
 
   const statusColors = {
-    todo: '#3a6df0',
-    'in-progress': '#ffbd2e',
-    review: '#9333ea',
-    done: '#3bf083',
+    todo: 'rgb(var(--color-primary))',
+    'in-progress': 'rgb(var(--color-warning))',
+    review: 'rgb(var(--color-purple))',
+    done: 'rgb(var(--color-success))',
   };
 
   return (
@@ -138,16 +138,16 @@ const ListView = ({ tasks, onTaskClick }) => {
   const borderColor = isDark ? 'border-[rgba(249,250,251,0.1)]' : 'border-[rgba(0,0,0,0.1)]';
 
   const priorityColors = {
-    low: 'bg-[rgba(59,240,131,0.1)] text-[#3bf083]',
-    medium: 'bg-[rgba(255,189,46,0.1)] text-[#ffbd2e]',
-    high: 'bg-[rgba(255,112,92,0.1)] text-[#ff705c]',
+    low: 'bg-success/10 text-success',
+    medium: 'bg-warning/10 text-warning',
+    high: 'bg-danger/10 text-danger',
   };
 
   const statusColors = {
-    todo: 'bg-[rgba(58,109,240,0.1)] text-[#3a6df0]',
-    'in-progress': 'bg-[rgba(255,189,46,0.1)] text-[#ffbd2e]',
-    review: 'bg-[rgba(147,51,234,0.1)] text-[#9333ea]',
-    done: 'bg-[rgba(59,240,131,0.1)] text-[#3bf083]',
+    todo: 'bg-primary/10 text-primary',
+    'in-progress': 'bg-warning/10 text-warning',
+    review: 'bg-purple/10 text-purple',
+    done: 'bg-success/10 text-success',
   };
 
   return (
@@ -181,7 +181,7 @@ const ListView = ({ tasks, onTaskClick }) => {
               <tr
                 key={task.id}
                 className={cn(
-                  'border-b transition-all cursor-pointer hover:bg-[rgba(58,109,240,0.05)]',
+                  'border-b transition-all cursor-pointer hover:bg-primary/5',
                   borderColor
                 )}
                 onClick={() => onTaskClick(task)}
@@ -407,8 +407,8 @@ const ScrumBoardPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(58,109,240,0.1)]">
-                <AlertCircle className="w-6 h-6 text-[#3a6df0]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <AlertCircle className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Total Tasks</p>
@@ -419,8 +419,8 @@ const ScrumBoardPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,189,46,0.1)]">
-                <AlertCircle className="w-6 h-6 text-[#ffbd2e]" />
+              <div className="p-3 rounded-full bg-warning/10">
+                <AlertCircle className="w-6 h-6 text-warning" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>In Progress</p>
@@ -433,8 +433,8 @@ const ScrumBoardPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(147,51,234,0.1)]">
-                <AlertCircle className="w-6 h-6 text-[#9333ea]" />
+              <div className="p-3 rounded-full bg-purple/10">
+                <AlertCircle className="w-6 h-6 text-purple" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>In Review</p>
@@ -447,8 +447,8 @@ const ScrumBoardPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(59,240,131,0.1)]">
-                <CheckCircle className="w-6 h-6 text-[#3bf083]" />
+              <div className="p-3 rounded-full bg-success/10">
+                <CheckCircle className="w-6 h-6 text-success" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Completed</p>
@@ -546,7 +546,7 @@ const ScrumBoardPage = () => {
                   <div className="flex items-center gap-3">
                     <div className="flex-1 h-2 bg-[rgba(0,0,0,0.1)] rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-[#3a6df0] rounded-full transition-all"
+                        className="h-full bg-primary rounded-full transition-all"
                         style={{
                           width: `${
                             (selectedTask.subtasks.completed / selectedTask.subtasks.total) * 100
