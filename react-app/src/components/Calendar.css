@@ -81,9 +81,9 @@
 }
 
 .calendar-wrapper.light-theme .rbc-toolbar button.rbc-active {
-  background: #3a6df0;
+  background: rgb(var(--color-primary));
   color: white;
-  border-color: #3a6df0;
+  border-color: rgb(var(--color-primary));
 }
 
 .calendar-wrapper.light-theme .rbc-toolbar-label {
@@ -168,9 +168,9 @@
 }
 
 .calendar-wrapper.dark-theme .rbc-toolbar button.rbc-active {
-  background: #3a6df0;
+  background: rgb(var(--color-primary));
   color: white;
-  border-color: #3a6df0;
+  border-color: rgb(var(--color-primary));
 }
 
 .calendar-wrapper.dark-theme .rbc-toolbar-label {
@@ -195,7 +195,7 @@
 }
 
 .rbc-show-more {
-  background: #3a6df0;
+  background: rgb(var(--color-primary));
   color: white;
   padding: 4px 8px;
   border-radius: 6px;
@@ -207,7 +207,7 @@
 }
 
 .rbc-show-more:hover {
-  background: #1e59f1;
+  background: rgb(var(--color-primary-hover));
   transform: translateY(-1px);
 }
 
@@ -231,7 +231,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid #3a6df0;
+  border: 2px solid rgb(var(--color-primary));
   border-radius: 4px;
   pointer-events: none;
 }
@@ -246,7 +246,7 @@
 }
 
 .calendar-wrapper .rbc-current-time-indicator {
-  background-color: #3a6df0;
+  background-color: rgb(var(--color-primary));
   height: 2px;
 }
 

@@ -33,7 +33,7 @@ const Calendar = ({
   // Event style getter for glassmorphic look
   const eventStyleGetter = (event) => {
     const baseStyle = {
-      backgroundColor: event.color || '#3a6df0',
+      backgroundColor: event.color || 'rgb(var(--color-primary))',
       borderRadius: '8px',
       opacity: 0.9,
       color: 'white',

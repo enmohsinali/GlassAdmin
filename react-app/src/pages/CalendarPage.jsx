@@ -15,7 +15,7 @@ const CalendarPage = () => {
       title: 'Team Meeting',
       start: new Date(2025, 10, 7, 10, 0),
       end: new Date(2025, 10, 7, 11, 0),
-      color: '#3a6df0',
+      color: 'rgb(var(--color-primary))',
       description: 'Weekly team sync-up meeting',
       location: 'Conference Room A',
       attendees: ['John Doe', 'Jane Smith', 'Bob Johnson'],
@@ -25,7 +25,7 @@ const CalendarPage = () => {
       title: 'Project Review',
       start: new Date(2025, 10, 8, 14, 0),
       end: new Date(2025, 10, 8, 15, 30),
-      color: '#3bf083',
+      color: 'rgb(var(--color-success))',
       description: 'Q4 project milestone review',
       location: 'Virtual',
       attendees: ['Sarah Wilson', 'Mike Brown'],
@@ -35,7 +35,7 @@ const CalendarPage = () => {
       title: 'Client Presentation',
       start: new Date(2025, 10, 10, 13, 0),
       end: new Date(2025, 10, 10, 14, 0),
-      color: '#ff705c',
+      color: 'rgb(var(--color-danger))',
       description: 'Product demo for new client',
       location: 'Zoom',
       attendees: ['Emily Davis', 'Alex Turner'],
@@ -45,7 +45,7 @@ const CalendarPage = () => {
       title: 'Design Workshop',
       start: new Date(2025, 10, 12, 9, 0),
       end: new Date(2025, 10, 12, 12, 0),
-      color: '#9333ea',
+      color: 'rgb(var(--color-purple))',
       description: 'UI/UX design brainstorming session',
       location: 'Design Studio',
       attendees: ['Creative Team'],
@@ -55,7 +55,7 @@ const CalendarPage = () => {
       title: 'Lunch Break',
       start: new Date(2025, 10, 7, 12, 0),
       end: new Date(2025, 10, 7, 13, 0),
-      color: '#ffbd2e',
+      color: 'rgb(var(--color-warning))',
       description: 'Team lunch',
       location: 'Cafeteria',
     },
@@ -96,7 +96,7 @@ const CalendarPage = () => {
       const event = {
         id: events.length + 1,
         ...newEvent,
-        color: '#3a6df0',
+        color: 'rgb(var(--color-primary))',
         attendees: [],
       };
       setEvents([...events, event]);
@@ -135,8 +135,8 @@ const CalendarPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(58,109,240,0.1)]">
-                <Clock className="w-6 h-6 text-[#3a6df0]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <Clock className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Total Events</p>
@@ -147,8 +147,8 @@ const CalendarPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(59,240,131,0.1)]">
-                <MapPin className="w-6 h-6 text-[#3bf083]" />
+              <div className="p-3 rounded-full bg-success/10">
+                <MapPin className="w-6 h-6 text-success" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>This Week</p>
@@ -161,8 +161,8 @@ const CalendarPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,112,92,0.1)]">
-                <Users className="w-6 h-6 text-[#ff705c]" />
+              <div className="p-3 rounded-full bg-danger/10">
+                <Users className="w-6 h-6 text-danger" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>This Month</p>
@@ -175,8 +175,8 @@ const CalendarPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,189,46,0.1)]">
-                <Clock className="w-6 h-6 text-[#ffbd2e]" />
+              <div className="p-3 rounded-full bg-warning/10">
+                <Clock className="w-6 h-6 text-warning" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Today</p>
