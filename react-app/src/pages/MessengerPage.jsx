@@ -304,8 +304,8 @@ const MessengerPage = () => {
 
   return (
     <PageWrapper title="Messenger">
-      <div className="h-[calc(100vh-180px)] mt-6">
-        <Card className="h-full p-0 overflow-hidden">
+      <div className="mt-6">
+        <Card className="h-[calc(100vh-200px)] p-0 overflow-hidden">
           <div className="flex h-full">
             {/* Left Sidebar - Chat List */}
             <div className={cn('w-[350px] border-r', borderColor, 'flex flex-col')}>
