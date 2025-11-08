@@ -23,27 +23,27 @@ const Alert = ({ variant = 'info', title, children, dismissible = false, onClose
   const variants = {
     info: {
       icon: Info,
-      color: 'text-[#3a6df0]',
-      bg: 'bg-[rgba(58,109,240,0.1)]',
-      border: 'border-[#3a6df0]',
+      color: 'text-primary',
+      bg: 'bg-primary/10',
+      border: 'border-primary',
     },
     success: {
       icon: CheckCircle,
-      color: 'text-primary-green',
-      bg: 'bg-[rgba(59,240,131,0.1)]',
-      border: 'border-primary-green',
+      color: 'text-success',
+      bg: 'bg-success/10',
+      border: 'border-success',
     },
     warning: {
       icon: AlertTriangle,
-      color: 'text-[#ffbd2e]',
-      bg: 'bg-[rgba(255,189,46,0.1)]',
-      border: 'border-[#ffbd2e]',
+      color: 'text-warning',
+      bg: 'bg-warning/10',
+      border: 'border-warning',
     },
     error: {
       icon: AlertCircle,
-      color: 'text-primary-red',
-      bg: 'bg-[rgba(255,112,92,0.1)]',
-      border: 'border-primary-red',
+      color: 'text-danger',
+      bg: 'bg-danger/10',
+      border: 'border-danger',
     },
   };
 

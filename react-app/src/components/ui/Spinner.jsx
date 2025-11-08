@@ -13,9 +13,9 @@ export const Spinner = ({ size = 'md', color = 'blue', className }) => {
   };
 
   const colors = {
-    blue: 'border-[#3a6df0]',
-    green: 'border-primary-green',
-    red: 'border-primary-red',
+    blue: 'border-primary',
+    green: 'border-success',
+    red: 'border-danger',
     white: 'border-white',
   };
 
@@ -44,9 +44,9 @@ export const DotsSpinner = ({ size = 'md', color = 'blue', className }) => {
   };
 
   const colors = {
-    blue: 'bg-[#3a6df0]',
-    green: 'bg-primary-green',
-    red: 'bg-primary-red',
+    blue: 'bg-primary',
+    green: 'bg-success',
+    red: 'bg-danger',
     current: isDark ? 'bg-[#f9fafb]' : 'bg-[#1a1a1a]',
   };
 
@@ -70,9 +70,9 @@ export const PulseSpinner = ({ size = 'md', color = 'blue', className }) => {
   };
 
   const colors = {
-    blue: 'bg-[#3a6df0]',
-    green: 'bg-primary-green',
-    red: 'bg-primary-red',
+    blue: 'bg-primary',
+    green: 'bg-success',
+    red: 'bg-danger',
   };
 
   return (

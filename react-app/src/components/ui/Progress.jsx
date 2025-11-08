@@ -18,10 +18,10 @@ export const Progress = ({ value = 0, color = 'blue', size = 'md', showLabel = f
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
 
   const colors = {
-    blue: 'bg-[#3a6df0]',
-    green: 'bg-primary-green',
-    red: 'bg-primary-red',
-    purple: 'bg-[#9b5de5]',
+    blue: 'bg-primary',
+    green: 'bg-success',
+    red: 'bg-danger',
+    purple: 'bg-purple',
   };
 
   const sizes = {
@@ -72,10 +72,10 @@ export const CircularProgress = ({
   const textColor = isDark ? '#f9fafb' : '#1a1a1a';
 
   const colors = {
-    blue: '#3a6df0',
-    green: '#3bf083',
-    red: '#ff705c',
-    purple: '#9b5de5',
+    blue: 'rgb(var(--color-primary))',
+    green: 'rgb(var(--color-success))',
+    red: 'rgb(var(--color-danger))',
+    purple: 'rgb(var(--color-purple))',
   };
 
   const clampedValue = Math.min(100, Math.max(0, value));
@@ -152,7 +152,7 @@ export const StepProgress = ({ currentStep = 1, totalSteps = 4, labels = [] }) =
                   className={cn(
                     'w-10 h-10 rounded-full flex items-center justify-center text-[15px] font-medium transition-all ease-[0.3s]',
                     isCompleted || isActive
-                      ? 'bg-[#3a6df0] text-white'
+                      ? 'bg-primary text-white'
                       : `${bgColor} ${inactiveColor}`
                   )}
                 >
@@ -167,7 +167,7 @@ export const StepProgress = ({ currentStep = 1, totalSteps = 4, labels = [] }) =
 
               {/* Connector Line */}
               {index < totalSteps - 1 && (
-                <div className={cn('flex-1 h-0.5 mx-2', isCompleted ? 'bg-[#3a6df0]' : bgColor)} />
+                <div className={cn('flex-1 h-0.5 mx-2', isCompleted ? 'bg-primary' : bgColor)} />
               )}
             </div>
           );

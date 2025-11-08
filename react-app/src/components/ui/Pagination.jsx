@@ -83,7 +83,7 @@ const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange, siblingCou
           'flex items-center justify-center w-10 h-10 rounded-[14px] border transition-all ease-[0.3s]',
           bgColor,
           themeBg,
-          currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[rgba(58,109,240,0.1)]'
+          currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/10'
         )}
       >
         <ChevronLeft className={cn('w-5 h-5', inactiveColor)} />
@@ -108,8 +108,8 @@ const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange, siblingCou
             className={cn(
               'w-10 h-10 rounded-[14px] border text-[15px] font-medium transition-all ease-[0.3s]',
               isActive
-                ? 'bg-[#3a6df0] border-[#3a6df0] text-white'
-                : `${bgColor} ${themeBg} ${textColor} hover:bg-[rgba(58,109,240,0.1)]`
+                ? 'bg-primary border-primary text-white'
+                : `${bgColor} ${themeBg} ${textColor} hover:bg-primary/10`
             )}
           >
             {page}
@@ -125,7 +125,7 @@ const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange, siblingCou
           'flex items-center justify-center w-10 h-10 rounded-[14px] border transition-all ease-[0.3s]',
           bgColor,
           themeBg,
-          currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[rgba(58,109,240,0.1)]'
+          currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/10'
         )}
       >
         <ChevronRight className={cn('w-5 h-5', inactiveColor)} />

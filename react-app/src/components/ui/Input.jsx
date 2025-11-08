@@ -35,7 +35,7 @@ const Input = forwardRef(({
   const placeholderColor = isDark ? 'placeholder-[rgba(249,250,251,0.5)]' : 'placeholder-[rgba(0,0,0,0.5)]';
 
   const baseStyles = cn(
-    'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-[#3a6df0] disabled:opacity-50 disabled:cursor-not-allowed',
+    'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed',
     bgColor,
     error ? 'border-primary-red focus:ring-primary-red' : themeBg,
     textColor,

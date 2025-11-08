@@ -19,24 +19,24 @@ const Tag = ({ children, color = 'blue', size = 'md', removable = false, onRemov
 
   const colors = {
     blue: {
-      bg: 'bg-[rgba(58,109,240,0.15)]',
-      text: 'text-[#3a6df0]',
-      border: 'border-[rgba(58,109,240,0.3)]',
+      bg: 'bg-primary/15',
+      text: 'text-primary',
+      border: 'border-primary/30',
     },
     green: {
-      bg: 'bg-[rgba(59,240,131,0.15)]',
-      text: 'text-primary-green',
-      border: 'border-[rgba(59,240,131,0.3)]',
+      bg: 'bg-success/15',
+      text: 'text-success',
+      border: 'border-success/30',
     },
     red: {
-      bg: 'bg-[rgba(255,112,92,0.15)]',
-      text: 'text-primary-red',
-      border: 'border-[rgba(255,112,92,0.3)]',
+      bg: 'bg-danger/15',
+      text: 'text-danger',
+      border: 'border-danger/30',
     },
     purple: {
-      bg: 'bg-[rgba(155,93,229,0.15)]',
-      text: 'text-[#9b5de5]',
-      border: 'border-[rgba(155,93,229,0.3)]',
+      bg: 'bg-purple/15',
+      text: 'text-purple',
+      border: 'border-purple/30',
     },
     gray: {
       bg: isDark ? 'bg-[rgba(146,151,179,0.13)]' : 'bg-[rgba(255,255,255,0.7)]',

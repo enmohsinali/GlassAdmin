@@ -23,7 +23,7 @@ const Select = forwardRef(({
   const placeholderColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
 
   const baseStyles = cn(
-    'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-[#3a6df0] disabled:opacity-50 disabled:cursor-not-allowed appearance-none',
+    'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed appearance-none',
     bgColor,
     error ? 'border-primary-red focus:ring-primary-red' : themeBg,
     textColor
