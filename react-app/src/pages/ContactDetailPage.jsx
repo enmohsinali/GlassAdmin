@@ -63,7 +63,7 @@ const ContactDetailPage = () => {
       description: 'Sent proposal follow-up email regarding Q4 marketing campaign',
       timestamp: '2025-11-05 14:30',
       icon: Mail,
-      color: '#3a6df0',
+      color: 'rgb(var(--color-primary))',
     },
     {
       id: 2,
@@ -72,7 +72,7 @@ const ContactDetailPage = () => {
       description: 'Demo call scheduled for November 10th at 2:00 PM',
       timestamp: '2025-11-04 10:15',
       icon: Calendar,
-      color: '#9333ea',
+      color: 'rgb(var(--color-purple))',
     },
     {
       id: 3,
@@ -81,7 +81,7 @@ const ContactDetailPage = () => {
       description: 'Discussed budget allocation for next quarter. Very interested in enterprise plan.',
       timestamp: '2025-11-03 16:45',
       icon: FileText,
-      color: '#ffbd2e',
+      color: 'rgb(var(--color-warning))',
     },
     {
       id: 4,
@@ -90,7 +90,7 @@ const ContactDetailPage = () => {
       description: 'Discovery call - 45 minutes. Identified key pain points.',
       timestamp: '2025-11-01 11:00',
       icon: Phone,
-      color: '#3bf083',
+      color: 'rgb(var(--color-success))',
     },
     {
       id: 5,
@@ -99,7 +99,7 @@ const ContactDetailPage = () => {
       description: 'Moved "Q4 Marketing Campaign" to negotiation stage',
       timestamp: '2025-10-30 09:20',
       icon: DollarSign,
-      color: '#ff705c',
+      color: 'rgb(var(--color-danger))',
     },
   ];
 
@@ -173,16 +173,16 @@ const ContactDetailPage = () => {
   ];
 
   const stageColors = {
-    'Negotiation': 'bg-[#ffbd2e] text-white',
-    'Proposal': 'bg-[#3a6df0] text-white',
-    'Closed Won': 'bg-[#3bf083] text-white',
-    'Closed Lost': 'bg-[#ff705c] text-white',
+    'Negotiation': 'bg-warning text-white',
+    'Proposal': 'bg-primary text-white',
+    'Closed Won': 'bg-success text-white',
+    'Closed Lost': 'bg-danger text-white',
   };
 
   const priorityColors = {
-    high: 'bg-[#ff705c] text-white',
-    medium: 'bg-[#ffbd2e] text-white',
-    low: 'bg-[#3a6df0] text-white',
+    high: 'bg-danger text-white',
+    medium: 'bg-warning text-white',
+    low: 'bg-primary text-white',
   };
 
   const tabs = [
@@ -213,14 +213,14 @@ const ContactDetailPage = () => {
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <h1 className={cn('text-[24px] font-bold', textColor)}>{contact.name}</h1>
-                  <Badge className="bg-[#3bf083] text-white">{contact.status}</Badge>
+                  <Badge className="bg-success text-white">{contact.status}</Badge>
                 </div>
                 <p className={cn('text-[16px] mb-3', mutedColor)}>
                   {contact.position} at {contact.company}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {contact.tags.map((tag, index) => (
-                    <Badge key={index} className="bg-[#9333ea] text-white">
+                    <Badge key={index} className="bg-purple text-white">
                       {tag}
                     </Badge>
                   ))}
@@ -298,8 +298,8 @@ const ContactDetailPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(58,109,240,0.1)]">
-                <DollarSign className="w-6 h-6 text-[#3a6df0]" />
+              <div className="p-3 rounded-full bg-primary/10">
+                <DollarSign className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Total Deal Value</p>
@@ -312,8 +312,8 @@ const ContactDetailPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(59,240,131,0.1)]">
-                <Briefcase className="w-6 h-6 text-[#3bf083]" />
+              <div className="p-3 rounded-full bg-success/10">
+                <Briefcase className="w-6 h-6 text-success" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Active Deals</p>
@@ -324,8 +324,8 @@ const ContactDetailPage = () => {
 
           <GlassCard>
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-full bg-[rgba(255,189,46,0.1)]">
-                <Clock className="w-6 h-6 text-[#ffbd2e]" />
+              <div className="p-3 rounded-full bg-warning/10">
+                <Clock className="w-6 h-6 text-warning" />
               </div>
               <div>
                 <p className={cn('text-[13px]', mutedColor)}>Open Tasks</p>
@@ -520,7 +520,7 @@ const ContactDetailPage = () => {
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <p className={cn('text-[16px] font-medium', textColor)}>{deal.name}</p>
-                      <p className={cn('text-[18px] font-semibold text-[#3a6df0] mt-1')}>
+                      <p className={cn('text-[18px] font-semibold text-primary mt-1')}>
                         ${deal.value.toLocaleString()}
                       </p>
                     </div>
@@ -565,7 +565,7 @@ const ContactDetailPage = () => {
                   <input
                     type="checkbox"
                     checked={task.completed}
-                    className="w-5 h-5 rounded border-2 border-[#3a6df0]"
+                    className="w-5 h-5 rounded border-2 border-primary"
                     readOnly
                   />
                   <div className="flex-1">
