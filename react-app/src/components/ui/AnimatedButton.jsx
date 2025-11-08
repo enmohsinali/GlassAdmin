@@ -31,7 +31,7 @@ const AnimatedButton = ({
   const { isDark } = useTheme();
 
   const variants = {
-    primary: 'bg-[#3a6df0] border-none text-white hover:bg-[#1e59f1] rounded-[20px]',
+    primary: 'bg-primary border-none text-white hover:bg-primary-hover rounded-[20px]',
     secondary: isDark
       ? 'bg-[rgba(146,151,179,0.13)] text-[#f9fafb] border border-theme-dark-bg rounded-[20px]'
       : 'bg-[rgba(255,255,255,0.7)] text-[#1a1a1a] border border-theme-light-bg rounded-[20px]',
@@ -41,8 +41,8 @@ const AnimatedButton = ({
     ghost: isDark
       ? 'bg-transparent text-[#f9fafb] hover:bg-[rgba(146,151,179,0.13)] rounded-[20px]'
       : 'bg-transparent text-[#1a1a1a] hover:bg-[rgba(0,0,0,0.05)] rounded-[20px]',
-    danger: 'bg-primary-red border-none text-white hover:bg-[#e5634d] rounded-[20px]',
-    success: 'bg-primary-green border-none text-white hover:bg-[#2dd66e] rounded-[20px]',
+    danger: 'bg-danger border-none text-white hover:bg-danger-hover rounded-[20px]',
+    success: 'bg-success border-none text-white hover:bg-success-hover rounded-[20px]',
   };
 
   const sizes = {
@@ -67,7 +67,7 @@ const AnimatedButton = ({
       disabled={disabled || loading}
       onClick={onClick}
       className={cn(
-        'inline-flex items-center justify-center font-medium transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-[#3a6df0] focus:ring-offset-2',
+        'inline-flex items-center justify-center font-medium transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
         variants[variant],
         sizes[size],
         (disabled || loading) && 'opacity-50 cursor-not-allowed',

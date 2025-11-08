@@ -13,9 +13,9 @@ export const PulsingLoader = ({ size = 'md', color = 'blue', className }) => {
   };
 
   const colors = {
-    blue: 'bg-[#3a6df0]',
-    green: 'bg-primary-green',
-    red: 'bg-primary-red',
+    blue: 'bg-primary',
+    green: 'bg-success',
+    red: 'bg-danger',
   };
 
   return (
@@ -104,9 +104,9 @@ export const WaveLoader = ({ size = 'md', color = 'blue', className }) => {
   };
 
   const colors = {
-    blue: 'bg-[#3a6df0]',
-    green: 'bg-primary-green',
-    red: 'bg-primary-red',
+    blue: 'bg-primary',
+    green: 'bg-success',
+    red: 'bg-danger',
   };
 
   return (

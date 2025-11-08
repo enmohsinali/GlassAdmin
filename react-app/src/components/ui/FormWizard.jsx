@@ -99,8 +99,8 @@ const FormWizard = ({
                   disabled={!isClickable}
                   className={cn(
                     'relative flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ease-[0.3s]',
-                    isActive && 'border-[#3a6df0] bg-[#3a6df0]',
-                    isCompleted && 'border-primary-green bg-primary-green',
+                    isActive && 'border-primary bg-primary',
+                    isCompleted && 'border-success bg-success',
                     !isActive && !isCompleted && (isDark ? 'border-[rgba(249,250,251,0.3)]' : 'border-[rgba(0,0,0,0.2)]') + ` ${bgColor}`,
                     isClickable && 'cursor-pointer'
                   )}
@@ -147,7 +147,7 @@ const FormWizard = ({
                 {index < steps.length - 1 && (
                   <div className="mx-4 flex-1 h-0.5 bg-gray-300">
                     <motion.div
-                      className="h-full bg-[#3a6df0]"
+                      className="h-full bg-primary"
                       initial={{ width: '0%' }}
                       animate={{
                         width: isCompleted ? '100%' : '0%',
@@ -280,17 +280,17 @@ export const VerticalFormWizard = ({
               disabled={!isClickable}
               className={cn(
                 'w-full flex items-start gap-3 p-4 mb-3 rounded-[14px] border text-left transition-all ease-[0.3s]',
-                isActive && 'border-[#3a6df0] bg-[rgba(58,109,240,0.1)]',
+                isActive && 'border-primary bg-primary/10',
                 !isActive && `${bgColor} ${themeBg}`,
-                isClickable && 'cursor-pointer hover:bg-[rgba(58,109,240,0.05)]'
+                isClickable && 'cursor-pointer hover:bg-primary/5'
               )}
               whileHover={isClickable ? { x: 4 } : {}}
             >
               <div
                 className={cn(
                   'flex items-center justify-center w-8 h-8 rounded-full border-2 flex-shrink-0',
-                  isActive && 'border-[#3a6df0] bg-[#3a6df0]',
-                  isCompleted && 'border-primary-green bg-primary-green',
+                  isActive && 'border-primary bg-primary',
+                  isCompleted && 'border-success bg-success',
                   !isActive && !isCompleted && (isDark ? 'border-[rgba(249,250,251,0.3)]' : 'border-[rgba(0,0,0,0.2)]')
                 )}
               >

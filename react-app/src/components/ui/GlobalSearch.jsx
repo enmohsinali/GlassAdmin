@@ -165,7 +165,7 @@ const GlobalSearch = ({
                       onClick={() => handleSelect(item)}
                       className={cn(
                         'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-all ease-[0.3s]',
-                        selectedIndex === index ? 'bg-[rgba(58,109,240,0.1)]' : hoverBg
+                        selectedIndex === index ? 'bg-primary/10' : hoverBg
                       )}
                     >
                       <div className={cn('p-2 rounded-lg', bgColor)}>
