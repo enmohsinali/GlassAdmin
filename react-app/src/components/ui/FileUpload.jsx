@@ -41,8 +41,8 @@ const FileUpload = ({
     ? 'hover:bg-[rgba(146,151,179,0.2)]'
     : 'hover:bg-[rgba(0,0,0,0.05)]';
   const dragActiveBg = isDark
-    ? 'bg-[rgba(58,109,240,0.15)]'
-    : 'bg-[rgba(58,109,240,0.1)]';
+    ? 'bg-primary/15'
+    : 'bg-primary/10';
 
   const handleDrag = (e) => {
     e.preventDefault();
@@ -172,8 +172,8 @@ const FileUpload = ({
                 <button
                   onClick={() => removeFile(index)}
                   className={cn(
-                    'p-1 rounded-lg transition-all ease-[0.3s] hover:bg-[rgba(255,112,92,0.1)]',
-                    'text-primary-red'
+                    'p-1 rounded-lg transition-all ease-[0.3s] hover:bg-danger/10',
+                    'text-danger'
                   )}
                 >
                   <X className="w-4 h-4" />

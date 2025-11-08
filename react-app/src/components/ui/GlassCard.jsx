@@ -52,10 +52,10 @@ export const GlassCardGradient = ({ children, title, gradient = 'blue', classNam
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
 
   const gradients = {
-    blue: 'from-[#3a6df0]/20 to-transparent',
-    green: 'from-primary-green/20 to-transparent',
-    red: 'from-primary-red/20 to-transparent',
-    purple: 'from-[#9333ea]/20 to-transparent',
+    blue: 'from-primary/20 to-transparent',
+    green: 'from-success/20 to-transparent',
+    red: 'from-danger/20 to-transparent',
+    purple: 'from-purple/20 to-transparent',
   };
 
   return (

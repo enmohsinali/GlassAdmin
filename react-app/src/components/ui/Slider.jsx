@@ -35,9 +35,9 @@ const Slider = ({
   const trackBg = isDark
     ? 'bg-[rgba(146,151,179,0.3)]'
     : 'bg-[rgba(0,0,0,0.1)]';
-  const fillBg = 'bg-[#3a6df0]';
+  const fillBg = 'bg-primary';
   const thumbBg = isDark ? 'bg-[#f9fafb]' : 'bg-white';
-  const thumbBorder = 'border-[#3a6df0]';
+  const thumbBorder = 'border-primary';
 
   const percentage = ((value - min) / (max - min)) * 100;
 

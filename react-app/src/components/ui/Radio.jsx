@@ -20,8 +20,8 @@ const Radio = ({ label, name, value, checked = false, onChange, disabled = false
   const borderColor = isDark
     ? 'border-[rgba(249,250,251,0.3)]'
     : 'border-[rgba(0,0,0,0.2)]';
-  const checkedBorder = 'border-[#3a6df0]';
-  const checkedBg = 'bg-[#3a6df0]';
+  const checkedBorder = 'border-primary';
+  const checkedBg = 'bg-primary';
   const hoverBg = isDark
     ? 'hover:bg-[rgba(249,250,251,0.05)]'
     : 'hover:bg-[rgba(0,0,0,0.03)]';
