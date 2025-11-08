@@ -388,22 +388,25 @@ const Components = () => {
                 title="Total Users"
                 value="12,543"
                 change="+12.5%"
-                trend="up"
-                icon={<User className="w-6 h-6" />}
+                changeType="increase"
+                icon={User}
+                iconColor="primary-blue"
               />
               <Stats
                 title="Revenue"
                 value="$45,231"
                 change="+8.2%"
-                trend="up"
-                icon={<Star className="w-6 h-6" />}
+                changeType="increase"
+                icon={Star}
+                iconColor="primary-purple"
               />
               <Stats
                 title="Bounce Rate"
                 value="3.2%"
                 change="-2.4%"
-                trend="down"
-                icon={<AlertCircle className="w-6 h-6" />}
+                changeType="decrease"
+                icon={AlertCircle}
+                iconColor="primary-orange"
               />
             </div>
 

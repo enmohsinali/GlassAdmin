@@ -33,6 +33,11 @@ const Tag = ({ children, color = 'blue', size = 'md', removable = false, onRemov
       text: 'text-danger',
       border: 'border-danger/30',
     },
+    yellow: {
+      bg: 'bg-warning/15',
+      text: 'text-warning',
+      border: 'border-warning/30',
+    },
     purple: {
       bg: 'bg-purple/15',
       text: 'text-purple',

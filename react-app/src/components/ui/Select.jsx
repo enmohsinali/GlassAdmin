@@ -22,11 +22,16 @@ const Select = forwardRef(({
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const placeholderColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[rgba(74,74,74,0.75)]';
 
+  // Option colors for dropdown
+  const optionBgColor = isDark ? '#1a1f2e' : '#ffffff';
+  const optionHoverBg = isDark ? '#2a3142' : '#f3f4f6';
+
   const baseStyles = cn(
-    'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed appearance-none',
+    'w-full rounded-[14px] border font-normal transition-all ease-[0.3s] focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed appearance-none backdrop-blur-glass',
     bgColor,
     error ? 'border-primary-red focus:ring-primary-red' : themeBg,
-    textColor
+    textColor,
+    'cursor-pointer'
   );
 
   const sizes = {
@@ -53,10 +58,21 @@ const Select = forwardRef(({
         <select
           ref={ref}
           className={cn(baseStyles, sizes[size], 'pr-10', className)}
+          style={{
+            colorScheme: isDark ? 'dark' : 'light'
+          }}
           {...props}
         >
           {options.map((option, index) => (
-            <option key={index} value={option.value}>
+            <option
+              key={index}
+              value={option.value}
+              style={{
+                backgroundColor: optionBgColor,
+                color: isDark ? '#f9fafb' : '#1a1a1a',
+                padding: '8px 12px'
+              }}
+            >
               {option.label}
             </option>
           ))}
