@@ -3,7 +3,10 @@ import { useTheme } from '../../context/ThemeContext';
 
 /**
  * Badge component with glassmorphic styling
- * Inspired by iOS 26 Liquid Glass UI
+ * Uses CSS variables for theme colors - customize in index.css
+ *
+ * @param {('default'|'primary'|'success'|'warning'|'danger'|'info'|'purple')} variant - Badge color variant
+ * @param {('sm'|'md'|'lg')} size - Badge size
  */
 const Badge = ({
   children,
@@ -18,11 +21,13 @@ const Badge = ({
     default: isDark
       ? 'bg-[rgba(146,151,179,0.2)] text-[#f9fafb] border-[rgba(146,151,179,0.3)]'
       : 'bg-[rgba(0,0,0,0.08)] text-[#1a1a1a] border-[rgba(0,0,0,0.15)]',
-    primary: 'bg-primary-blue text-white border-primary-blue',
+    primary: 'bg-primary text-white border-primary',
     success: 'bg-success text-[#0a0a0a] border-success font-medium',
     warning: 'bg-warning text-[#0a0a0a] border-warning font-medium',
-    error: 'bg-error text-white border-error font-medium',
+    danger: 'bg-danger text-white border-danger font-medium',
+    error: 'bg-danger text-white border-danger font-medium', // Alias for danger
     info: 'bg-info text-white border-info font-medium',
+    purple: 'bg-purple text-white border-purple font-medium',
   };
 
   const sizes = {

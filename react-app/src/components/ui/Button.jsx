@@ -3,9 +3,10 @@ import { useTheme } from '../../context/ThemeContext';
 
 /**
  * Button component with glassmorphic styling following Apple design principles
+ * Uses CSS variables for theme colors - customize in index.css
  *
  * @param {Object} props
- * @param {('primary'|'secondary'|'outline'|'ghost'|'glass')} props.variant - Button variant
+ * @param {('primary'|'secondary'|'danger'|'outline'|'ghost'|'glass')} props.variant - Button variant
  * @param {('sm'|'md'|'lg')} props.size - Button size
  * @param {boolean} props.disabled - Disabled state
  * @param {boolean} props.loading - Loading state
@@ -30,10 +31,11 @@ const Button = ({
   // Base styles following Apple iOS 26 Liquid Glass UI design
   const baseStyles = 'inline-flex items-center justify-center font-normal transition-all ease-[0.3s] focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap';
 
-  // Variants following the exact pattern from existing components
+  // Variants using CSS variables for easy theme customization
   const variants = {
-    primary: 'bg-[#3a6df0] border-none text-white hover:bg-[#1e59f1] rounded-[20px]',
-    secondary: 'bg-primary-green border-none text-white hover:opacity-90 rounded-[20px]',
+    primary: 'bg-primary border-none text-white hover:bg-primary-hover rounded-[20px]',
+    secondary: 'bg-success border-none text-white hover:bg-success-hover rounded-[20px]',
+    danger: 'bg-danger border-none text-white hover:bg-danger-hover rounded-[20px]',
     outline: isDark
       ? 'bg-transparent text-[rgba(249,250,251,0.55)] border border-[rgba(249,250,251,0.55)] hover:text-[#f9fafb] hover:border-[#f9fafb] rounded-[20px]'
       : 'bg-transparent text-[rgba(74,74,74,0.75)] border border-[rgba(74,74,74,0.5)] hover:text-[#1a1a1a] hover:border-[#1a1a1a] rounded-[20px]',

@@ -4,6 +4,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   THEME COLOR VARIABLES
+   To customize the theme, change these values
+   ============================================ */
+
+:root {
+  /* Primary Colors - Change these to customize your theme */
+  --color-primary: 58 109 240; /* #3a6df0 - Main brand color (blue) */
+  --color-primary-hover: 30 89 241; /* #1e59f1 - Darker blue for hover */
+  --color-primary-light: 58 109 240; /* For light backgrounds with opacity */
+
+  /* Semantic Colors */
+  --color-success: 59 240 131; /* #3bf083 - Green for success states */
+  --color-success-hover: 45 220 115; /* Darker green for hover */
+
+  --color-warning: 255 189 46; /* #ffbd2e - Yellow/Orange for warnings */
+  --color-warning-hover: 235 169 26; /* Darker yellow for hover */
+
+  --color-danger: 255 112 92; /* #ff705c - Red for errors/danger */
+  --color-danger-hover: 235 92 72; /* Darker red for hover */
+
+  --color-info: 58 109 240; /* #3a6df0 - Blue for info (same as primary) */
+  --color-info-hover: 30 89 241; /* Darker blue for hover */
+
+  /* Additional Accent Colors */
+  --color-purple: 147 51 234; /* #9333ea - Purple accent */
+  --color-purple-hover: 127 31 214; /* Darker purple for hover */
+
+  /* Neutral Colors */
+  --color-text-dark: 249 250 251; /* #f9fafb - Text color for dark mode */
+  --color-text-light: 26 26 26; /* #1a1a1a - Text color for light mode */
+  --color-muted-dark: 249 250 251; /* Muted text in dark mode (use with opacity) */
+  --color-muted-light: 42 42 42; /* #2a2a2a - Muted text in light mode */
+
+  /* Background Colors */
+  --color-bg-dark: 16 18 27; /* #10121b - Dark mode background */
+  --color-bg-light: 255 255 255; /* #ffffff - Light mode background */
+
+  /* Border Colors */
+  --color-border-dark: 113 119 144; /* #717790 - Borders in dark mode */
+  --color-border-light: 0 0 0; /* Black borders in light mode */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -81,8 +124,8 @@ body.light-mode .video-bg::before {
 }
 
 .checkbox:checked + .checkbox-label::before {
-  background-color: #3a6df0;
-  border-color: #3a6df0;
+  background-color: rgb(var(--color-primary));
+  border-color: rgb(var(--color-primary));
 }
 
 .checkbox:checked + .checkbox-label::after {
