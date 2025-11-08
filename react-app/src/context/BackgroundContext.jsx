@@ -11,11 +11,14 @@ export const useBackground = () => {
 };
 
 const DEFAULT_SETTINGS = {
-  type: 'animated-gradient', // 'video' | 'solid' | 'gradient' | 'animated-gradient'
+  type: 'animated-gradient', // 'video' | 'image' | 'solid' | 'gradient' | 'animated-gradient'
   defaultTheme: 'dark', // 'light' | 'dark'
 
   // Video settings
   videoUrl: 'https://assets.codepen.io/3364143/7btrrd.mp4',
+
+  // Image settings
+  imageUrl: '',
 
   // Solid color settings
   solidColor: '#1e3a8a',

@@ -75,6 +75,18 @@ const DynamicBackground = () => {
     );
   }
 
+  // Image Background
+  if (settings.type === 'image') {
+    return (
+      <div
+        className="fixed inset-0 w-full h-full -z-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: settings.imageUrl ? `url(${settings.imageUrl})` : 'none',
+        }}
+      />
+    );
+  }
+
   // Solid Color Background
   if (settings.type === 'solid') {
     return (
