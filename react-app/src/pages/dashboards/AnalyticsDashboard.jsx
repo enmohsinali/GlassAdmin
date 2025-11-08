@@ -42,7 +42,7 @@ const AnalyticsDashboard = () => {
         stops: [0, 90, 100],
       },
     },
-    colors: ['#3a6df0'],
+    colors: ['rgb(var(--color-primary))'],
     xaxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       labels: {
@@ -88,7 +88,7 @@ const AnalyticsDashboard = () => {
       mode: isDark ? 'dark' : 'light',
     },
     labels: ['Direct', 'Organic Search', 'Social Media', 'Referral', 'Email'],
-    colors: ['#3a6df0', '#3bf083', '#ff705c', '#fbbf24', '#8b5cf6'],
+    colors: ['rgb(var(--color-primary))', 'rgb(var(--color-success))', 'rgb(var(--color-danger))', 'rgb(var(--color-warning))', 'rgb(var(--color-purple))'],
     legend: {
       position: 'bottom',
       labels: {
@@ -135,7 +135,7 @@ const AnalyticsDashboard = () => {
       },
     },
     dataLabels: { enabled: false },
-    colors: ['#3bf083'],
+    colors: ['rgb(var(--color-success))'],
     xaxis: {
       categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       labels: {

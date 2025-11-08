@@ -22,7 +22,7 @@ const EcommerceDashboard = () => {
   const subtitleColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
   const labelColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#5a5a5a]';
   const secondaryTextColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
-  const timestampColor = isDark ? 'text-[#3a6df0]' : 'text-[#2563eb]';
+  const timestampColor = 'text-primary';
 
   // Sales Chart Configuration
   const salesChartOptions = {
@@ -38,7 +38,7 @@ const EcommerceDashboard = () => {
       curve: 'smooth',
       width: 3,
     },
-    colors: ['#3a6df0', '#3bf083'],
+    colors: ['rgb(var(--color-primary))', 'rgb(var(--color-success))'],
     xaxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
       labels: {
@@ -106,7 +106,7 @@ const EcommerceDashboard = () => {
         colors: ['#fff'],
       },
     },
-    colors: ['#3a6df0'],
+    colors: ['rgb(var(--color-primary))'],
     xaxis: {
       categories: ['Electronics', 'Fashion', 'Home & Garden', 'Sports', 'Books'],
       labels: {
