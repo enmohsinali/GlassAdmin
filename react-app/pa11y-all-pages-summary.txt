@@ -1,0 +1,26 @@
+=== Pa11y Accessibility Test Results ===
+
+📄 SETTINGS PAGE:
+  ❌ Errors: 6
+  ⚠️  Warnings: 0
+  ℹ️  Notices: 0
+
+📄 ANALYTICS PAGE:
+  ❌ Errors: 2
+  ⚠️  Warnings: 0
+  ℹ️  Notices: 0
+
+📄 COMPONENTS PAGE:
+  ❌ Errors: 29
+  ⚠️  Warnings: 0
+  ℹ️  Notices: 0
+
+📄 ECOMMERCE PAGE:
+  ❌ Errors: 5
+  ⚠️  Warnings: 0
+  ℹ️  Notices: 0
+
+📄 HOME PAGE:
+  ❌ Errors: 2
+  ⚠️  Warnings: 0
+  ℹ️  Notices: 0

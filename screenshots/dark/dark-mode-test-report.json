@@ -1,0 +1,109 @@
+[
+  {
+    "page": "main",
+    "url": "http://localhost:5173/",
+    "darkModeActive": false,
+    "issues": [
+      "Form elements found: 1 (check label visibility)",
+      "Buttons found: 11 (check visibility)"
+    ]
+  },
+  {
+    "page": "login",
+    "url": "http://localhost:5173/login",
+    "darkModeActive": false,
+    "issues": [
+      "Form elements found: 4 (check label visibility)",
+      "Buttons found: 5 (check visibility)"
+    ]
+  },
+  {
+    "page": "register",
+    "url": "http://localhost:5173/register",
+    "darkModeActive": false,
+    "issues": [
+      "Form elements found: 7 (check label visibility)",
+      "Buttons found: 2 (check visibility)"
+    ]
+  },
+  {
+    "page": "analytics-dashboard",
+    "url": "http://localhost:5173/dashboard/analytics",
+    "darkModeActive": false,
+    "issues": [
+      "Low contrast text elements: 1",
+      "Form elements found: 1 (check label visibility)",
+      "Buttons found: 4 (check visibility)"
+    ]
+  },
+  {
+    "page": "ecommerce-dashboard",
+    "url": "http://localhost:5173/dashboard/ecommerce",
+    "darkModeActive": false,
+    "issues": [
+      "Tables found: 1 (check header contrast)",
+      "Form elements found: 1 (check label visibility)",
+      "Buttons found: 4 (check visibility)"
+    ]
+  },
+  {
+    "page": "users",
+    "url": "http://localhost:5173/dashboard/users",
+    "darkModeActive": false,
+    "issues": [
+      "Low contrast text elements: 1",
+      "Tables found: 1 (check header contrast)",
+      "Form elements found: 2 (check label visibility)",
+      "Buttons found: 26 (check visibility)"
+    ]
+  },
+  {
+    "page": "products",
+    "url": "http://localhost:5173/dashboard/products",
+    "darkModeActive": false,
+    "issues": [
+      "Low contrast text elements: 1",
+      "Form elements found: 2 (check label visibility)",
+      "Buttons found: 21 (check visibility)"
+    ]
+  },
+  {
+    "page": "orders",
+    "url": "http://localhost:5173/dashboard/orders",
+    "darkModeActive": false,
+    "issues": [
+      "Tables found: 1 (check header contrast)",
+      "Form elements found: 2 (check label visibility)",
+      "Buttons found: 22 (check visibility)"
+    ]
+  },
+  {
+    "page": "invoices",
+    "url": "http://localhost:5173/dashboard/invoices",
+    "darkModeActive": false,
+    "issues": [
+      "Tables found: 1 (check header contrast)",
+      "Form elements found: 2 (check label visibility)",
+      "Buttons found: 26 (check visibility)"
+    ]
+  },
+  {
+    "page": "settings",
+    "url": "http://localhost:5173/dashboard/settings",
+    "darkModeActive": false,
+    "issues": [
+      "Form elements found: 6 (check label visibility)",
+      "Buttons found: 8 (check visibility)"
+    ]
+  },
+  {
+    "page": "components-demo",
+    "url": "http://localhost:5173/dashboard/components-demo",
+    "darkModeActive": false,
+    "issues": [
+      "Low contrast text elements: 1",
+      "Form elements found: 5 (check label visibility)",
+      "Buttons found: 15 (check visibility)"
+    ]
+  }
+]

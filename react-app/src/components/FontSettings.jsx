@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { Card } from './ui';
+import { cn } from '../utils/cn';
 
 const FontSettings = () => {
   const { isDark } = useTheme();
@@ -85,242 +87,226 @@ const FontSettings = () => {
     setFontSettings(defaults);
   };
 
+  const titleColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+  const subtitleColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#2a2a2a]';
+  const labelColor = isDark ? 'text-[rgba(249,250,251,0.7)]' : 'text-[#5a5a5a]';
+
   return (
-    <div className={`max-w-4xl mx-auto p-6 rounded-2xl ${
-      isDark ? 'bg-[rgba(30,41,59,0.7)]' : 'bg-[rgba(255,255,255,0.7)]'
-    } backdrop-blur-xl border ${
-      isDark ? 'border-[rgba(148,163,184,0.1)]' : 'border-[rgba(0,0,0,0.1)]'
-    }`}>
-      <div className="space-y-8">
-        {/* Header */}
-        <div>
-          <h2 className={`text-3xl font-bold mb-2 ${
-            isDark ? 'text-white' : 'text-gray-900'
-          }`}>
-            Font Settings
-          </h2>
-          <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
-            Customize typography, font sizes, and colors across the application
-          </p>
-        </div>
+    <div className="space-y-6">
+      {/* Page Header */}
+      <div>
+        <h1 className={cn('text-3xl font-bold', titleColor)}>
+          Font Settings
+        </h1>
+        <p className={cn('mt-2 text-[15px]', subtitleColor)}>
+          Customize typography, font sizes, and colors across the application
+        </p>
+      </div>
 
-        {/* Primary Font */}
-        <div className="space-y-4">
-          <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Body Font
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {googleFonts.map((font) => (
-              <button
-                key={font.name}
-                onClick={() => updateSetting('primaryFont', font.name)}
-                className={`p-3 rounded-xl border-2 transition-all text-left ${
-                  fontSettings.primaryFont === font.name
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : isDark ? 'border-gray-700 hover:border-gray-600' : 'border-gray-300 hover:border-gray-400'
-                }`}
-                style={{ fontFamily: font.name }}
-              >
-                <div className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  {font.name}
-                </div>
-                <div className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                  {font.category}
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Heading Font */}
-        <div className="space-y-4">
-          <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Heading Font
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {googleFonts.map((font) => (
-              <button
-                key={font.name}
-                onClick={() => updateSetting('headingFont', font.name)}
-                className={`p-3 rounded-xl border-2 transition-all text-left ${
-                  fontSettings.headingFont === font.name
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : isDark ? 'border-gray-700 hover:border-gray-600' : 'border-gray-300 hover:border-gray-400'
-                }`}
-                style={{ fontFamily: font.name }}
-              >
-                <div className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  {font.name}
-                </div>
-                <div className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                  {font.category}
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Font Sizes */}
-        <div className="space-y-4">
-          <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Font Sizes
-          </h3>
-          <div className="space-y-4">
-            {/* Base Font Size */}
-            <div>
-              <label className={`block mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                Body Text Size: {fontSettings.baseFontSize}px
-              </label>
-              <input
-                type="range"
-                min="12"
-                max="24"
-                value={fontSettings.baseFontSize}
-                onChange={(e) => updateSetting('baseFontSize', parseInt(e.target.value))}
-                className="w-full"
-              />
-              <div className="flex justify-between text-sm mt-1">
-                <span className={isDark ? 'text-gray-400' : 'text-gray-500'}>12px</span>
-                <span className={isDark ? 'text-gray-400' : 'text-gray-500'}>24px</span>
+      {/* Body Font */}
+      <Card title="Body Font">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {googleFonts.map((font) => (
+            <button
+              key={font.name}
+              onClick={() => updateSetting('primaryFont', font.name)}
+              className={cn(
+                'p-3 rounded-xl border-2 transition-all text-left',
+                fontSettings.primaryFont === font.name
+                  ? 'border-primary-blue bg-primary-blue bg-opacity-10'
+                  : isDark ? 'border-border-dark hover:border-[rgba(148,163,184,0.3)]' : 'border-border-light hover:border-[rgba(0,0,0,0.2)]'
+              )}
+              style={{ fontFamily: font.name }}
+            >
+              <div className={cn('font-medium', titleColor)}>
+                {font.name}
               </div>
+              <div className={cn('text-xs', labelColor)}>
+                {font.category}
+              </div>
+            </button>
+          ))}
+        </div>
+      </Card>
+
+      {/* Heading Font */}
+      <Card title="Heading Font">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {googleFonts.map((font) => (
+            <button
+              key={font.name}
+              onClick={() => updateSetting('headingFont', font.name)}
+              className={cn(
+                'p-3 rounded-xl border-2 transition-all text-left',
+                fontSettings.headingFont === font.name
+                  ? 'border-primary-blue bg-primary-blue bg-opacity-10'
+                  : isDark ? 'border-border-dark hover:border-[rgba(148,163,184,0.3)]' : 'border-border-light hover:border-[rgba(0,0,0,0.2)]'
+              )}
+              style={{ fontFamily: font.name }}
+            >
+              <div className={cn('font-medium', titleColor)}>
+                {font.name}
+              </div>
+              <div className={cn('text-xs', labelColor)}>
+                {font.category}
+              </div>
+            </button>
+          ))}
+        </div>
+      </Card>
+
+      {/* Font Sizes */}
+      <Card title="Font Sizes">
+        <div className="space-y-4">
+          {/* Base Font Size */}
+          <div>
+            <label className={cn('block mb-2', labelColor)}>
+              Body Text Size: {fontSettings.baseFontSize}px
+            </label>
+            <input
+              type="range"
+              min="12"
+              max="24"
+              value={fontSettings.baseFontSize}
+              onChange={(e) => updateSetting('baseFontSize', parseInt(e.target.value))}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm mt-1">
+              <span className={labelColor}>12px</span>
+              <span className={labelColor}>24px</span>
             </div>
+          </div>
 
-            {/* Heading Font Size */}
-            <div>
-              <label className={`block mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                Heading Size: {fontSettings.headingFontSize}px
-              </label>
-              <input
-                type="range"
-                min="24"
-                max="48"
-                value={fontSettings.headingFontSize}
-                onChange={(e) => updateSetting('headingFontSize', parseInt(e.target.value))}
-                className="w-full"
-              />
-              <div className="flex justify-between text-sm mt-1">
-                <span className={isDark ? 'text-gray-400' : 'text-gray-500'}>24px</span>
-                <span className={isDark ? 'text-gray-400' : 'text-gray-500'}>48px</span>
-              </div>
+          {/* Heading Font Size */}
+          <div>
+            <label className={cn('block mb-2', labelColor)}>
+              Heading Size: {fontSettings.headingFontSize}px
+            </label>
+            <input
+              type="range"
+              min="24"
+              max="48"
+              value={fontSettings.headingFontSize}
+              onChange={(e) => updateSetting('headingFontSize', parseInt(e.target.value))}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm mt-1">
+              <span className={labelColor}>24px</span>
+              <span className={labelColor}>48px</span>
             </div>
           </div>
         </div>
+      </Card>
 
-        {/* Font Colors */}
-        <div className="space-y-4">
-          <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Text Colors
-          </h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            {/* Body Text Color */}
-            <div>
-              <label className={`block mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                Body Text Color
-              </label>
-              <div className="flex items-center gap-4">
+      {/* Font Colors */}
+      <Card title="Text Colors">
+        <div className="grid md:grid-cols-2 gap-4">
+          {/* Body Text Color */}
+          <div>
+            <label className={cn('block mb-2', labelColor)}>
+              Body Text Color
+            </label>
+            <div className="flex items-center gap-4">
+              <input
+                type="color"
+                value={fontSettings.textColor}
+                onChange={(e) => updateSetting('textColor', e.target.value)}
+                className={cn('w-20 h-20 rounded-xl cursor-pointer border-2', isDark ? 'border-border-dark' : 'border-border-light')}
+              />
+              <div className="flex-1">
                 <input
-                  type="color"
+                  type="text"
                   value={fontSettings.textColor}
                   onChange={(e) => updateSetting('textColor', e.target.value)}
-                  className="w-20 h-20 rounded-xl cursor-pointer border-2 border-gray-700"
+                  className={cn(
+                    'w-full px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-primary-blue',
+                    isDark
+                      ? 'bg-[rgba(30,41,59,0.5)] border-border-dark text-[#f9fafb]'
+                      : 'bg-white border-border-light text-[#1a1a1a]'
+                  )}
                 />
-                <div className="flex-1">
-                  <input
-                    type="text"
-                    value={fontSettings.textColor}
-                    onChange={(e) => updateSetting('textColor', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border ${
-                      isDark
-                        ? 'bg-[rgba(30,41,59,0.5)] border-gray-700 text-white'
-                        : 'bg-white border-gray-300 text-gray-900'
-                    } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                  />
-                </div>
               </div>
             </div>
+          </div>
 
-            {/* Heading Color */}
-            <div>
-              <label className={`block mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                Heading Color
-              </label>
-              <div className="flex items-center gap-4">
+          {/* Heading Color */}
+          <div>
+            <label className={cn('block mb-2', labelColor)}>
+              Heading Color
+            </label>
+            <div className="flex items-center gap-4">
+              <input
+                type="color"
+                value={fontSettings.headingColor}
+                onChange={(e) => updateSetting('headingColor', e.target.value)}
+                className={cn('w-20 h-20 rounded-xl cursor-pointer border-2', isDark ? 'border-border-dark' : 'border-border-light')}
+              />
+              <div className="flex-1">
                 <input
-                  type="color"
+                  type="text"
                   value={fontSettings.headingColor}
                   onChange={(e) => updateSetting('headingColor', e.target.value)}
-                  className="w-20 h-20 rounded-xl cursor-pointer border-2 border-gray-700"
+                  className={cn(
+                    'w-full px-4 py-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-primary-blue',
+                    isDark
+                      ? 'bg-[rgba(30,41,59,0.5)] border-border-dark text-[#f9fafb]'
+                      : 'bg-white border-border-light text-[#1a1a1a]'
+                  )}
                 />
-                <div className="flex-1">
-                  <input
-                    type="text"
-                    value={fontSettings.headingColor}
-                    onChange={(e) => updateSetting('headingColor', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-xl border ${
-                      isDark
-                        ? 'bg-[rgba(30,41,59,0.5)] border-gray-700 text-white'
-                        : 'bg-white border-gray-300 text-gray-900'
-                    } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                  />
-                </div>
               </div>
             </div>
           </div>
         </div>
+      </Card>
 
-        {/* Preview */}
-        <div className="space-y-4">
-          <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Preview
-          </h3>
-          <div className={`p-6 rounded-xl ${
-            isDark ? 'bg-[rgba(30,41,59,0.5)]' : 'bg-white'
-          } border ${
-            isDark ? 'border-gray-700' : 'border-gray-300'
-          }`}>
-            <h1
-              style={{
-                fontFamily: fontSettings.headingFont,
-                fontSize: `${fontSettings.headingFontSize}px`,
-                color: fontSettings.headingColor
-              }}
-              className="font-bold mb-4"
-            >
-              Sample Heading
-            </h1>
-            <p
-              style={{
-                fontFamily: fontSettings.primaryFont,
-                fontSize: `${fontSettings.baseFontSize}px`,
-                color: fontSettings.textColor
-              }}
-              className="mb-2"
-            >
-              This is how your body text will look with the selected font and size.
-              The quick brown fox jumps over the lazy dog.
-            </p>
-            <p
-              style={{
-                fontFamily: fontSettings.primaryFont,
-                fontSize: `${fontSettings.baseFontSize}px`,
-                color: fontSettings.textColor
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </div>
-
-        {/* Reset Button */}
-        <div className="pt-4 border-t border-gray-700">
-          <button
-            onClick={resetToDefaults}
-            className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-medium transition-colors"
+      {/* Preview */}
+      <Card title="Preview">
+        <div className={cn(
+          'p-6 rounded-xl border',
+          isDark ? 'bg-[rgba(30,41,59,0.5)] border-border-dark' : 'bg-white border-border-light'
+        )}>
+          <h1
+            style={{
+              fontFamily: fontSettings.headingFont,
+              fontSize: `${fontSettings.headingFontSize}px`,
+              color: fontSettings.headingColor
+            }}
+            className="font-bold mb-4"
           >
-            Reset to Defaults
-          </button>
+            Sample Heading
+          </h1>
+          <p
+            style={{
+              fontFamily: fontSettings.primaryFont,
+              fontSize: `${fontSettings.baseFontSize}px`,
+              color: fontSettings.textColor
+            }}
+            className="mb-2"
+          >
+            This is how your body text will look with the selected font and size.
+            The quick brown fox jumps over the lazy dog.
+          </p>
+          <p
+            style={{
+              fontFamily: fontSettings.primaryFont,
+              fontSize: `${fontSettings.baseFontSize}px`,
+              color: fontSettings.textColor
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
         </div>
+      </Card>
+
+      {/* Reset Button */}
+      <div className={cn('pt-4 border-t', isDark ? 'border-border-dark' : 'border-border-light')}>
+        <button
+          onClick={resetToDefaults}
+          className="px-6 py-3 bg-primary-red hover:bg-red-600 text-white rounded-xl font-medium transition-colors"
+        >
+          Reset to Defaults
+        </button>
       </div>
     </div>
   );

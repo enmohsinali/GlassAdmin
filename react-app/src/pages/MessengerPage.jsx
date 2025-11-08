@@ -304,7 +304,7 @@ const MessengerPage = () => {
 
   return (
     <PageWrapper title="Messenger">
-      <div className="h-[calc(100vh-140px)] p-6">
+      <div className="h-[calc(100vh-180px)] mt-6">
         <Card className="h-full p-0 overflow-hidden">
           <div className="flex h-full">
             {/* Left Sidebar - Chat List */}
@@ -493,7 +493,7 @@ const MessengerPage = () => {
 
                   {/* Message Input */}
                   <div className={cn('p-4 border-t', borderColor)}>
-                    <div className="flex items-end gap-3">
+                    <div className="flex items-center gap-3">
                       <Button variant="ghost" className="p-2 flex-shrink-0">
                         <Paperclip className="w-5 h-5" />
                       </Button>
@@ -502,21 +502,12 @@ const MessengerPage = () => {
                       </Button>
 
                       <div className="flex-1">
-                        <textarea
+                        <Input
                           value={messageInput}
                           onChange={(e) => setMessageInput(e.target.value)}
                           onKeyPress={handleKeyPress}
                           placeholder="Type a message..."
-                          rows={1}
-                          className={cn(
-                            'w-full px-4 py-3 rounded-[20px] resize-none outline-none transition-all',
-                            'backdrop-blur-[20px]',
-                            isDark
-                              ? 'bg-[rgba(146,151,179,0.13)] border border-[rgba(249,250,251,0.1)] text-[#f9fafb] placeholder:text-[rgba(249,250,251,0.5)]'
-                              : 'bg-[rgba(255,255,255,0.7)] border border-[rgba(0,0,0,0.1)] text-[#1a1a1a] placeholder:text-[rgba(0,0,0,0.4)]',
-                            'focus:border-primary'
-                          )}
-                          style={{ minHeight: '44px', maxHeight: '120px' }}
+                          className="w-full"
                         />
                       </div>
 
