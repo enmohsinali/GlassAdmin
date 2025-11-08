@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import PageWrapper from '../components/PageWrapper';
 import { Card, Input, Button, Switch, Alert, Tabs } from '../components/ui';
-import { Save, User, Bell, Lock, Shield, Palette } from 'lucide-react';
+import { Save, User, Bell, Lock, Shield, Palette, Type } from 'lucide-react';
 import BackgroundSettings from '../components/BackgroundSettings';
+import FontSettings from '../components/FontSettings';
 
 /**
  * User Settings Page
@@ -50,6 +51,16 @@ const Settings = () => {
   };
 
   const tabs = [
+    {
+      label: 'Appearance',
+      icon: <Palette className="w-4 h-4" />,
+      content: <BackgroundSettings />
+    },
+    {
+      label: 'Fonts',
+      icon: <Type className="w-4 h-4" />,
+      content: <FontSettings />
+    },
     {
       label: 'Profile',
       icon: <User className="w-4 h-4" />,
@@ -201,11 +212,6 @@ const Settings = () => {
           </Card>
         </div>
       )
-    },
-    {
-      label: 'Appearance',
-      icon: <Palette className="w-4 h-4" />,
-      content: <BackgroundSettings />
     }
   ];
 
