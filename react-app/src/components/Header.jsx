@@ -45,12 +45,34 @@ const Header = ({ onMenuClick }) => {
         </svg>
       </button>
 
-      {/* Menu Circles */}
-      <div className={`menu-circles flex gap-1.5 flex-shrink-0 ${isSearchFocused ? 'mr-0' : 'mr-[195px]'} max-[945px]:hidden transition-all-300`}>
-        <span className="w-3 h-3 bg-[#ff5f56] rounded-full"></span>
-        <span className="w-3 h-3 bg-[#ffbd2e] rounded-full"></span>
-        <span className="w-3 h-3 bg-[#27c93f] rounded-full"></span>
-      </div>
+      {/* GlassAdmin Logo */}
+      <Link
+        to="/"
+        className={`logo-container flex items-center gap-2.5 flex-shrink-0 ${isSearchFocused ? 'mr-0' : 'mr-[195px]'} max-[945px]:hidden transition-all-300 no-underline group`}
+      >
+        {/* Glass Icon */}
+        <div className="relative">
+          <div className={`w-8 h-8 rounded-lg ${isDark ? 'bg-gradient-to-br from-[rgba(58,109,240,0.4)] to-[rgba(139,92,246,0.4)]' : 'bg-gradient-to-br from-[rgba(58,109,240,0.3)] to-[rgba(139,92,246,0.3)]'} backdrop-blur-xl border ${isDark ? 'border-[rgba(255,255,255,0.2)]' : 'border-[rgba(255,255,255,0.4)]'} shadow-lg group-hover:scale-105 transition-transform duration-300 flex items-center justify-center`}>
+            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <rect x="3" y="3" width="18" height="18" rx="4" ry="4" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3 9h18" strokeLinecap="round" />
+              <path d="M9 3v18" strokeLinecap="round" />
+            </svg>
+          </div>
+          {/* Glow effect */}
+          <div className={`absolute inset-0 w-8 h-8 rounded-lg bg-gradient-to-br from-[rgba(58,109,240,0.5)] to-[rgba(139,92,246,0.5)] blur-md -z-10 group-hover:blur-lg transition-all duration-300`}></div>
+        </div>
+
+        {/* Logo Text */}
+        <div className="flex flex-col leading-none">
+          <span className={`text-[17px] font-bold ${textColor} tracking-tight`}>
+            Glass<span className="bg-gradient-to-r from-[#3a6df0] to-[#8b5cf6] bg-clip-text text-transparent">Admin</span>
+          </span>
+          <span className={`text-[9px] font-medium ${inactiveColor} tracking-wider uppercase`}>
+            Dashboard
+          </span>
+        </div>
+      </Link>
 
       {/* Header Menu */}
       <div className={`header-menu flex items-center ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
