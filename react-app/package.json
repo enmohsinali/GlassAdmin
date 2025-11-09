@@ -1,7 +1,41 @@
 {
-  "name": "react-app",
+  "name": "glassadmin-react",
+  "version": "1.0.0",
+  "description": "Premium React Admin Dashboard Template with iOS 26 Liquid Glass Design",
+  "author": "GlassAdmin Team",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://glassadmin.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enmohsinali/GlassAdmin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enmohsinali/GlassAdmin/issues",
+    "email": "support@glassadmin.com"
+  },
+  "keywords": [
+    "react",
+    "admin",
+    "dashboard",
+    "template",
+    "glassmorphism",
+    "glass-ui",
+    "ios-26",
+    "liquid-glass",
+    "tailwindcss",
+    "vite",
+    "admin-template",
+    "react-admin",
+    "themeforest",
+    "premium-template",
+    "dark-mode",
+    "responsive",
+    "wcag-aa",
+    "accessible",
+    "i18n",
+    "multilingual"
+  ],
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

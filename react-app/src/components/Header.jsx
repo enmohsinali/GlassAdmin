@@ -1,10 +1,30 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { Link } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = ({ onMenuClick }) => {
   const { isDark } = useTheme();
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const dropdownRef = useRef(null);
+  const notificationRef = useRef(null);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+      if (notificationRef.current && !notificationRef.current.contains(event.target)) {
+        setShowNotifications(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
@@ -34,30 +54,58 @@ const Header = ({ onMenuClick }) => {
 
       {/* Header Menu */}
       <div className={`header-menu flex items-center ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
-        <a
-          href="#"
-          className={`menu-link is-active px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden font-medium`}
-        >
-          Apps
-        </a>
-        <a
-          href="#"
-          className={`menu-link notify-dot relative px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden max-[1055px]:hidden font-medium`}
-        >
-          Your work
-        </a>
-        <a
-          href="#"
+        <Link
+          to="/dashboard/pricing"
           className={`menu-link px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden font-medium`}
         >
-          Discover
-        </a>
-        <a
-          href="#"
-          className={`menu-link notify-dot relative px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden max-[1055px]:hidden font-medium`}
+          Pricing
+        </Link>
+        <Link
+          to="/dashboard/subscription"
+          className={`menu-link px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden font-medium`}
         >
-          Market
-        </a>
+          Subscription
+        </Link>
+        <Link
+          to="/dashboard/about"
+          className={`menu-link px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current max-[610px]:hidden font-medium`}
+        >
+          About
+        </Link>
+
+        {/* Nested Dropdown */}
+        <div className="relative max-[610px]:hidden" ref={dropdownRef}>
+          <button
+            onClick={() => setShowDropdown(!showDropdown)}
+            className={`menu-link px-[30px] py-5 no-underline ${inactiveColor} border-b-2 border-transparent transition-all-300 hover:${textColor} hover:border-current font-medium flex items-center gap-1`}
+          >
+            Dropdown
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {showDropdown && (
+            <div className={`absolute top-full left-0 mt-2 w-48 ${isDark ? 'bg-[rgba(26,26,26,0.95)]' : 'bg-white'} backdrop-blur-xl border ${borderColor} rounded-[14px] shadow-lg overflow-hidden z-50`}>
+              <div className="py-2">
+                <Link
+                  to="#"
+                  className={`block px-4 py-2 ${textColor} hover:bg-primary/10 transition-all-300`}
+                  onClick={() => setShowDropdown(false)}
+                >
+                  Dropdown 1
+                </Link>
+                <Link
+                  to="#"
+                  className={`block px-4 py-2 ${textColor} hover:bg-primary/10 transition-all-300`}
+                  onClick={() => setShowDropdown(false)}
+                >
+                  Dropdown 2
+                </Link>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Search Bar */}
@@ -85,22 +133,78 @@ const Header = ({ onMenuClick }) => {
 
       {/* Header Profile */}
       <div className={`header-profile flex items-center px-4 pl-10 ml-auto flex-shrink-0 ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
-        {/* Notification */}
-        <div className="notification relative">
-          <span className="notification-number absolute bg-[#3a6df0] w-5 h-5 rounded-full text-[11px] font-semibold flex items-center justify-center text-white -right-1.5 -top-1.5">
-            3
-          </span>
-          <svg
-            className={`w-[22px] ${textColor} flex-shrink-0`}
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {/* Notification Dropdown */}
+        <div className="notification relative" ref={notificationRef}>
+          <button
+            onClick={() => setShowNotifications(!showNotifications)}
+            className="relative focus:outline-none"
+            aria-label="Notifications"
           >
-            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
-          </svg>
+            <span className="notification-number absolute bg-[#3a6df0] w-5 h-5 rounded-full text-[11px] font-semibold flex items-center justify-center text-white -right-1.5 -top-1.5">
+              3
+            </span>
+            <svg
+              className={`w-[22px] ${textColor} flex-shrink-0 cursor-pointer hover:text-primary transition-colors`}
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+            </svg>
+          </button>
+
+          {showNotifications && (
+            <div className={`absolute top-full right-0 mt-4 w-80 ${isDark ? 'bg-[rgba(26,26,26,0.95)]' : 'bg-white'} backdrop-blur-xl border ${borderColor} rounded-[14px] shadow-lg overflow-hidden z-50`}>
+              <div className="p-4 border-b border-border">
+                <h3 className={`font-semibold text-lg ${textColor}`}>Notifications</h3>
+              </div>
+              <div className="max-h-96 overflow-y-auto">
+                {/* Notification Items */}
+                <div className={`p-4 hover:bg-primary/5 transition-all-300 cursor-pointer border-b ${borderColor}`}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <p className={`${textColor} text-sm font-medium`}>New order received</p>
+                      <p className={`${inactiveColor} text-xs mt-1`}>Order #1234 has been placed</p>
+                      <p className={`${inactiveColor} text-xs mt-1`}>2 minutes ago</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={`p-4 hover:bg-primary/5 transition-all-300 cursor-pointer border-b ${borderColor}`}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <p className={`${textColor} text-sm font-medium`}>New user registered</p>
+                      <p className={`${inactiveColor} text-xs mt-1`}>Sarah Johnson joined your platform</p>
+                      <p className={`${inactiveColor} text-xs mt-1`}>1 hour ago</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={`p-4 hover:bg-primary/5 transition-all-300 cursor-pointer border-b ${borderColor}`}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="flex-1">
+                      <p className={`${textColor} text-sm font-medium`}>Payment successful</p>
+                      <p className={`${inactiveColor} text-xs mt-1`}>$299.00 received from client</p>
+                      <p className={`${inactiveColor} text-xs mt-1`}>3 hours ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={`p-3 border-t ${borderColor} text-center`}>
+                <Link
+                  to="#"
+                  className={`text-sm text-primary hover:text-primary/80 transition-colors font-medium`}
+                  onClick={() => setShowNotifications(false)}
+                >
+                  View all notifications
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Cloud Icon */}
@@ -118,11 +222,13 @@ const Header = ({ onMenuClick }) => {
         </div>
 
         {/* Profile Image */}
-        <img
-          className={`profile-img w-8 h-8 rounded-full object-cover border-2 ${isDark ? 'border-[#f9fafb]' : 'border-[#3c3a3a]'} ml-[22px]`}
-          src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-          alt="Profile"
-        />
+        <Link to="/dashboard/profile" className="ml-[22px]">
+          <img
+            className={`profile-img w-8 h-8 rounded-full object-cover border-2 ${isDark ? 'border-[#f9fafb]' : 'border-[#3c3a3a]'} cursor-pointer hover:opacity-80 transition-opacity`}
+            src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt="Profile"
+          />
+        </Link>
       </div>
     </header>
   );
