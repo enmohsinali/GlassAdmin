@@ -74,26 +74,26 @@ const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange, siblingCou
   };
 
   return (
-    <nav className={cn('flex items-center gap-2', className)}>
+    <nav className={cn('flex items-center gap-1 sm:gap-2', className)}>
       {/* Previous Button */}
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}
         className={cn(
-          'flex items-center justify-center w-10 h-10 rounded-[14px] border transition-all ease-[0.3s]',
+          'flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-[10px] sm:rounded-[14px] border transition-all ease-[0.3s]',
           bgColor,
           themeBg,
           currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/10'
         )}
       >
-        <ChevronLeft className={cn('w-5 h-5', inactiveColor)} />
+        <ChevronLeft className={cn('w-4 h-4 sm:w-5 sm:h-5', inactiveColor)} />
       </button>
 
       {/* Page Numbers */}
       {pages.map((page, index) => {
         if (page === '...') {
           return (
-            <span key={index} className={cn('w-10 h-10 flex items-center justify-center', inactiveColor)}>
+            <span key={index} className={cn('w-6 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-sm sm:text-base', inactiveColor)}>
               ...
             </span>
           );
@@ -106,7 +106,7 @@ const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange, siblingCou
             key={index}
             onClick={() => onPageChange(page)}
             className={cn(
-              'w-10 h-10 rounded-[14px] border text-[15px] font-medium transition-all ease-[0.3s]',
+              'w-8 h-8 sm:w-10 sm:h-10 rounded-[10px] sm:rounded-[14px] border text-[13px] sm:text-[15px] font-medium transition-all ease-[0.3s]',
               isActive
                 ? 'bg-primary border-primary text-white'
                 : `${bgColor} ${themeBg} ${textColor} hover:bg-primary/10`
@@ -122,13 +122,13 @@ const Pagination = ({ currentPage = 1, totalPages = 10, onPageChange, siblingCou
         onClick={handleNext}
         disabled={currentPage === totalPages}
         className={cn(
-          'flex items-center justify-center w-10 h-10 rounded-[14px] border transition-all ease-[0.3s]',
+          'flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-[10px] sm:rounded-[14px] border transition-all ease-[0.3s]',
           bgColor,
           themeBg,
           currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-primary/10'
         )}
       >
-        <ChevronRight className={cn('w-5 h-5', inactiveColor)} />
+        <ChevronRight className={cn('w-4 h-4 sm:w-5 sm:h-5', inactiveColor)} />
       </button>
     </nav>
   );

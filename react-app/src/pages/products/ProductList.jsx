@@ -473,19 +473,19 @@ const ProductList = () => {
           {/* Pagination */}
           <div
             className={cn(
-              'flex items-center justify-between px-4 py-4 border-t',
+              'flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-4 border-t',
               isDark ? 'border-border-dark' : 'border-border-light'
             )}
           >
             <p
               className={cn(
-                'text-sm',
+                'text-[13px] sm:text-sm',
                 isDark ? 'text-inactive-dark' : 'text-inactive-light'
               )}
             >
               Showing 1 to 6 of 6 products
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-1 sm:gap-2">
               <Button variant="outline" size="sm" disabled>
                 Previous
               </Button>

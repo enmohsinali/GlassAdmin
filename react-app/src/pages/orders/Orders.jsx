@@ -101,8 +101,8 @@ const Orders = () => {
           </div>
 
           {/* Pagination */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-border-dark">
-            <p className={`text-[14px] ${textColor}`}>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 pt-4 border-t border-border-dark">
+            <p className={`text-[13px] sm:text-[14px] ${textColor}`}>
               Showing 1-8 of 124 orders
             </p>
             <Pagination

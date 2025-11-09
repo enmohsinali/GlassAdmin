@@ -308,14 +308,14 @@ const UserList = () => {
         {/* Pagination */}
         <div
           className={cn(
-            'flex items-center justify-between px-4 py-4 border-t',
+            'flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-4 border-t',
             isDark ? 'border-border-dark' : 'border-border-light'
           )}
         >
-          <p className={cn('text-sm font-medium', secondaryTextColor)}>
+          <p className={cn('text-[13px] sm:text-sm font-medium', secondaryTextColor)}>
             Showing 1 to 5 of 5 users
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-1 sm:gap-2">
             <Button variant="outline" size="sm" disabled>
               Previous
             </Button>
