@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -13,6 +13,19 @@ import Sidebar from './Sidebar';
 const PageWrapper = ({ title, children, showTabs = false }) => {
   const { isDark, toggleTheme } = useTheme();
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const bgColor = isDark ? 'bg-theme-dark-bg' : 'bg-theme-light-bg';
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
@@ -20,8 +33,13 @@ const PageWrapper = ({ title, children, showTabs = false }) => {
   const inactiveColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[#4a4a4a]';
 
   return (
-    <div className={`app w-full flex flex-col overflow-hidden relative rounded-[14px] ${bgColor} backdrop-blur-[20px] ${textColor}`}>
-      <Header onMenuClick={() => setIsMobileSidebarOpen(true)} />
+    <div className={`app w-full flex flex-col overflow-hidden relative ${isMobile || isFullscreen ? '' : 'rounded-[14px]'} ${bgColor} backdrop-blur-[20px] ${textColor}`}>
+      <Header
+        onMenuClick={() => setIsMobileSidebarOpen(true)}
+        isFullscreen={isFullscreen}
+        onToggleFullscreen={() => setIsFullscreen(!isFullscreen)}
+        isMobile={isMobile}
+      />
 
       <div className="app-container flex flex-col flex-grow h-[calc(100%-58px)] overflow-hidden">
         <div className="flex flex-grow overflow-hidden">
