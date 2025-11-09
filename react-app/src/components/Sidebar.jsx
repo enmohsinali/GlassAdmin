@@ -9,8 +9,8 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
-  const inactiveColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[#2a2a2a]';
-  const sectionTitleColor = isDark ? 'text-[rgba(249,250,251,0.55)]' : 'text-[#5a5a5a]';
+  const inactiveColor = isDark ? 'text-[rgba(249,250,251,1)]' : 'text-[#2a2a2a]';
+  const sectionTitleColor = isDark ? 'text-[rgba(249,250,251,1)]' : 'text-[#5a5a5a]';
   const hoverBg = isDark ? 'hover:bg-[rgba(113,119,144,0.08)]' : 'hover:bg-[rgba(113,119,144,0.06)]';
   const bgColor = isDark ? 'bg-theme-dark-bg' : 'bg-theme-light-bg';
   const activeBg = isDark ? 'bg-[rgba(58,109,240,0.15)]' : 'bg-[rgba(58,109,240,0.1)]';
