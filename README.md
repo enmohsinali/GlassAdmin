@@ -52,11 +52,12 @@
 - Scroll Animations (6 types)
 - GlassCard with refraction effects
 
-### 📊 Pre-Built Pages (20+)
+### 📊 Pre-Built Pages (30+)
 
 #### Dashboards
 - Analytics Dashboard
 - E-commerce Dashboard
+- Financial Dashboard
 
 #### Management
 - User Management (List, Details, Edit)
@@ -64,12 +65,29 @@
 - Order Management (List, Details)
 - Invoice Management (List, Details)
 
+#### Productivity Tools
+- Calendar (full-featured event management)
+- Tasks (task tracking with priorities)
+- Scrum Board (Kanban-style project management)
+- Messenger (real-time chat interface)
+- Contacts & CRM
+
+#### Marketing & Sales
+- **Pricing** - 3 pricing tiers with monthly/annual toggle
+- **Subscription** - Subscription management dashboard
+- **About** - Company information page with team showcase
+
+#### User Profiles
+- **Profile Overview** - Main profile with tabs (overview, activity, projects)
+- **Profile Edit** - Edit user information and social links
+- **Profile View** - Simple read-only profile display
+
 #### Authentication
 - Login, Register
 - Forgot Password, Reset Password
 
 #### Utility Pages
-- Settings (Profile, Notifications, Security)
+- Settings (Appearance, Fonts, Profile, Notifications, Security)
 - Components Showcase
 - Phase 4 Animations Demo
 - 404 Not Found
@@ -420,7 +438,12 @@ Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md)
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This template is available under **two license types**:
+
+- **Regular License** - For single end product (not for resale). [Learn more](https://themeforest.net/licenses/standard)
+- **Extended License** - For products sold to end users. [Learn more](https://themeforest.net/licenses/extended)
+
+Please ensure you purchase the appropriate license for your use case. See the [LICENSE](LICENSE) file for full details.
 
 ## 🙏 Acknowledgments
 
