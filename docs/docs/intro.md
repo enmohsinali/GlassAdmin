@@ -1,47 +1,121 @@
 ---
 sidebar_position: 1
+title: Introduction
 ---
 
-# Tutorial Intro
+# Welcome to GlassAdmin
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**GlassAdmin** is a premium React admin dashboard template featuring the stunning **iOS 26 Liquid Glass** design aesthetic. Built with React 19, Vite, and Tailwind CSS, it provides a beautiful, professional interface for managing your applications.
 
-## Getting Started
+![GlassAdmin Preview](https://via.placeholder.com/1200x600/3a6df0/ffffff?text=GlassAdmin+iOS+26+Liquid+Glass+Design)
 
-Get started by **creating a new site**.
+## ✨ Key Features
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- 🎨 **iOS 26 Liquid Glass Design** - Modern glassmorphic UI with blur effects
+- 🌓 **Dark/Light Mode** - Fully themed with seamless switching
+- 📱 **100% Responsive** - Perfect on all devices (mobile, tablet, desktop)
+- ♿ **WCAG AA Compliant** - Accessible to all users
+- 🚀 **Lightning Fast** - Built with Vite for optimal performance
+- 🎯 **40+ Components** - Comprehensive UI library
+- 📊 **30+ Pages** - Ready-to-use page templates
+- 🔧 **Fully Customizable** - CSS variables for easy theming
+- 🌍 **Multi-language Support** - i18n ready with 5+ languages
 
-### What you'll need
+## 📦 What's Included
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+### 40+ UI Components
 
-## Generate a new site
+- **Form Components:** Button, Input, Select, Checkbox, Radio, Switch, Slider, File Upload, Form Wizard
+- **Layout Components:** Card, GlassCard, Tabs, Accordion, Modal, Drawer, Breadcrumbs
+- **Data Display:** Badge, Avatar, Stats, Tag, Tooltip, Pagination
+- **Feedback:** Alert, Progress, Spinner, Skeleton loaders
+- **Advanced:** Global Search, Charts, Animations
 
-Generate a new Docusaurus site using the **classic template**.
+### 30+ Ready Pages
 
-The classic template will automatically be added to your project after you run the command:
+- **Dashboards:** Analytics, E-commerce, Financial
+- **Management:** Users, Products, Orders, Invoices
+- **Productivity:** Calendar, Tasks, Scrum Board, Messenger, Contacts
+- **Marketing:** Pricing, Subscription, About
+- **User:** Profile (3 variations), Settings
+- **Auth:** Login, Register, Forgot Password, Reset Password
+
+### 3 Complete Dashboard Layouts
+
+1. **Analytics Dashboard** - Metrics, charts, and data visualization
+2. **E-commerce Dashboard** - Sales tracking and product management
+3. **Financial Dashboard** - Revenue, expenses, and financial data
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
-npm init docusaurus@latest my-website classic
+# Extract the package
+unzip glassadmin-react.zip
+cd GlassAdmin/react-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
+### Build for Production
 
 ```bash
-cd my-website
-npm run start
+npm run build
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+The production build will be in the `/dist` folder.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+## 📚 Documentation Structure
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+This documentation is organized into the following sections:
+
+- **Getting Started** - Installation, setup, and basic usage
+- **Components** - Detailed component API and examples
+- **Pages** - Pre-built page documentation
+- **Theming** - Customization and theming guide
+- **Deployment** - Deployment to various platforms
+- **API Reference** - Complete API documentation
+
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 19.1.1 | UI Framework |
+| Vite | 7.2.0 | Build Tool |
+| Tailwind CSS | 3.4.18 | Styling |
+| React Router | 7.1.1 | Routing |
+| Framer Motion | 12.0.0 | Animations |
+| ApexCharts | 3.58.0 | Charts |
+| i18next | 24.2.0 | Internationalization |
+
+## 🆘 Need Help?
+
+- 📧 **Email:** support@glassadmin.com
+- 📚 **Documentation:** You're reading it!
+- 🎫 **Support:** Via ThemeForest purchase page
+
+## 📄 License
+
+This template is licensed under the ThemeForest Regular License or Extended License depending on your purchase.
+
+See the [LICENSE](../../LICENSE) file for details.
+
+## 🎯 Next Steps
+
+Ready to dive in? Check out these guides:
+
+1. [Installation Guide](./getting-started/installation) - Get GlassAdmin up and running
+2. [Components Overview](./components/overview) - Explore the UI components
+3. [Theming Guide](./guides/theming) - Customize colors and styling
+4. [Deployment](./guides/deployment) - Deploy to production
+
+---
+
+**Made with ❤️ by the GlassAdmin Team**
