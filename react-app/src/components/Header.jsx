@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 import { Link } from 'react-router-dom';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const Header = ({ onMenuClick }) => {
+const Header = ({ onMenuClick, isFullscreen, onToggleFullscreen, isMobile }) => {
   const { isDark } = useTheme();
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -45,34 +45,12 @@ const Header = ({ onMenuClick }) => {
         </svg>
       </button>
 
-      {/* GlassAdmin Logo */}
-      <Link
-        to="/"
-        className={`logo-container flex items-center gap-2.5 flex-shrink-0 ${isSearchFocused ? 'mr-0' : 'mr-[195px]'} max-[945px]:hidden transition-all-300 no-underline group`}
-      >
-        {/* Glass Icon */}
-        <div className="relative">
-          <div className={`w-8 h-8 rounded-lg ${isDark ? 'bg-gradient-to-br from-[rgba(58,109,240,0.4)] to-[rgba(139,92,246,0.4)]' : 'bg-gradient-to-br from-[rgba(58,109,240,0.3)] to-[rgba(139,92,246,0.3)]'} backdrop-blur-xl border ${isDark ? 'border-[rgba(255,255,255,0.2)]' : 'border-[rgba(255,255,255,0.4)]'} shadow-lg group-hover:scale-105 transition-transform duration-300 flex items-center justify-center`}>
-            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <rect x="3" y="3" width="18" height="18" rx="4" ry="4" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3 9h18" strokeLinecap="round" />
-              <path d="M9 3v18" strokeLinecap="round" />
-            </svg>
-          </div>
-          {/* Glow effect */}
-          <div className={`absolute inset-0 w-8 h-8 rounded-lg bg-gradient-to-br from-[rgba(58,109,240,0.5)] to-[rgba(139,92,246,0.5)] blur-md -z-10 group-hover:blur-lg transition-all duration-300`}></div>
-        </div>
-
-        {/* Logo Text */}
-        <div className="flex flex-col leading-none">
-          <span className={`text-[17px] font-bold ${textColor} tracking-tight`}>
-            Glass<span className="bg-gradient-to-r from-[#3a6df0] to-[#8b5cf6] bg-clip-text text-transparent">Admin</span>
-          </span>
-          <span className={`text-[9px] font-medium ${inactiveColor} tracking-wider uppercase`}>
-            Dashboard
-          </span>
-        </div>
-      </Link>
+      {/* Menu Circles */}
+      <div className={`menu-circles flex gap-1.5 flex-shrink-0 ${isSearchFocused ? 'mr-0' : 'mr-[195px]'} max-md:hidden transition-all-300`}>
+        <span className="w-3 h-3 bg-[#ff5f56] rounded-full"></span>
+        <span className="w-3 h-3 bg-[#ffbd2e] rounded-full"></span>
+        <span className="w-3 h-3 bg-[#27c93f] rounded-full"></span>
+      </div>
 
       {/* Header Menu */}
       <div className={`header-menu flex items-center ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
@@ -231,7 +209,7 @@ const Header = ({ onMenuClick }) => {
 
         {/* Cloud Icon */}
         <svg
-          className={`w-[22px] ${textColor} flex-shrink-0 ml-[22px] max-[945px]:hidden`}
+          className={`w-[22px] ${textColor} flex-shrink-0 ml-[22px] max-md:hidden`}
           viewBox="0 0 512 512"
           fill="currentColor"
         >
@@ -239,9 +217,29 @@ const Header = ({ onMenuClick }) => {
         </svg>
 
         {/* Language Switcher */}
-        <div className="ml-[22px] max-[945px]:hidden">
+        <div className="ml-[22px] max-md:hidden">
           <LanguageSwitcher />
         </div>
+
+        {/* Fullscreen Toggle - Hidden on mobile */}
+        {!isMobile && (
+          <button
+            onClick={onToggleFullscreen}
+            className={`ml-[22px] p-2 rounded-lg ${textColor} hover:bg-[rgba(113,119,144,0.1)] transition-all-300`}
+            aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+            title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+          >
+            {isFullscreen ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75m15 15v4.5m0-4.5h4.5m-4.5 0l5.25 5.25M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+              </svg>
+            )}
+          </button>
+        )}
 
         {/* Profile Image */}
         <Link to="/dashboard/profile" className="ml-[22px]">

@@ -24,7 +24,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <aside className={`left-side flex-none w-[240px] ${isRTL ? 'border-l' : 'border-r'} ${borderColor} p-[26px] overflow-auto max-[945px]:fixed max-[945px]:top-0 ${isRTL ? 'max-[945px]:right-0' : 'max-[945px]:left-0'} max-[945px]:h-full max-[945px]:z-50 max-[945px]:${bgColor} max-[945px]:backdrop-blur-[20px] max-[945px]:transition-transform max-[945px]:duration-300 ${isMobileOpen ? 'max-[945px]:translate-x-0' : isRTL ? 'max-[945px]:translate-x-full' : 'max-[945px]:-translate-x-full'} md:translate-x-0`}>
+    <aside className={`left-side flex-none w-[240px] ${isRTL ? 'border-l' : 'border-r'} ${borderColor} p-[26px] overflow-auto max-md:fixed max-md:top-0 ${isRTL ? 'max-md:right-0' : 'max-md:left-0'} max-md:h-full max-md:z-50 max-md:${bgColor} max-md:backdrop-blur-[20px] max-md:transition-transform max-md:duration-300 ${isMobileOpen ? 'max-md:translate-x-0' : isRTL ? 'max-md:translate-x-full' : 'max-md:-translate-x-full'} md:translate-x-0`}>
       {/* Mobile Close Button - iOS 26 inspired */}
       <button
         onClick={onClose}
