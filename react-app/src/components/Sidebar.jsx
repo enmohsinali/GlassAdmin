@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Sidebar = ({ isMobileOpen, onClose }) => {
   const { isDark } = useTheme();
@@ -175,7 +176,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
           <div>
             <button
               onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-              className={`w-full flex items-center justify-between no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}
+              className={`w-full flex items-center justify-between no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all duration-300 ${hoverBg}`}
             >
               <div className="flex items-center">
                 <svg className="w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -184,42 +185,75 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
                 </svg>
                 Profile
               </div>
-              <svg
-                className={`w-4 h-4 transition-transform ${showProfileDropdown ? 'rotate-180' : ''}`}
+              <motion.svg
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                animate={{ rotate: showProfileDropdown ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              </motion.svg>
             </button>
 
-            {/* Dropdown Items */}
-            {showProfileDropdown && (
-              <div className="ml-6 mt-1 space-y-1">
-                <Link
-                  to="/dashboard/profile"
-                  onClick={onClose}
-                  className={`block no-underline ${isActive('/dashboard/profile') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all-300 ${hoverBg}`}
+            {/* Dropdown Items with Animation */}
+            <AnimatePresence>
+              {showProfileDropdown && (
+                <motion.div
+                  className="ml-6 mt-1 space-y-1 overflow-hidden"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  Overview
-                </Link>
-                <Link
-                  to="/dashboard/profile/edit"
-                  onClick={onClose}
-                  className={`block no-underline ${isActive('/dashboard/profile/edit') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all-300 ${hoverBg}`}
-                >
-                  Edit Profile
-                </Link>
-                <Link
-                  to="/dashboard/profile-view"
-                  onClick={onClose}
-                  className={`block no-underline ${isActive('/dashboard/profile-view') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all-300 ${hoverBg}`}
-                >
-                  Profile View
-                </Link>
-              </div>
-            )}
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ delay: 0.05, duration: 0.2 }}
+                  >
+                    <Link
+                      to="/dashboard/profile"
+                      onClick={onClose}
+                      className={`block no-underline ${isActive('/dashboard/profile') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all duration-300 ${hoverBg}`}
+                    >
+                      Overview
+                    </Link>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ delay: 0.1, duration: 0.2 }}
+                  >
+                    <Link
+                      to="/dashboard/profile/edit"
+                      onClick={onClose}
+                      className={`block no-underline ${isActive('/dashboard/profile/edit') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all duration-300 ${hoverBg}`}
+                    >
+                      Edit Profile
+                    </Link>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ delay: 0.15, duration: 0.2 }}
+                  >
+                    <Link
+                      to="/dashboard/profile-view"
+                      onClick={onClose}
+                      className={`block no-underline ${isActive('/dashboard/profile-view') ? `${textColor} ${activeBg}` : inactiveColor} font-medium p-2 text-[13px] rounded-md transition-all duration-300 ${hoverBg}`}
+                    >
+                      Profile View
+                    </Link>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
