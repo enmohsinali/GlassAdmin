@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { Card, Avatar, Badge, Button, Tabs, Stats, Progress } from '../components/ui';
+import { Card, Avatar, Badge, Button, Tabs, Progress } from '../components/ui';
 import { Mail, MapPin, Calendar, Briefcase, Edit, Settings, User } from 'lucide-react';
 
 /**
@@ -8,7 +7,6 @@ import { Mail, MapPin, Calendar, Briefcase, Edit, Settings, User } from 'lucide-
  * Main profile view with tabs for overview, activity, and projects
  */
 const ProfilePage = () => {
-  const [activeTab, setActiveTab] = useState(0);
 
   // Mock user data
   const user = {
