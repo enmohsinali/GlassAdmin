@@ -38,19 +38,19 @@ const EcommerceDashboard = () => {
       curve: 'smooth',
       width: 3,
     },
-    colors: ['rgb(var(--color-primary))', 'rgb(var(--color-success))'],
+    colors: ['#3b82f6', '#10b981'],
     xaxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(6).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
       },
     },
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(6).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
         formatter: (value) => `$${value}k`,
       },
@@ -60,7 +60,7 @@ const EcommerceDashboard = () => {
     },
     legend: {
       labels: {
-        colors: isDark ? '#f9fafb' : '#1a1a1a',
+        colors: [isDark ? '#f9fafb' : '#1a1a1a'],
       },
     },
     tooltip: {
@@ -103,22 +103,22 @@ const EcommerceDashboard = () => {
       enabled: true,
       formatter: (val) => `$${val}k`,
       style: {
-        colors: ['#fff'],
+        colors: [isDark ? '#fff' : '#1a1a1a'],
       },
     },
-    colors: ['rgb(var(--color-primary))'],
+    colors: ['#3b82f6'],
     xaxis: {
       categories: ['Electronics', 'Fashion', 'Home & Garden', 'Sports', 'Books'],
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(5).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
       },
     },
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(5).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
       },
     },

@@ -42,19 +42,19 @@ const AnalyticsDashboard = () => {
         stops: [0, 90, 100],
       },
     },
-    colors: ['rgb(var(--color-primary))'],
+    colors: ['#3b82f6'],
     xaxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(12).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
       },
     },
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(12).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
         formatter: (value) => `$${value}k`,
       },
@@ -88,17 +88,17 @@ const AnalyticsDashboard = () => {
       mode: isDark ? 'dark' : 'light',
     },
     labels: ['Direct', 'Organic Search', 'Social Media', 'Referral', 'Email'],
-    colors: ['rgb(var(--color-primary))', 'rgb(var(--color-success))', 'rgb(var(--color-danger))', 'rgb(var(--color-warning))', 'rgb(var(--color-purple))'],
+    colors: ['#3b82f6', '#10b981', '#ef4444', '#f59e0b', '#a855f7'],
     legend: {
       position: 'bottom',
       labels: {
-        colors: isDark ? '#f9fafb' : '#1a1a1a',
+        colors: [isDark ? '#f9fafb' : '#1a1a1a'],
       },
     },
     dataLabels: {
       enabled: true,
       style: {
-        colors: ['#fff'],
+        colors: [isDark ? '#fff' : '#1a1a1a'],
       },
     },
     plotOptions: {
@@ -135,19 +135,19 @@ const AnalyticsDashboard = () => {
       },
     },
     dataLabels: { enabled: false },
-    colors: ['rgb(var(--color-success))'],
+    colors: ['#10b981'],
     xaxis: {
       categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(7).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
       },
     },
     yaxis: {
       labels: {
         style: {
-          colors: isDark ? '#f9fafb' : '#1a1a1a',
+          colors: Array(7).fill(isDark ? '#f9fafb' : '#1a1a1a'),
         },
       },
     },
