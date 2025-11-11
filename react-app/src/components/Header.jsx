@@ -45,12 +45,58 @@ const Header = ({ onMenuClick, isFullscreen, onToggleFullscreen, isMobile }) => 
         </svg>
       </button>
 
-      {/* Menu Circles */}
-      <div className={`menu-circles flex gap-1.5 flex-shrink-0 ${isSearchFocused ? 'mr-0' : 'mr-[195px]'} max-md:hidden transition-all-300`}>
-        <span className="w-3 h-3 bg-[#ff5f56] rounded-full"></span>
-        <span className="w-3 h-3 bg-[#ffbd2e] rounded-full"></span>
-        <span className="w-3 h-3 bg-[#27c93f] rounded-full"></span>
-      </div>
+      {/* GlassAdmin Logo - Apple Inspired */}
+      <Link
+        to="/"
+        className={`logo-container flex items-center gap-3 flex-shrink-0 ${isSearchFocused ? 'mr-0' : 'mr-[195px]'} max-[945px]:hidden transition-all-300 no-underline group`}
+      >
+        {/* Glass Icon with distinct dark/light styles */}
+        <div className="relative">
+          {/* Icon container */}
+          <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
+            isDark
+              ? 'bg-gradient-to-br from-[#3a6df0] to-[#8b5cf6] shadow-[0_8px_32px_rgba(58,109,240,0.3)]'
+              : 'bg-gradient-to-br from-[#5a8dff] to-[#a78bfa] shadow-[0_4px_24px_rgba(58,109,240,0.2)]'
+          }`}>
+            {/* Glass grid icon */}
+            <svg className="w-5 h-5 text-white drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+              <path d="M3 9h18M3 15h18M9 3v18M15 3v18" opacity="0.9" />
+            </svg>
+          </div>
+
+          {/* Animated glow effect - different for dark/light */}
+          <div className={`absolute inset-0 w-9 h-9 rounded-xl transition-all duration-300 -z-10 ${
+            isDark
+              ? 'bg-gradient-to-br from-[#3a6df0]/40 to-[#8b5cf6]/40 blur-lg group-hover:blur-xl'
+              : 'bg-gradient-to-br from-[#3a6df0]/30 to-[#8b5cf6]/30 blur-md group-hover:blur-lg'
+          }`}></div>
+        </div>
+
+        {/* Logo Text - Apple SF Pro style */}
+        <div className="flex flex-col leading-none">
+          {/* Main title with gradient */}
+          <span className={`text-[18px] font-bold tracking-tight flex items-baseline ${
+            isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]'
+          }`}>
+            <span className={isDark ? 'text-white' : 'text-[#1a1a1a]'}>Glass</span>
+            <span className={`ml-0.5 ${
+              isDark
+                ? 'bg-gradient-to-r from-[#5a8dff] to-[#a78bfa] bg-clip-text text-transparent'
+                : 'bg-gradient-to-r from-[#3a6df0] to-[#8b5cf6] bg-clip-text text-transparent'
+            }`}>Admin</span>
+          </span>
+
+          {/* Subtitle */}
+          <span className={`text-[8.5px] font-semibold tracking-[0.08em] uppercase mt-0.5 ${
+            isDark
+              ? 'text-[rgba(249,250,251,0.5)]'
+              : 'text-[rgba(26,26,26,0.45)]'
+          }`}>
+            Dashboard
+          </span>
+        </div>
+      </Link>
 
       {/* Header Menu */}
       <div className={`header-menu flex items-center ${isSearchFocused ? 'hidden' : ''} transition-all-300`}>
