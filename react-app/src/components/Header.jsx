@@ -56,10 +56,10 @@ const Header = ({ onMenuClick, isFullscreen, onToggleFullscreen, isMobile }) => 
           <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
             isDark
               ? 'bg-gradient-to-br from-[#3a6df0] to-[#8b5cf6] shadow-[0_8px_32px_rgba(58,109,240,0.3)]'
-              : 'bg-gradient-to-br from-[#5a8dff] to-[#a78bfa] shadow-[0_4px_24px_rgba(58,109,240,0.2)]'
+              : 'bg-gradient-to-br from-[#4a7cf0] to-[#7c5ce6] shadow-[0_6px_24px_rgba(58,109,240,0.35)] ring-1 ring-white/20'
           }`}>
             {/* Glass grid icon */}
-            <svg className="w-5 h-5 text-white drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg className={`w-5 h-5 text-white transition-all ${isDark ? 'drop-shadow-sm' : 'drop-shadow-md'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="3" />
               <path d="M3 9h18M3 15h18M9 3v18M15 3v18" opacity="0.9" />
             </svg>
@@ -69,7 +69,7 @@ const Header = ({ onMenuClick, isFullscreen, onToggleFullscreen, isMobile }) => 
           <div className={`absolute inset-0 w-9 h-9 rounded-xl transition-all duration-300 -z-10 ${
             isDark
               ? 'bg-gradient-to-br from-[#3a6df0]/40 to-[#8b5cf6]/40 blur-lg group-hover:blur-xl'
-              : 'bg-gradient-to-br from-[#3a6df0]/30 to-[#8b5cf6]/30 blur-md group-hover:blur-lg'
+              : 'bg-gradient-to-br from-[#4a7cf0]/50 to-[#7c5ce6]/50 blur-md group-hover:blur-lg'
           }`}></div>
         </div>
 
@@ -79,11 +79,11 @@ const Header = ({ onMenuClick, isFullscreen, onToggleFullscreen, isMobile }) => 
           <span className={`text-[18px] font-bold tracking-tight flex items-baseline ${
             isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]'
           }`}>
-            <span className={isDark ? 'text-white' : 'text-[#1a1a1a]'}>Glass</span>
+            <span className={isDark ? 'text-white' : 'text-[#1f1f1f]'}>Glass</span>
             <span className={`ml-0.5 ${
               isDark
                 ? 'bg-gradient-to-r from-[#5a8dff] to-[#a78bfa] bg-clip-text text-transparent'
-                : 'bg-gradient-to-r from-[#3a6df0] to-[#8b5cf6] bg-clip-text text-transparent'
+                : 'bg-gradient-to-r from-[#4a7cf0] to-[#7c5ce6] bg-clip-text text-transparent drop-shadow-sm'
             }`}>Admin</span>
           </span>
 
@@ -91,7 +91,7 @@ const Header = ({ onMenuClick, isFullscreen, onToggleFullscreen, isMobile }) => 
           <span className={`text-[8.5px] font-semibold tracking-[0.08em] uppercase mt-0.5 ${
             isDark
               ? 'text-[rgba(249,250,251,0.5)]'
-              : 'text-[rgba(26,26,26,0.45)]'
+              : 'text-[rgba(31,31,31,0.5)]'
           }`}>
             Dashboard
           </span>
