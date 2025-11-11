@@ -59,10 +59,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+}
+
+/* Add padding only on desktop screens (>= 768px) */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
 }
 
 /* Light mode overlay */
