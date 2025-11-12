@@ -21,7 +21,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Get Started 🚀
           </Link>
         </div>
       </div>
@@ -33,8 +33,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - Premium React Admin Dashboard`}
+      description="GlassAdmin is a premium React admin dashboard template featuring the stunning iOS 26 Liquid Glass design aesthetic. Built with React, Tailwind CSS, and modern web technologies.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

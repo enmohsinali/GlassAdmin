@@ -11,32 +11,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'iOS 26 Liquid Glass Design',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Experience the stunning iOS 26 Liquid Glass aesthetic with advanced glassmorphism effects,
+        backdrop blur, and dynamic color transitions. A truly premium and modern design.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: '40+ Components & 30+ Pages',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Comprehensive collection of pre-built components and fully functional pages including
+        dashboards, e-commerce, analytics, calendar, messaging, and more. Everything you need to start fast.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Modern Tech Stack',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Built with React 18, Tailwind CSS, React Router, and Framer Motion.
+        Fully responsive, dark/light mode support, and optimized for performance. Production-ready code.
       </>
     ),
   },
