@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,13 +15,33 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
   const textColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
   const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
-  const inactiveColor = isDark ? 'text-[rgba(249,250,251,1)]' : 'text-[#2a2a2a]';
-  const sectionTitleColor = isDark ? 'text-[rgba(249,250,251,1)]' : 'text-[#5a5a5a]';
-  const hoverBg = isDark ? 'hover:bg-[rgba(113,119,144,0.08)]' : 'hover:bg-[rgba(113,119,144,0.06)]';
+  const inactiveColor = isDark ? 'text-[rgba(249,250,251,0.85)]' : 'text-[#2a2a2a]';
+  const sectionTitleColor = isDark ? 'text-[rgba(249,250,251,1)]' : 'text-[#00000]';
+
+  // Enhanced glassmorphic hover and active backgrounds
+  const hoverBg = isDark
+    ? 'hover:bg-[rgba(146,151,179,0.18)] hover:backdrop-blur-md'
+    : 'hover:bg-[rgba(113,119,144,0.12)] hover:backdrop-blur-md';
+
+  const activeBg = isDark
+    ? 'bg-[rgba(58,109,240,0.25)] backdrop-blur-md border-l-2 border-[#3a6df0] shadow-[0_0_15px_rgba(58,109,240,0.15)]'
+    : 'bg-[rgba(58,109,240,0.15)] backdrop-blur-md border-l-2 border-[#3a6df0] shadow-[0_0_10px_rgba(58,109,240,0.1)]';
+
   const bgColor = isDark ? 'bg-theme-dark-bg' : 'bg-theme-light-bg';
-  const activeBg = isDark ? 'bg-[rgba(58,109,240,0.15)]' : 'bg-[rgba(58,109,240,0.1)]';
 
   const isActive = (path) => location.pathname === path;
+
+  // Check if any profile sub-route is active
+  const isProfileSectionActive = () => {
+    return location.pathname.startsWith('/dashboard/profile');
+  };
+
+  // Auto-open dropdown if a child route is active
+  useEffect(() => {
+    if (isProfileSectionActive()) {
+      setShowProfileDropdown(true);
+    }
+  }, [location.pathname]);
 
   return (
     <aside className={`left-side flex-none w-[240px] ${isRTL ? 'border-l' : 'border-r'} ${borderColor} p-[26px] overflow-auto max-md:fixed max-md:top-0 ${isRTL ? 'max-md:right-0' : 'max-md:left-0'} max-md:h-full max-md:z-50 max-md:${bgColor} max-md:backdrop-blur-[20px] max-md:transition-transform max-md:duration-300 ${isMobileOpen ? 'max-md:translate-x-0' : isRTL ? 'max-md:translate-x-full' : 'max-md:-translate-x-full'} md:translate-x-0`}>
@@ -38,7 +58,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Dashboards Section */}
       <div className="side-wrapper">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Dashboards</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Dashboards</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <Link
             to="/dashboard/analytics"
@@ -95,7 +115,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Management Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Management</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Management</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <Link
             to="/dashboard/orders"
@@ -175,13 +195,13 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* User Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>User</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>User</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           {/* Profile Dropdown */}
           <div>
             <button
               onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-              className={`w-full flex items-center justify-between no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all duration-300 ${hoverBg}`}
+              className={`w-full flex items-center justify-between no-underline ${isProfileSectionActive() ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all duration-300 ${hoverBg}`}
             >
               <div className="flex items-center">
                 <svg className={`w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -265,7 +285,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* CRM Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>CRM</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>CRM</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <Link
             to="/dashboard/contacts"
@@ -306,7 +326,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Demo Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Demo</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Demo</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <Link
             to="/dashboard/components"
@@ -338,7 +358,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Apps Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Apps</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Apps</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <Link to="/" onClick={onClose} className={`flex items-center no-underline ${isActive('/') ? `${textColor} ${activeBg}` : textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
             <svg className={`w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} viewBox="0 0 512 512" fill="currentColor">
@@ -362,7 +382,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Categories Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Categories</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Categories</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <a href="#" className={`flex items-center no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
             <svg className={`w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} viewBox="0 0 488.455 488.455" fill="currentColor">
@@ -408,7 +428,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Fonts Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Fonts</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Fonts</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <a href="#" className={`flex items-center no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
             <svg className={`w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} viewBox="0 0 332 332" fill="currentColor">
@@ -421,7 +441,7 @@ const Sidebar = ({ isMobileOpen, onClose }) => {
 
       {/* Resource Links Section */}
       <div className="side-wrapper mt-5">
-        <div className={`side-title ${sectionTitleColor} mb-3.5 font-medium text-[13px] uppercase tracking-wide`}>Resource Links</div>
+        <div className={`side-title ${sectionTitleColor} mb-3.5 font-semibold text-[13px] uppercase tracking-wide`}>Resource Links</div>
         <div className="side-menu flex flex-col whitespace-nowrap">
           <a href="#" className={`flex items-center no-underline ${textColor} font-medium p-2.5 text-[14px] rounded-md transition-all-300 ${hoverBg}`}>
             <svg className={`w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} viewBox="0 0 512 512" fill="currentColor">

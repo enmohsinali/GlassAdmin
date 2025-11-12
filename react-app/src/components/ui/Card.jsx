@@ -63,4 +63,58 @@ const Card = ({
   );
 };
 
+/**
+ * CardContent - Flexible content container for Card
+ * Can be used independently or as a child of Card
+ */
+export const CardContent = ({ className, children, ...props }) => {
+  return (
+    <div className={cn('', className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+/**
+ * CardHeader - Header section for Card
+ */
+export const CardHeader = ({ className, children, ...props }) => {
+  const { isDark } = useTheme();
+  const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
+
+  return (
+    <div className={cn('px-5 py-4 border-b', borderColor, className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+/**
+ * CardTitle - Title component for Card
+ */
+export const CardTitle = ({ className, children, ...props }) => {
+  const { isDark } = useTheme();
+  const titleColor = isDark ? 'text-[#f9fafb]' : 'text-[#1a1a1a]';
+
+  return (
+    <h3 className={cn('text-[17px] font-medium m-0', titleColor, className)} {...props}>
+      {children}
+    </h3>
+  );
+};
+
+/**
+ * CardFooter - Footer section for Card
+ */
+export const CardFooter = ({ className, children, ...props }) => {
+  const { isDark } = useTheme();
+  const borderColor = isDark ? 'border-border-dark' : 'border-border-light';
+
+  return (
+    <div className={cn('px-5 py-4 border-t', borderColor, className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
 export default Card;

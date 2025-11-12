@@ -15,7 +15,7 @@ export { default as FileUpload } from './FileUpload';
 export { default as FormWizard, VerticalFormWizard } from './FormWizard';
 
 // Layout Components
-export { default as Card } from './Card';
+export { default as Card, CardContent, CardHeader, CardTitle, CardFooter } from './Card';
 export { default as GlassCard, GlassCardGradient } from './GlassCard';
 export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Tabs } from './Tabs';

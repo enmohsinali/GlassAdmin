@@ -35,7 +35,7 @@ const TaskCard = ({ task, isDragging = false }) => {
   return (
     <div
       className={cn(
-        'glass-card p-4 cursor-grab active:cursor-grabbing transition-all',
+        'card p-4 cursor-grab active:cursor-grabbing transition-all',
         isDragging && 'opacity-50 scale-95'
       )}
     >

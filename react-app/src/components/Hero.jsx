@@ -1,32 +1,72 @@
-const Hero = () => {
-  return (
-    <div className="content-wrapper-header hero-gradient flex items-center w-full justify-between rounded-[14px] p-5 px-10 max-[415px]:p-5">
-      <div className="content-wrapper-context max-w-[350px]">
-        <h3 className="img-content font-medium text-[17px] flex items-center m-0">
-          <svg className="w-7 mr-3.5" viewBox="0 0 512 512">
-            <path d="M467 0H45C20.099 0 0 20.099 0 45v422c0 24.901 20.099 45 45 45h422c24.901 0 45-20.099 45-45V45c0-24.901-20.099-45-45-45z" fill="#d6355b" />
-            <path xmlns="http://www.w3.org/2000/svg" d="M512 45v422c0 24.901-20.099 45-45 45H256V0h211c24.901 0 45 20.099 45 45z" fill="#d6355b" />
-            <path xmlns="http://www.w3.org/2000/svg" d="M467 30H45c-8.401 0-15 6.599-15 15v422c0 8.401 6.599 15 15 15h422c8.401 0 15-6.599 15-15V45c0-8.401-6.599-15-15-15z" fill="#2e000a" />
-            <path xmlns="http://www.w3.org/2000/svg" d="M482 45v422c0 8.401-6.599 15-15 15H256V30h211c8.401 0 15 6.599 15 15z" fill="#2e000a" />
-            <path xmlns="http://www.w3.org/2000/svg" d="M181 391c-41.353 0-75-33.647-75-75 0-8.291 6.709-15 15-15s15 6.709 15 15c0 24.814 20.186 45 45 45s45-20.186 45-45-20.186-45-45-45c-41.353 0-75-33.647-75-75s33.647-75 75-75 75 33.647 75 75c0 8.291-6.709 15-15 15s-15-6.709-15-15c0-24.814-20.186-45-45-45s-45 20.186-45 45 20.186 45 45 45c41.353 0 75 33.647 75 75s-33.647 75-75 75z" fill="#d6355b" />
-            <path xmlns="http://www.w3.org/2000/svg" d="M391 361h-30c-8.276 0-15-6.724-15-15V211h45c8.291 0 15-6.709 15-15s-6.709-15-15-15h-45v-45c0-8.291-6.709-15-15-15s-15 6.709-15 15v45h-15c-8.291 0-15 6.709-15 15s6.709 15 15 15h15v135c0 24.814 20.186 45 45 45h30c8.291 0 15-6.709 15-15s-6.709-15-15-15z" fill="#d6355b" />
-          </svg>
-          Adobe Stock
-        </h3>
-        <div className="content-text font-normal text-[14px] mt-4 leading-[1.7em] text-[#ebecec]">
-          Grab yourself 10 free images from Adobe Stock in a 30-day free trial plan and find perfect image, that will help you with your new project.
-        </div>
-        <button className="content-button bg-[#3a6df0] border-none px-[26px] py-2 text-white rounded-[20px] mt-4 cursor-pointer transition-all-300 whitespace-nowrap hover:bg-[#1e59f1]">
-          Start free trial
-        </button>
-      </div>
-      <img
-        className="content-wrapper-img w-[186px] object-cover -mt-[25px] object-center max-[570px]:w-[110px]"
-        src="https://assets.codepen.io/3364143/glass.png"
-        alt="Adobe Stock"
-      />
-    </div>
-  );
-};
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { BarChart3, Users, TrendingUp } from "lucide-react"
+import { motion } from "framer-motion"
 
-export default Hero;
+export default function Hero() {
+  return (
+    <section className="w-full py-10">
+      <motion.div
+        className="flex flex-col gap-6"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        {/* Header and Actions */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-semibold text-gray-900 tracking-tight">
+              Welcome back, Admin
+            </h1>
+            <p className="text-gray-500 mt-1 text-sm">
+              Here’s a quick overview of your platform performance today.
+            </p>
+          </div>
+          <div className="flex gap-3">
+            <Button variant="outline">View Reports</Button>
+            <Button>Generate Summary</Button>
+          </div>
+        </div>
+
+        {/* Stats Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card className="rounded-2xl shadow-sm hover:shadow-md transition-all">
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="p-3 bg-blue-50 rounded-xl">
+                <Users className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <p className="text-gray-500 text-sm">Active Users</p>
+                <h3 className="text-2xl font-semibold">1,248</h3>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-2xl shadow-sm hover:shadow-md transition-all">
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="p-3 bg-green-50 rounded-xl">
+                <TrendingUp className="h-6 w-6 text-green-600" />
+              </div>
+              <div>
+                <p className="text-gray-500 text-sm">Monthly Growth</p>
+                <h3 className="text-2xl font-semibold">+18.4%</h3>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-2xl shadow-sm hover:shadow-md transition-all">
+            <CardContent className="flex items-center gap-4 p-5">
+              <div className="p-3 bg-purple-50 rounded-xl">
+                <BarChart3 className="h-6 w-6 text-purple-600" />
+              </div>
+              <div>
+                <p className="text-gray-500 text-sm">Revenue</p>
+                <h3 className="text-2xl font-semibold">$24,560</h3>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </motion.div>
+    </section>
+  )
+}
